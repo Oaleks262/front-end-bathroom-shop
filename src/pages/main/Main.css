@@ -1,0 +1,29 @@
+.main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 120px;
+    align-self: stretch;
+}
+
+@media (max-width:1279px) {
+    .main{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 100px;
+        align-self: stretch;
+    }
+}
+@media (max-width:767px) {
+    .main{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 1px;
+        align-self: stretch;
+    }
+}
