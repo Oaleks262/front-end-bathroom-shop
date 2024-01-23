@@ -1,0 +1,150 @@
+.dashboard{
+    display: flex;
+    width: 100%;
+}
+.side-menu{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    max-width: 306px;
+    width: 100%;
+    height: 100%;
+    padding: 37px 28px 0 28px;
+}
+.side-menu-logo{
+    display: flex;
+    flex-direction: row;
+}
+.side-menu-logo p{
+    display: flex;
+    height: 40px;
+    align-items: flex-end;
+    color: #838383;
+    font-family: Poppins;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: -0.12px;
+    margin-left: 4px;
+}
+.side-menu-logo-block{
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+}
+.side-menu-logo-block h3{
+    color: #000;
+    font-family: Poppins;
+    font-size: 26px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    letter-spacing: 0.26px;
+}
+nav{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 30px;
+    justify-content: space-around;
+    align-items: flex-start;
+    padding-left: 11px;
+}
+.nav-dashboard{
+    display: flex;
+    width: 260px;
+    flex-direction: row;
+    gap: 14px;
+    color: #9197B3;
+    font-family: Poppins;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: -0.14px;
+    padding: 11px;
+    margin-left: 11px;
+}
+.nav-dashboard-mob{
+    display: none;
+    width: 260px;
+    flex-direction: row;
+    gap: 14px;
+    color: #9197B3;
+    font-family: Poppins;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: -0.14px;
+    padding: 11px;
+    margin-left: 11px;
+}
+.butt-link{
+    display: flex;
+    width: 260px;
+    padding: 11px;
+    flex-direction: row;
+    justify-content: space-between;
+
+    color: #9197B3;
+    font-family: Poppins;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: -0.14px;
+}
+.butt-link:hover{
+    border-radius: 8px;
+    background: #5932EA;
+    color: #FFF;
+    font-family: Poppins;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: -0.14px;
+}
+.butt-cont{
+    display: flex;
+    gap: 14px;
+}
+.login-user{
+    display: flex;
+    width: 100%;
+    margin: 48% 0 76px 0;
+}
+.login-user-link{
+    display: flex;
+    gap: 12px;
+}
+.login-user-name{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+}
+.login-user-name h3{
+    color: #000;
+    font-family: Poppins;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: 0.14px;
+    margin-block-start: 0;
+    margin-block-end: 0;
+}
+.login-user-name h5{
+    color: #757575;
+    font-family: Poppins;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.12px;
+    margin-block-start: 0;
+    margin-block-end: 0;
+}
