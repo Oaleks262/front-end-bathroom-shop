@@ -10,7 +10,7 @@ export const lendingData = {
     getFeedback() {
         return axios.get("feedback");
      },
-     postFeedback() {
+    postFeedback() {
         return axios.post("feedback");
      },
      postOrder() {

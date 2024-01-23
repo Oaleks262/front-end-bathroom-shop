@@ -1,0 +1,11 @@
+.dashboard{
+    display: flex;
+    width: 100%;
+}
+.content{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    margin: 41px 71px 0 71px;
+    gap: 81px;
+}

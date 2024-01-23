@@ -1,17 +1,15 @@
 import React, { useState, useContext } from 'react';
-import "./Login.css";
 import { Navigate } from 'react-router-dom';
 import { AuthContext } from '../../assets/api/AuthContext';
 import { AdminApi } from '../../assets/api/api';
-
+import "./Login.css";
 
 const Login = () => {
-
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const [loading, setLoading] = useState(false);
-    const [error, setError] = useState(null);
-    const { isAuthenticated, login } = useContext(AuthContext);
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+  const { isAuthenticated, login } = useContext(AuthContext);
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -72,4 +70,5 @@ const Login = () => {
     </div>
   );
 };
+
 export default Login;
