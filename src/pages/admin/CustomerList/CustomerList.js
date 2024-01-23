@@ -1,6 +1,5 @@
-// CustomerList.js
 import React, { useState, useEffect } from 'react';
-import './CustomerList.css';  
+import './CustomerList.css';
 import search from '../../../assets/img/icon/search-1.svg';
 import { AdminApi } from '../../../assets/api/api';
 
@@ -9,13 +8,15 @@ const CustomerList = () => {
   const [peopleData, setPeopleData] = useState([]); // Стейт для зберігання даних про клієнтів
   const [currentPage, setCurrentPage] = useState(1); // Стейт для поточної сторінки
   const [searchText, setSearchText] = useState(''); // Стейт для зберігання тексту пошуку
+  const [orders, setOrders] = useState([]);
 
+  const itemsPerPage = 8; // Кількість елементів на сторінці
 
   useEffect(() => {
     // Отримання замовлень та встановлення їх у стан компонента
     AdminApi.getAdminOrders()
       .then(response => {
-        const ordersData = Array.isArray(response.data) ? response.data : [];
+        const ordersData = Array.isArray(response.data.orders) ? response.data.orders : [];
         const formattedOrders = ordersData.map(order => ({
           id: order._id,
           name: `${order.firstName} ${order.lastName}`,
@@ -34,46 +35,38 @@ const CustomerList = () => {
       });
   }, []);
 
-  const itemsPerPage = 8; // Кількість елементів на сторінці
- 
- 
   const displayPage = () => {
     const startIndex = (currentPage - 1) * itemsPerPage;
     const endIndex = startIndex + itemsPerPage;
     const displayedData = peopleData.slice(startIndex, endIndex);
-  
+
     return displayedData;
   };
-  const handleKeyDown = (e) => {
+
+  const handleKeyDown = e => {
     if (e.key === 'Enter') {
       filterList();
     }
   };
 
-  const handlePageClick = (newPage) => {
+  const handlePageClick = newPage => {
     setCurrentPage(newPage);
-    displayPage();
   };
-  
 
   const filterList = () => {
     if (searchText.trim() === '') {
       // Якщо поле пошуку порожнє, відображаємо всіх клієнтів
       setPeopleData(originalPeopleData);
-      displayPage(currentPage);
     } else {
-   
-      const filteredData = peopleData.filter(person =>
-        person.name.toLowerCase().includes(searchText.toLowerCase()) ||
-        person.company.toLowerCase().includes(searchText.toLowerCase()) ||
-        person.number.includes(searchText) ||
-        person.email.toLowerCase().includes(searchText.toLowerCase()) ||
-        person.country.toLowerCase().includes(searchText.toLowerCase())
+      const filteredData = originalPeopleData.filter(
+        person =>
+          person.name.toLowerCase().includes(searchText.toLowerCase()) ||
+          person.number.includes(searchText) ||
+          person.email.toLowerCase().includes(searchText.toLowerCase())
       );
       // Встановлюємо відфільтровані дані
       setPeopleData(filteredData);
       setCurrentPage(1); // Скидаємо сторінку до першої при зміні результатів пошуку
-      displayPage(1);
     }
   };
 
@@ -95,7 +88,7 @@ const CustomerList = () => {
               placeholder="Search"
               className="search-input"
               value={searchText}
-              onChange={(e) => setSearchText(e.target.value)}
+              onChange={e => setSearchText(e.target.value)}
               onBlur={filterList}
               onKeyDown={handleKeyDown}
             />
@@ -125,23 +118,36 @@ const CustomerList = () => {
   ))}
 </ul>
 
+
           <div id="searchResult"></div>
         </div>
         <div className="product-pages">
-  <p>Showing data {currentPage} to {Math.min(currentPage * itemsPerPage, peopleData.length)} of {peopleData.length}</p>
-  <ul className="product-pages-list">
-    <li className="product-pages-li-back"><a href="#" onClick={() => handlePageClick(currentPage - 1)}>{'<'}</a></li>
-    {Array.from({ length: Math.ceil(peopleData.length / itemsPerPage) }).map((_, index) => (
-      <li key={index + 1} className={`product-pages-li ${currentPage === index + 1 ? 'product-pages-li-on' : ''}`}>
-        <a href="#" onClick={() => handlePageClick(index + 1)}>{index + 1}</a>
-      </li>
-    ))}
-    <li className="product-pages-li-next"><a href="#" onClick={() => handlePageClick(currentPage + 1)}>{'>'}</a></li>
-  </ul>
-</div>
+          <p>
+            Showing data {currentPage} to {Math.min(currentPage * itemsPerPage, peopleData.length)} of {peopleData.length}
+          </p>
+          <ul className="product-pages-list">
+            <li className="product-pages-li-back">
+              <a href="#" onClick={() => handlePageClick(currentPage - 1)}>
+                {'<'}
+              </a>
+            </li>
+            {Array.from({ length: Math.ceil(peopleData.length / itemsPerPage) }).map((_, index) => (
+              <li key={index + 1} className={`product-pages-li ${currentPage === index + 1 ? 'product-pages-li-on' : ''}`}>
+                <a href="#" onClick={() => handlePageClick(index + 1)}>
+                  {index + 1}
+                </a>
+              </li>
+            ))}
+            <li className="product-pages-li-next">
+              <a href="#" onClick={() => handlePageClick(currentPage + 1)}>
+                {'>'}
+              </a>
+            </li>
+          </ul>
+        </div>
       </div>
     </>
   );
-}
+};
 
 export default CustomerList;
