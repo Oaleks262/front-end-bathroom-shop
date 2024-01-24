@@ -24,7 +24,7 @@ const CustomerList = () => {
           city: order.city,
           email: order.postOffice,
           numberPost: order.numberPost,
-          productItems: order.productItems,
+          productItems: order.productItems.map(item => `${item.title}:${item.quantity}шт.  `),
           status: order.acrivePosition,
         }));
         setOriginalPeopleData(formattedOrders);
@@ -75,13 +75,13 @@ const CustomerList = () => {
       <div className="title">
         <h1>Привіт Тетяно 👋🏼,</h1>
       </div>
-      <div className="product">
-        <div className="product-header">
-          <div className="product-header-title">
-            <h2>All Customers</h2>
-            <p>Active Members</p>
+      <div className="customers">
+        <div className="customers-header">
+          <div className="customers-header-title">
+            <h2>Усі замовлення</h2>
+            <p>Список замовлень</p>
           </div>
-          <div className="product-header-search">
+          <div className="customers-header-search">
             <img src={search} alt="search" />
             <input
               type="text"
@@ -94,8 +94,8 @@ const CustomerList = () => {
             />
           </div>
         </div>
-        <div className="product-list">
-          <div className="product-list-title">
+        <div className="customers-list">
+          <div className="customers-list-title">
             <p className="list-name">ФІО</p>
             <p className="list-number">Номер телефону</p>
             <p className="list-city">Місто</p>
@@ -112,7 +112,7 @@ const CustomerList = () => {
       <p className="list-city">{order.city}</p>
       <p className="list-post">{order.email}</p>
       <p className="list-post-num">{order.numberPost}</p>
-      <p className="list-shop">{order.productItems.map(item => `${item.name}: ${item.quantity}`)}</p>
+      <p className="list-shop">{order.productItems}</p>
       <p className="list-status">{order.status}</p>
     </li>
   ))}
@@ -121,24 +121,24 @@ const CustomerList = () => {
 
           <div id="searchResult"></div>
         </div>
-        <div className="product-pages">
+        <div className="customers-pages">
           <p>
             Showing data {currentPage} to {Math.min(currentPage * itemsPerPage, peopleData.length)} of {peopleData.length}
           </p>
-          <ul className="product-pages-list">
-            <li className="product-pages-li-back">
+          <ul className="customers-pages-list">
+            <li className="customers-pages-li-back">
               <a href="#" onClick={() => handlePageClick(currentPage - 1)}>
                 {'<'}
               </a>
             </li>
             {Array.from({ length: Math.ceil(peopleData.length / itemsPerPage) }).map((_, index) => (
-              <li key={index + 1} className={`product-pages-li ${currentPage === index + 1 ? 'product-pages-li-on' : ''}`}>
+              <li key={index + 1} className={`customers-pages-li ${currentPage === index + 1 ? 'customers-pages-li-on' : ''}`}>
                 <a href="#" onClick={() => handlePageClick(index + 1)}>
                   {index + 1}
                 </a>
               </li>
             ))}
-            <li className="product-pages-li-next">
+            <li className="customers-pages-li-next">
               <a href="#" onClick={() => handlePageClick(currentPage + 1)}>
                 {'>'}
               </a>

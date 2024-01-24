@@ -3,8 +3,8 @@ import "./Admin.css";
 import { Navigate } from 'react-router-dom';
 import SideMenu from './saidmenu/Saidmenu';
 import CustomerList from './CustomerList/CustomerList';
+import ProductList from './ProductList/ProductList';
 import { AuthContext } from '../../assets/api/AuthContext';
-import { AdminApi } from '../../assets/api/api';
 
 const Admin = () => {
     const [selectedMenu, setSelectedMenu] = useState(null);
@@ -13,22 +13,14 @@ const Admin = () => {
     if (!isAuthenticated) {
         return <Navigate to="/login" />;
       }
-      
-    const handleLogout = async () => {
-        try {
-          const token = localStorage.getItem('authToken');
-          await AdminApi.logoutAdmin(token);
-          logout(token); 
-        } catch (error) {
-          console.error("Error logging out:", error);
-        }
-      };
 
     return (
         <div className='dashboard'>
-            <SideMenu setSelectedMenu={setSelectedMenu} />
+            <SideMenu setSelectedMenu={setSelectedMenu} logout={logout} />
             <div className="content">
+                {selectedMenu === 'product' && <ProductList />}
                 {selectedMenu === 'customers' && <CustomerList />}
+                {selectedMenu === 'feedback' && <CustomerList />}
             </div>
         </div>
     );

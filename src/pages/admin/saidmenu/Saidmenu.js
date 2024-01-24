@@ -9,8 +9,19 @@ import close from '../../../assets/img/icon/close.svg';
 import right from '../../../assets/img/icon/chevron-right-2-1.svg';
 import ellipse from '../../../assets/img/icon/ellipse-8.svg';
 import messed from '../../../assets/img/icon/message-question-1.svg';
+import { AdminApi } from '../../../assets/api/api';
 
-const SideMenu = ({ setSelectedMenu }) => {
+const SideMenu = ({ setSelectedMenu , logout }) => {
+
+  const handleLogout = async () => {
+    try {
+      const token = localStorage.getItem('authToken');
+      await AdminApi.logoutAdmin(token);
+      logout(token); 
+    } catch (error) {
+      console.error("Error logging out:", error);
+    }
+  };
 
   return (
     <div className="side-menu">
@@ -66,7 +77,7 @@ const SideMenu = ({ setSelectedMenu }) => {
        
       </nav>
       <div className="login-user">
-        <a href="#" className="login-user-link">
+        <a href="#" onClick={handleLogout} className="login-user-link">
           <img src={ellipse} alt="user-photo" />
           <div className="login-user-name">
             <h3>Тетяна</h3>
