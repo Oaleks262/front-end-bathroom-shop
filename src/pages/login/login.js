@@ -2,6 +2,11 @@ import React, { useState, useContext } from 'react';
 import { Navigate } from 'react-router-dom';
 import { AuthContext } from '../../assets/api/AuthContext';
 import { AdminApi } from '../../assets/api/api';
+import arrowleft from '../../assets/img/login/arrow-left.svg';
+import logo from '../../assets/img/logo.svg'
+import facebook from '../../assets/img/login/icons8-facebook.svg'
+import instagram from '../../assets/img/login/icons8-instagram.svg'
+
 import "./Login.css";
 
 const Login = () => {
@@ -41,8 +46,24 @@ const Login = () => {
   }
 
   return (
-    <div className='login'>
+    <div className='login-page'>
+      <div className='left-page-login'> 
+      <div className='header-left-page-login'>
+      <a className='exit' href='/#logo'><img src={arrowleft}/>Повернутись до сайту</a>
+      </div>
+      <div className='logo-left-page-login'>
+        <img className='login-logo' src={logo}/>
+        <h3>Bathroom shop</h3>
+      </div>
+      <div className='footer-left-page-login'>
+        <a href='#'><img src={facebook}/></a>
+        <a href='#'><img src={instagram}/></a>
+      </div>
+      </div>
+      <div className='right-page-login'>
+      <div className='login'>
       <h2>Вхід</h2>
+      <p>Введіть будь ласка ваші дані</p>
       <form onSubmit={handleLogin}>
         <div className='labelemail'>
           <label>Email:</label>
@@ -63,10 +84,15 @@ const Login = () => {
         <button className='loginbutton' type="submit" disabled={loading}>
           {loading ? 'Завантаження' : 'Вхід'} 
         </button>
-        <a className='exit' href='/#logo'>Сайт</a>
+        
           
       </form>
       {error && <div style={{ color: 'red' }}>{error.message}</div>}
+    </div>
+
+      </div>
+    
+
     </div>
   );
 };

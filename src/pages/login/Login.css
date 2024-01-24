@@ -1,0 +1,147 @@
+.login-page{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+}
+.left-page-login{
+    display: flex;
+    flex-direction: column;
+    max-width: 700px;
+    width: 100%;
+    height: 100vh;
+    justify-content:space-between;
+    background: linear-gradient(180deg, rgba(49, 49, 49, 0.30) -4.74%, rgba(0, 0, 0, 0.55) 103.32%), url(../../assets/img/login/img.jpg), lightgray 50% ;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+.header-left-page-login{
+    display: flex;
+    margin: 20px ;
+    align-items: center;
+    justify-content: flex-start;
+}
+.header-left-page-login a {
+    display: flex;
+    text-decoration: none;
+    color: white;
+    text-align: center;
+    align-items: center;
+    font-family: Poppins;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 38px;
+}
+.logo-left-page-login{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px ;
+}
+.login-logo{
+    width: 200px;
+}
+.logo-left-page-login h3{
+    color: #FFF;
+    font-family: Inter;
+    font-size: 38px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    letter-spacing: 0.38px;
+}
+.footer-left-page-login{
+    display: flex;
+    margin: 20px ;
+    justify-content: center;
+    gap: 20px;
+}
+.right-page-login{
+    display: flex;
+    max-width: 945px;
+    width: 100%;
+    height: 100vh;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.login{
+    display: flex;
+    flex-direction: column;
+    max-width: 453px;
+    max-height: 575px;
+    width: 100%;
+    height: 100%;
+    margin: 20px;
+    justify-content: center;
+    text-align: left;
+}
+.login h2{
+    color: #2F3367;
+    font-family: Poppins;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    margin-bottom: 12px;
+}
+.login p{
+    color: #303468;
+    font-family: Poppins;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+.login form{
+    display: flex;
+    flex-direction: column;
+    gap:15px
+}
+.labelemail {
+    display: flex;
+    border: 1px solid #80BEFC; 
+    border-radius: 10px;
+    background: #F5F5F7;
+    padding: 10px; 
+}
+  .labelemail label {
+    display: block;  
+  }
+
+  .labelemail input {
+    border: none; /* Видалити рамку */
+    background: none; /* Видалити фон */
+    outline: none; /* Видалити обведення при фокусі */
+  }
+  .labelpassword {
+    display: flex;
+    border: 1px solid #80BEFC; 
+    border-radius: 10px;
+    background: #F5F5F7;
+    padding: 10px; 
+}
+  .labelpassword label {
+    display: block; 
+  }
+
+  .labelpassword input {
+    border: none; /* Видалити рамку */
+    background: none; /* Видалити фон */
+    outline: none; /* Видалити обведення при фокусі */
+  }
+  form button{
+    display: flex;
+    padding: 18.5px;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 18.5px;
+    border-radius: 8px;
+    background: #007DFA;
+    border: 1px solid #007DFA;
+    color: white;
+  }
