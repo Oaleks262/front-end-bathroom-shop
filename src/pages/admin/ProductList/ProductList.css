@@ -61,7 +61,7 @@
     background: #F9FBFF;
     border: 1px solid #B5B7C0;
 }
-.product-header-search input {
+.product-header-search input{
     outline: 0;
     outline-offset: 0;
     border: none;
@@ -131,7 +131,7 @@ ul{
     overflow: hidden;
 }
 .list-category{
-    max-width: 200px;
+    max-width: 100px;
     width: 100%;
     overflow: hidden;
 }
@@ -141,6 +141,16 @@ ul{
     overflow: hidden;
 }
 .list-price{
+    max-width: 80px;
+    width: 100%;
+    overflow: hidden;
+}
+.list-edit{
+    max-width: 80px;
+    width: 100%;
+    overflow: hidden;
+}
+.list-delete{
     max-width: 80px;
     width: 100%;
     overflow: hidden;

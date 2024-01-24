@@ -34,8 +34,8 @@ export const AdminApi = {
     getAdminProduct() {
         return axios.get("/admin/product");
     },
-    postAdminProduct() {
-        return axios.post("/admin/product");
+    postAdminProduct(newProduct) {
+        return axios.post("/admin/product", newProduct);
     },
     putAdminProduct(productId, body) {
         return axios.put(`/admin/product/${productId}`, body);

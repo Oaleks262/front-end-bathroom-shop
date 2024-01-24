@@ -1,14 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import './ProductList.css';
 import search from '../../../assets/img/icon/search-1.svg';
+import delet from '../../../assets/img/admin/delete.svg';
+import edit from '../../../assets/img/admin/edit.svg';
+import add from '../../../assets/img/admin/add.svg'
 import { AdminApi } from '../../../assets/api/api';
+import AddProductPopup from '../Popup/AddProductPopup';
 
 const ProductList = () => {
   const [originalProductData, setOriginalProductData] = useState([]); // Оригінальні дані
   const [productData, setProductData] = useState([]); // Стейт для зберігання даних про клієнтів
   const [currentPage, setCurrentPage] = useState(1); // Стейт для поточної сторінки
   const [searchText, setSearchText] = useState(''); // Стейт для зберігання тексту пошуку
-
+  const [showAddProductPopup, setShowAddProductPopup] = useState(false);
 
   const itemsPerPage = 8; // Кількість елементів на сторінці
 
@@ -71,6 +75,24 @@ const ProductList = () => {
     }
   };
 
+  const openAddProductPopup = () => {
+    setShowAddProductPopup(true);
+  };
+
+  // Функція для закриття попапу
+  const closeAddProductPopup = () => {
+    setShowAddProductPopup(false);
+  };
+  const handleAddProduct = async (newProduct) => {
+    try {
+      const response = await AdminApi.postAdminProduct(newProduct);
+      console.log('Product added successfully:', response.data);
+      // Оновіть стан або виконайте інші дії за необхідності
+    } catch (error) {
+      console.error('Error adding product:', error);
+      // Обробте помилку від сервера
+    }
+  };
   return (
     <>
       <div className="title">
@@ -81,6 +103,11 @@ const ProductList = () => {
           <div className="product-header-title">
             <h2>Усі продукти</h2>
             <p>Активні продукти</p>
+          </div>
+          <div className="product-header-add">
+          <a className='button-add' onClick={openAddProductPopup}>
+          <img src={add} />
+          </a>
           </div>
           <div className="product-header-search">
             <img src={search} alt="search" />
@@ -103,6 +130,8 @@ const ProductList = () => {
             <p className="list-category">Категорія</p>
             <p className="list-about">Опис</p>
             <p className="list-price">Ціна</p>
+            <p className='list-edit'>Редагувати</p>
+            <p className='list-delete'>Видалити</p>
           </div>
           <ul id="people-list">
           {displayPage().map(product => (
@@ -113,11 +142,15 @@ const ProductList = () => {
     <p className="list-category">{product.category}</p>
     <p className="list-about">{product.aboutProduct}</p>
     <p className="list-price">{product.priceProduct} грн</p>
+    <p className='list-edit'><a><img src={edit}/></a></p>
+    <p className='list-delete'><a><img src={delet}/></a></p>
   </li>
 ))}
 
 </ul>
-
+        {showAddProductPopup && (
+        <AddProductPopup onClose={closeAddProductPopup} onAddProduct={handleAddProduct} />
+      )}
 
           <div id="searchResult"></div>
         </div>
