@@ -1,0 +1,86 @@
+.background-delete{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 20;
+}
+.delete-popup{
+    display: flex;
+    max-width: 650px;
+    width: 100%;
+    height: 325px;
+    margin-top: 10%;
+    padding: 14.246px 15.829px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-self: stretch;
+    border-radius: 7.604px;
+    border: 0.396px solid  #DEE2E6;
+    background:  #FFF;
+    box-shadow: 0px 7.915px 7.915px 0px rgba(0, 0, 0, 0.08), 0px 0px 0.791px 0px rgba(0, 0, 0, 0.12);
+}
+.delete-cont{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+.delete-cont img{
+    width: 200px;
+    height: 80px;
+    border-radius: 4.749px;
+}
+.delete-cont h3{
+    color:  #54595E;
+    font-family: Poppins;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+.delete-cont p{
+    color: rgba(84, 89, 94, 0.60);
+    text-align: center;
+    font-family: Poppins;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 8.706px; 
+}
+.delete-button{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.delete-no{
+    color:  #4F4F4F;
+    display: flex;
+    width: 71.476px;
+    height: 21.291px;
+    padding: 5.54px 7.915px;
+    justify-content: center;
+    align-items: center;
+    gap: 3.957px;
+    border-radius: 3.166px;
+    border: 0.396px solid #4F4F4F;
+    background: #FFF;
+}
+.delete-yes{
+    color: #F5F5F5;
+    display: flex;
+    width: 71.476px;
+    height: 21.291px;
+    padding: 5.54px 7.915px;
+    justify-content: center;
+    align-items: center;
+    gap: 3.957px;
+    border-radius: 3.166px;
+    background: #FC7979;
+}

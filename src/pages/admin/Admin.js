@@ -4,6 +4,7 @@ import { Navigate } from 'react-router-dom';
 import SideMenu from './saidmenu/Saidmenu';
 import CustomerList from './CustomerList/CustomerList';
 import ProductList from './ProductList/ProductList';
+import FeedbackList from './Feedbacklist/FeedbackList';
 import { AuthContext } from '../../assets/api/AuthContext';
 
 const Admin = () => {
@@ -20,7 +21,7 @@ const Admin = () => {
             <div className="content">
                 {selectedMenu === 'product' && <ProductList />}
                 {selectedMenu === 'customers' && <CustomerList />}
-                {selectedMenu === 'feedback' && <CustomerList />}
+                {selectedMenu === 'feedback' && <FeedbackList />}
             </div>
         </div>
     );

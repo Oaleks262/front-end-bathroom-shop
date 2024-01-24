@@ -115,36 +115,27 @@ ul{
 .list-li:hover{
     background-color: #EEE;
 }
-.list-img{
-  max-width: 150px;
+.list-date{
+  max-width: 200px;
   width: 100%;
   overflow: hidden;
 }
-.list-code{
+.list-name{
     max-width: 100px;
     width: 100%;
     overflow: hidden;
 }
-.list-name{
-    max-width: 150px;
-    width: 100%;
-    overflow: hidden;
-}
-.list-category{
-    max-width: 200px;
-    width: 100%;
-    overflow: hidden;
-}
-.list-about{
+.list-feedback{
     max-width: 250px;
     width: 100%;
     overflow: hidden;
 }
-.list-price{
-    max-width: 80px;
+.list-delete{
+    max-width: 70px;
     width: 100%;
     overflow: hidden;
 }
+
 .list-button-on{
     display: flex;
     max-width: 80px;

@@ -55,5 +55,11 @@ export const AdminApi = {
     deleteAdminOrder(orderId) {
         return axios.delete(`/admin/orders/${orderId}`);
     },
+    getAdminFeedback() {
+        return axios.get("/admin/feedback");
+    },
+    deleteAdminFeedback(feedbackId) {
+        return axios.delete(`/admin/feedback/${feedbackId}`);
+    },
 }
 export default { lendingData, AdminApi };

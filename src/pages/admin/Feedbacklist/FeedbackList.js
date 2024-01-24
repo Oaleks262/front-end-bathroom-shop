@@ -1,31 +1,32 @@
 import React, { useState, useEffect } from 'react';
 import './FeedbackList.css';
 import search from '../../../assets/img/icon/search-1.svg';
+import delet from '../../../assets/img/admin/delete.svg'
+import DeletePopup from '../Popup/DeletePopup';
 import { AdminApi } from '../../../assets/api/api';
 
-const feedbackList = () => {
+const FeedbackList = () => {
   const [originalFeedbackData, setOriginalFeedbackData] = useState([]); // Оригінальні дані
   const [feedbackData, setFeedbackData] = useState([]); // Стейт для зберігання даних про клієнтів
   const [currentPage, setCurrentPage] = useState(1); // Стейт для поточної сторінки
   const [searchText, setSearchText] = useState(''); // Стейт для зберігання тексту пошуку
-
+  const [showDeletePopup, setShowDeletePopup] = useState(false); // Стан для відстеження відкриття/закриття попапу
+  const [feedbackToDelete, setFeedbackToDelete] = useState(null); // Ідентифікатор відгуку для видалення
 
   const itemsPerPage = 8; // Кількість елементів на сторінці
 
   useEffect(() => {
     // Отримання замовлень та встановлення їх у стан компонента
-    AdminApi.getAdminProduct()
+    AdminApi.getAdminFeedback()
       .then(response => {
         console.log(response)
-        const feedbackData = Array.isArray(response.data) ? response.data : [];
+        const feedbackData = Array.isArray(response.data.feedbackList) ? response.data.feedbackList: [];
         const formattedFeedbacks = feedbackData.map(feedback => ({
           id: feedback._id,
-          avatarUrl: product.avatarUrl,
-          itemProduct: product.itemProduct,
-          titleProduct: product.titleProduct,
-          category: product.category,
-          aboutProduct: product.aboutProduct,
-          priceProduct: product.priceProduct,
+          date: feedback.date,
+          fullName: feedback.fullName,
+          feedback: feedback.feedback 
+     
         
         }));
         setOriginalFeedbackData(formattedFeedbacks);
@@ -60,14 +61,39 @@ const feedbackList = () => {
       setFeedbackData(originalFeedbackData);
     } else {
         const filteredData = originalFeedbackData.filter(
-            product =>
-              product.itemProduct.toLowerCase().includes(searchText.toLowerCase()) ||
-              product.titleProduct.toLowerCase().includes(searchText.toLowerCase()) ||
-              product.priceProduct.toString().includes(searchText)
+            feedback =>
+              feedback.fullName.toLowerCase().includes(searchText.toLowerCase()) ||
+              feedback.feedback.toLowerCase().includes(searchText.toLowerCase())
           );
       // Встановлюємо відфільтровані дані
       setFeedbackData(filteredData);
       setCurrentPage(1); // Скидаємо сторінку до першої при зміні результатів пошуку
+    }
+  };
+
+  const openDeletePopup = feedbackId => {
+    setFeedbackToDelete(feedbackId);
+    setShowDeletePopup(true);
+  };
+
+  const closeDeletePopup = () => {
+    setFeedbackToDelete(null);
+    setShowDeletePopup(false);
+  };
+
+  const handleDeleteFeedback = async () => {
+    try {
+     
+      await AdminApi.deleteAdminFeedback(feedbackToDelete);
+      
+    
+      const updatedFeedbackList = feedbackData.filter(feedback => feedback.id !== feedbackToDelete);
+      setFeedbackData(updatedFeedbackList);
+
+     
+      closeDeletePopup();
+    } catch (error) {
+      console.error('Помилка при видаленні відгуку:', error);
     }
   };
 
@@ -97,26 +123,33 @@ const feedbackList = () => {
         </div>
         <div className="feedback-list">
           <div className="feedback-list-title">
-            <p className="list-img">Зображення</p>
-            <p className="list-code">Код</p>
-            <p className="list-name">Назва</p>
-            <p className="list-category">Категорія</p>
-            <p className="list-about">Опис</p>
-            <p className="list-price">Ціна</p>
+            <p className="list-date">Дата</p>
+            <p className="list-name">ПІБ</p>
+            <p className="list-feedback">Відгук</p>
+            <p className='list-delete'>Видалити</p>
           </div>
           <ul id="people-list">
-          {displayPage().map(feedback => (
-  <li key={feedback.id} className="list-li">
-    <p className="list-img"><img src={product.avatarUrl} className='img-product'/></p>
-    <p className="list-code">{product.itemProduct}</p>
-    <p className="list-name">{product.titleProduct}</p>
-    <p className="list-category">{product.category}</p>
-    <p className="list-about">{product.aboutProduct}</p>
-    <p className="list-price">{product.priceProduct} грн</p>
-  </li>
-))}
+                {displayPage().map(feedback => (
+                  <li key={feedback.id} className="list-li">
+                    <p className="list-date">{feedback.date}</p>
+                    <p className="list-name">{feedback.fullName}</p>
+                    <p className="list-feedback">{feedback.feedback}</p>
+                    <p className='list-delete'>
+                    <a onClick={() => {
+    console.log('Delete clicked for feedback ID:', feedback.id);
+    openDeletePopup(feedback.id);
+  }}>
+                    <img src={delet} alt="delete" />
+                  </a>
+                </p>
 
-</ul>
+                  </li>
+                ))}
+
+          </ul>
+          {showDeletePopup && (
+          <DeletePopup onCancel={closeDeletePopup} onConfirm={handleDeleteFeedback} />
+        )}
 
 
           <div id="searchResult"></div>
@@ -150,4 +183,4 @@ const feedbackList = () => {
   );
 };
 
-export default feedbackList;
+export default FeedbackList;
