@@ -6,6 +6,7 @@ import arrowleft from '../../assets/img/login/arrow-left.svg';
 import logo from '../../assets/img/logo.svg'
 import facebook from '../../assets/img/login/icons8-facebook.svg'
 import instagram from '../../assets/img/login/icons8-instagram.svg'
+import rigbut from '../../assets/img/login/arro-but-right.svg'
 
 import "./Login.css";
 
@@ -82,7 +83,8 @@ const Login = () => {
           />
         </div>
         <button className='loginbutton' type="submit" disabled={loading}>
-          {loading ? 'Завантаження' : 'Вхід'} 
+          {loading ? 'Завантаження' : 'Вхід'}  
+          <img src={rigbut}/>
         </button>
         
           
