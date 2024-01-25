@@ -79,6 +79,17 @@
     flex-direction: column;
     margin-bottom: 32px;
 }
+.button-add-product{
+    display: flex;
+    gap:5px;
+    align-items: center;
+}
+.button-add-product:hover{
+    cursor: pointer;
+    padding:  8px 10px;
+    border-radius: 5px;
+    border: 0.25px solid #404B52;
+}
 .product-list-title{
     display: flex;
     width: 100%;
@@ -149,11 +160,13 @@ ul{
     max-width: 80px;
     width: 100%;
     overflow: hidden;
+    cursor: pointer;
 }
 .list-delete{
     max-width: 80px;
     width: 100%;
     overflow: hidden;
+    cursor: pointer;
 }
 .list-button-on{
     display: flex;

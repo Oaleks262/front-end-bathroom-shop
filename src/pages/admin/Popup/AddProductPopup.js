@@ -42,12 +42,13 @@ const AddProductPopup = ({ onClose, onAddProduct }) => {
   
 
   return (
+    <div className='background-add'>
     <div className="add-product-popup">
       <label>Фото:</label>
-      <input type="file" accept="image/*" onChange={handleImageUpload} />
+      <input className='add-product-file' type="file" accept="image/*" onChange={handleImageUpload} />
 
       <label>Категорія:</label>
-      <select name="category" value={newProduct.category} onChange={handleChange}>
+      <select className='add-product-category' name="category" value={newProduct.category} onChange={handleChange}>
         <option value="">Оберіть категорію</option>
         <option value="Шипуча суміш для ванни">Шипуча суміш для ванни</option>
         <option value="Морська сіль для ванни">Морська сіль для ванни</option>
@@ -58,16 +59,18 @@ const AddProductPopup = ({ onClose, onAddProduct }) => {
       </select>
 
       <label>Назва товару:</label>
-      <input type="text" name="titleProduct" value={newProduct.titleProduct} onChange={handleChange} />
+      <input className='add-product-name' type="text" name="titleProduct" value={newProduct.titleProduct} onChange={handleChange} />
 
       <label>Опис товару:</label>
-      <textarea name="aboutProduct" value={newProduct.aboutProduct} onChange={handleChange} />
+      <textarea className='add-product-about' name="aboutProduct" value={newProduct.aboutProduct} onChange={handleChange} />
 
       <label>Ціна товару:</label>
-      <input type="text" name="priceProduct" value={newProduct.priceProduct} onChange={handleChange} />
-
-      <button onClick={handleAddProduct}>Додати товар</button>
-      <button onClick={onClose}>Закрити</button>
+      <input className='add-product-price' type="text" name="priceProduct" value={newProduct.priceProduct} onChange={handleChange} />
+      <div className='add-product-button'>
+      <button className='add-yes' onClick={handleAddProduct}>Додати товар</button>
+      <button className='add-no' onClick={onClose}>Закрити</button>
+      </div>
+    </div>
     </div>
   );
 };

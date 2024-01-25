@@ -35,8 +35,10 @@ a{
     display: flex;
     flex-direction: row;
     gap: 8px;
+    margin-left: 20px;
 }
 .side-menu-logo-block h3{
+    width: 200px;
     color: #000;
     font-family: Poppins;
     font-size: 26px;

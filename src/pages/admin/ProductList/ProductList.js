@@ -7,6 +7,7 @@ import add from '../../../assets/img/admin/add.svg'
 import { AdminApi } from '../../../assets/api/api';
 import AddProductPopup from '../Popup/AddProductPopup';
 import DeletePopup from '../Popup/DeletePopup';
+import EditProductPopup from '../Popup/EditProductPopup';
 
 const ProductList = () => {
   const [originalProductData, setOriginalProductData] = useState([]); // Оригінальні дані
@@ -16,6 +17,9 @@ const ProductList = () => {
   const [showAddProductPopup, setShowAddProductPopup] = useState(false);
   const [showDeletePopup, setShowDeletePopup] = useState(false); // Стан для відстеження відкриття/закриття попапу
   const [productToDelete, setProductToDelete] = useState(null); // Ідентифікатор відгуку для видалення
+  const [showEditPopup, setShowEditPopup] = useState(false);
+  const [editingProduct, setEditingProduct] = useState(null);
+
 
   const itemsPerPage = 8; // Кількість елементів на сторінці
 
@@ -120,7 +124,31 @@ const ProductList = () => {
       console.error('Error deleting product:', error);
     }
   };
+  const openEditPopup = (product) => {
+    setEditingProduct(product);
+    setShowEditPopup(true);
+  };
   
+  const closeEditPopup = () => {
+    setEditingProduct(null);
+    setShowEditPopup(false);
+  };
+
+  
+  const handleEditProduct = async (editedProduct) => {
+    try {
+      const response = await AdminApi.editAdminProduct(editedProduct);
+      console.log('Product edited successfully:', response.data);
+  
+      // Оновіть стан або виконайте інші дії за необхідності
+    } catch (error) {
+      console.error('Error editing product:', error);
+      // Обробте помилку від сервера
+    }
+  };
+
+
+
 
   return (
     <>
@@ -134,8 +162,8 @@ const ProductList = () => {
             <p>Активні продукти</p>
           </div>
           <div className="product-header-add">
-          <a className='button-add' onClick={openAddProductPopup}>
-          <img src={add} />
+          <a className='button-add-product' onClick={openAddProductPopup}>
+          <img src={add} /> Додати товар
           </a>
           </div>
           <div className="product-header-search">
@@ -176,7 +204,7 @@ const ProductList = () => {
     <p className="list-category">{product.category}</p>
     <p className="list-about">{product.aboutProduct}</p>
     <p className="list-price">{product.priceProduct} грн</p>
-    <p className='list-edit'><a><img src={edit}/></a></p>
+    <p className='list-edit'><a onClick={() => openEditPopup(product)}><img src={edit}/></a></p>
     <p className='list-delete'><a onClick={() => {
     openDeletePopup(product.id);
   }}><img src={delet}/></a></p>
@@ -190,6 +218,9 @@ const ProductList = () => {
                 {showDeletePopup && (
           <DeletePopup onCancel={closeDeletePopup} onConfirm={handleDeleteProduct} />
         )}
+        {showEditPopup && (
+           <EditProductPopup
+              product={editingProduct} onClose={() => closeEditPopup()} onSave={handleEditProduct}/>)}
 
           <div id="searchResult"></div>
         </div>
