@@ -136,7 +136,12 @@ const ProductList = () => {
           <ul id="people-list">
           {displayPage().map(product => (
   <li key={product.id} className="list-li">
-    <p className="list-img"><img src={product.avatarUrl} className='img-product'/></p>
+    <p className="list-img"><img
+    src={product.avatarUrl}
+    className='img-product'
+    alt="Product Avatar"
+  />
+  </p>
     <p className="list-code">{product.itemProduct}</p>
     <p className="list-name">{product.titleProduct}</p>
     <p className="list-category">{product.category}</p>
