@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { AdminApi } from '../../../assets/api/api';
 import './AddProductPopup.css';
 
 const AddProductPopup = ({ onClose, onAddProduct }) => {
