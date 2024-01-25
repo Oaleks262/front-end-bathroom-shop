@@ -18,7 +18,11 @@ const EditProductPopup = ({ product, onClose, onSave }) => {
   };
 
   return (
-    <div className="edit-product-popup">
+
+    
+    <div className="edit-product-background">
+        <div className='edit-product-popup'>
+    <div className='edit-product-category'>
       <h2>Edit Product</h2>
       <label>Title:</label>
       <input
@@ -26,25 +30,36 @@ const EditProductPopup = ({ product, onClose, onSave }) => {
         value={editedTitle}
         onChange={(e) => setEditedTitle(e.target.value)}
       />
+    </div>
+    <div className='edit-product-category'>
       <label>Category:</label>
       <input
         type="text"
         value={editedCategory}
         onChange={(e) => setEditedCategory(e.target.value)}
       />
+      </div >
+      <div className='edit-product-about'>
       <label>About:</label>
       <textarea
         value={editedAbout}
         onChange={(e) => setEditedAbout(e.target.value)}
       />
+    </div>
+       <div className='edit-product-price'>
       <label>Price:</label>
       <input
         type="number"
         value={editedPrice}
         onChange={(e) => setEditedPrice(e.target.value)}
       />
-      <button onClick={handleSave}>Save</button>
-      <button onClick={onClose}>Cancel</button>
+      </div>
+
+      <div className='edit-product-button'>
+      <button className='edit-product-yes' onClick={handleSave}>Save</button>
+      <button className='edit-product-no' onClick={onClose}>Cancel</button>
+      </div>
+    </div>
     </div>
   );
 };

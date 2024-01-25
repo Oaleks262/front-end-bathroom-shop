@@ -109,12 +109,12 @@ ul{
 .list-li{
     display: flex;
     gap: 5px;
-    padding: 0 10px;
+    padding: 5px 10px;
     width: 100%;
     border-radius: 10px;
     flex-direction: row;
     justify-content: space-between;
-    align-items: start;
+    align-items: center;
     border-bottom: 1px solid #EEE;
 }
 .list-li:hover{
