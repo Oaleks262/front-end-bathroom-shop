@@ -32,8 +32,8 @@ const AddProductPopup = ({ onClose, onAddProduct }) => {
       formData.append('priceProduct', newProduct.priceProduct);
       formData.append('category', newProduct.category);
   
-      await AdminApi.postAdminProduct(formData);
-      onAddProduct(newProduct);
+      const response = await AdminApi.postAdminProduct(formData);
+      onAddProduct(response.data);
       onClose();
     } catch (error) {
       console.error('Помилка додавання товару:', error);
