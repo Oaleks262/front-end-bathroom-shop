@@ -16,16 +16,41 @@ const AddProductPopup = ({ onClose, onAddProduct }) => {
     setNewProduct((prevProduct) => ({ ...prevProduct, [name]: value }));
   };
 
-  const handleImageUpload = async (e) => {
-    // Код завантаження зображення залишається незмінним
+  const handleImageUpload = (e) => {
+    // Опціонально, якщо ви бажаєте дозволити користувачам завантажувати зображення
+    const file = e.target.files[0];
+    const reader = new FileReader();
+
+    reader.onloadend = () => {
+      setNewProduct((prevProduct) => ({
+        ...prevProduct,
+        avatarUrl: reader.result,
+      }));
+    };
+
+    if (file) {
+      reader.readAsDataURL(file);
+    }
   };
 
   const handleAddProduct = () => {
-    // Викликати функцію для додавання товару і передати новий товар
-    onAddProduct(newProduct);
-    onClose(); // Закрити попап після додавання товару
+    const formData = new FormData();
+    formData.append('avatar', newProduct.avatarUrl);
+    formData.append('titleProduct', newProduct.titleProduct);
+    formData.append('aboutProduct', newProduct.aboutProduct);
+    formData.append('priceProduct', newProduct.priceProduct);
+    formData.append('category', newProduct.category);
+  
+    AdminApi.postAdminProduct(formData)
+      .then(response => {
+        console.log('Продукт додано успішно:', response.data);
+        onAddProduct(response.data.product);
+        onClose();
+      })
+      .catch(error => {
+        console.error('Помилка при додаванні продукту:', error);
+      });
   };
-
   return (
     <div className="add-product-popup">
       <label>Фото:</label>
