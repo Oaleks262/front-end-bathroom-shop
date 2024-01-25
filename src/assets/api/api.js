@@ -1,6 +1,6 @@
 import axios from "axios";
 
-axios.defaults.baseURL = "https://bathroom-shop-api.onrender.com/api/";
+axios.defaults.baseURL = "http://localhost:2222/api/";
 
 
 export const lendingData = {
@@ -34,8 +34,8 @@ export const AdminApi = {
     getAdminProduct() {
         return axios.get("/admin/product");
     },
-    postAdminProduct(newProduct) {
-        return axios.post("/admin/product", newProduct);
+    postAdminProduct(body) {
+        return axios.post("/admin/product", body);
     },
     putAdminProduct(productId, body) {
         return axios.put(`/admin/product/${productId}`, body);

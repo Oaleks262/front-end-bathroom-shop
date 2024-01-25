@@ -1,57 +1,46 @@
 import React, { useState } from 'react';
-import { AdminApi } from '../../../assets/api/api';
 import './AddProductPopup.css';
+import { AdminApi } from '../../../assets/api/api';
+
 
 const AddProductPopup = ({ onClose, onAddProduct }) => {
   const [newProduct, setNewProduct] = useState({
-    avatarUrl: '', // Тут буде шлях до файлу
+    avatarUrl: '', 
     itemProduct: '',
     titleProduct: '',
     aboutProduct: '',
     priceProduct: '',
-    category: '', // Додали поле для категорії товару
+    category: '', 
   });
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setNewProduct((prevProduct) => ({ ...prevProduct, [name]: value }));
   };
-
-  const handleImageUpload = (e) => {
-    // Опціонально, якщо ви бажаєте дозволити користувачам завантажувати зображення
+  const handleImageUpload = async (e) => {
     const file = e.target.files[0];
-    const reader = new FileReader();
+    setNewProduct((prevProduct) => ({ ...prevProduct, avatarUrl: file }));
+  };
+  
 
-    reader.onloadend = () => {
-      setNewProduct((prevProduct) => ({
-        ...prevProduct,
-        avatarUrl: reader.result,
-      }));
-    };
-
-    if (file) {
-      reader.readAsDataURL(file);
+  const handleAddProduct = async () => {
+    try {
+      const formData = new FormData();
+      formData.append('avatarUrl', newProduct.avatarUrl);
+      formData.append('titleProduct', newProduct.titleProduct);
+      formData.append('aboutProduct', newProduct.aboutProduct);
+      formData.append('priceProduct', newProduct.priceProduct);
+      formData.append('category', newProduct.category);
+  
+      await AdminApi.postAdminProduct(formData);
+      onAddProduct(newProduct);
+      onClose();
+    } catch (error) {
+      console.error('Помилка додавання товару:', error);
     }
   };
-
-  const handleAddProduct = () => {
-    const formData = new FormData();
-    formData.append('avatar', newProduct.avatarUrl);
-    formData.append('titleProduct', newProduct.titleProduct);
-    formData.append('aboutProduct', newProduct.aboutProduct);
-    formData.append('priceProduct', newProduct.priceProduct);
-    formData.append('category', newProduct.category);
   
-    AdminApi.postAdminProduct(formData)
-      .then(response => {
-        console.log('Продукт додано успішно:', response.data);
-        onAddProduct(response.data.product);
-        onClose();
-      })
-      .catch(error => {
-        console.error('Помилка при додаванні продукту:', error);
-      });
-  };
+
   return (
     <div className="add-product-popup">
       <label>Фото:</label>
