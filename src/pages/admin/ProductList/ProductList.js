@@ -108,19 +108,19 @@ const ProductList = () => {
   };
   const handleDeleteProduct = async () => {
     try {
-     
+      console.log('Deleting product:', productToDelete);
       await AdminApi.deleteAdminProduct(productToDelete);
-      
-    
+  
       const updatedProductList = productData.filter(product => product.id !== productToDelete);
+      console.log('Updated product list:', updatedProductList);
       setProductData(updatedProductList);
-
-     
+  
       closeDeletePopup();
     } catch (error) {
-      console.error('Помилка при видаленні відгуку:', error);
+      console.error('Error deleting product:', error);
     }
   };
+  
 
   return (
     <>
