@@ -13,6 +13,8 @@ const ProductList = () => {
   const [currentPage, setCurrentPage] = useState(1); // Стейт для поточної сторінки
   const [searchText, setSearchText] = useState(''); // Стейт для зберігання тексту пошуку
   const [showAddProductPopup, setShowAddProductPopup] = useState(false);
+  const [showDeletePopup, setShowDeletePopup] = useState(false); // Стан для відстеження відкриття/закриття попапу
+  const [productToDelete, setProductToDelete] = useState(null); // Ідентифікатор відгуку для видалення
 
   const itemsPerPage = 8; // Кількість елементів на сторінці
 
@@ -93,6 +95,18 @@ const ProductList = () => {
       // Обробте помилку від сервера
     }
   };
+
+  const openDeletePopup = productId => {
+    setProductToDelete(productId);
+    setShowDeletePopup(true);
+  };
+
+  const closeDeletePopup = () => {
+    setProductToDelete(null);
+    setShowDeletePopup(false);
+  };
+
+
   return (
     <>
       <div className="title">
@@ -148,7 +162,9 @@ const ProductList = () => {
     <p className="list-about">{product.aboutProduct}</p>
     <p className="list-price">{product.priceProduct} грн</p>
     <p className='list-edit'><a><img src={edit}/></a></p>
-    <p className='list-delete'><a><img src={delet}/></a></p>
+    <p className='list-delete'><a onClick={() => {
+    openDeletePopup(product.id);
+  }}><img src={delet}/></a></p>
   </li>
 ))}
 

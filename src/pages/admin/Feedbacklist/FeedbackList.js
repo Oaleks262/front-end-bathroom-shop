@@ -136,7 +136,6 @@ const FeedbackList = () => {
                     <p className="list-feedback">{feedback.feedback}</p>
                     <p className='list-delete'>
                     <a onClick={() => {
-    console.log('Delete clicked for feedback ID:', feedback.id);
     openDeletePopup(feedback.id);
   }}>
                     <img src={delet} alt="delete" />
