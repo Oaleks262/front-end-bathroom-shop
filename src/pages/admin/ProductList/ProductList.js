@@ -134,10 +134,10 @@ const ProductList = () => {
     setShowEditPopup(false);
   };
 
-  
+
   const handleEditProduct = async (editedProduct) => {
     try {
-      const response = await AdminApi.editAdminProduct(editedProduct);
+      const response = await AdminApi.putAdminProduct(editedProduct.productId, editedProduct);
       console.log('Product edited successfully:', response.data);
   
       // Оновіть стан або виконайте інші дії за необхідності
