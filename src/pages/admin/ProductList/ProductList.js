@@ -6,6 +6,7 @@ import edit from '../../../assets/img/admin/edit.svg';
 import add from '../../../assets/img/admin/add.svg'
 import { AdminApi } from '../../../assets/api/api';
 import AddProductPopup from '../Popup/AddProductPopup';
+import DeletePopup from '../Popup/DeletePopup';
 
 const ProductList = () => {
   const [originalProductData, setOriginalProductData] = useState([]); // Оригінальні дані
@@ -105,7 +106,21 @@ const ProductList = () => {
     setProductToDelete(null);
     setShowDeletePopup(false);
   };
+  const handleDeleteProduct = async () => {
+    try {
+     
+      await AdminApi.deleteAdminProduct(productToDelete);
+      
+    
+      const updatedProductList = productData.filter(product => product.id !== productToDelete);
+      setProductData(updatedProductList);
 
+     
+      closeDeletePopup();
+    } catch (error) {
+      console.error('Помилка при видаленні відгуку:', error);
+    }
+  };
 
   return (
     <>
@@ -172,6 +187,9 @@ const ProductList = () => {
         {showAddProductPopup && (
         <AddProductPopup onClose={closeAddProductPopup} onAddProduct={handleAddProduct} />
       )}
+                {showDeletePopup && (
+          <DeletePopup onCancel={closeDeletePopup} onConfirm={handleDeleteProduct} />
+        )}
 
           <div id="searchResult"></div>
         </div>
