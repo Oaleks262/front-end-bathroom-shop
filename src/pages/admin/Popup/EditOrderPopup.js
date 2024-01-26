@@ -80,11 +80,6 @@ import React, { useState } from 'react';
           value={productItem.quantity}
           onChange={(e) => handleProductChange(index, 'quantity', parseInt(e.target.value, 10))}
         />
-        <input
-          type="number"
-          value={productItem.price}
-          onChange={(e) => handleProductChange(index, 'price', parseFloat(e.target.value))}
-        />
       </li>
     ))}
                 </ul>
