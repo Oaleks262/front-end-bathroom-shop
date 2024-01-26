@@ -29,6 +29,8 @@ import React, { useState } from 'react';
           try {
             // Викликати функцію onSave зі зміненим замовленням
             await onSave(editedOrder);
+            console.log(editedOrder)
+            
             // Закрити вікно редагування після успішного збереження
             onClose();
           } catch (error) {
@@ -66,21 +68,21 @@ import React, { useState } from 'react';
               <label>
                 Products:
                 <ul>
-                {Array.isArray(editedOrder.productItems) && editedOrder.productItems.map((item, index) => (
+                {Array.isArray(editedOrder.productItems) && editedOrder.productItems.map((productItem, index) => (
       <li key={index}>
         <input
           type="text"
-          value={item.title}
+          value={productItem.title}
           onChange={(e) => handleProductChange(index, 'title', e.target.value)}
         />
         <input
-          type="text"
-          value={item.quantity}
+          type="number"
+          value={productItem.quantity}
           onChange={(e) => handleProductChange(index, 'quantity', parseInt(e.target.value, 10))}
         />
         <input
-          type="text"
-          value={item.price}
+          type="number"
+          value={productItem.price}
           onChange={(e) => handleProductChange(index, 'price', parseFloat(e.target.value))}
         />
       </li>
@@ -89,13 +91,21 @@ import React, { useState } from 'react';
               </label>
               <label>
                 Active Position:
-                <select className='' name="position"  value={editedOrder.position} onChange={handleInputChange}>
+                <select className='' name="position" value={editedOrder.position} onChange={handleInputChange}>
                     <option value="new">Нове</option>
                     <option value="processing">В обробці</option>
                     <option value="rejection">Відхилено</option>
                     <option value="done">Виконано</option>
-
                 </select>
+
+                {editedOrder.position === "done" && ( 
+                    <input
+                    type="text"
+                    name="ttn"
+                    value={editedOrder.ttn}  
+                    onChange={handleInputChange}
+                  />
+                )}
               </label>
               <div>
                 <button onClick={handleSaveClick}>Save Changes</button>

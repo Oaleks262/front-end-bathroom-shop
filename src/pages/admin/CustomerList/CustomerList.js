@@ -24,6 +24,7 @@ const CustomerList = () => {
     // Отримання замовлень та встановлення їх у стан компонента
     AdminApi.getAdminOrders()
       .then(response => {
+        console.log(response)
         const peopleData = Array.isArray(response.data.orders) ? response.data.orders : [];
         const formattedOrders = peopleData.map(order => ({
           id: order._id,
@@ -33,13 +34,14 @@ const CustomerList = () => {
           city: order.city,
           email: order.postOffice,
           numberPost: order.numberPost,
-          productItems: order.productItems.map(item => ({
-            title: item.title,
-            quantity: item.quantity,
-            price: item.price,
-            total: item.total
+          productItems: order.productItems.map(productItem => ({
+            title: productItem.title,
+            quantity: productItem.quantity,
+            price: productItem.price,
+            total: productItem.total
           })),
-          position: order.acrivePosition,
+          position: order.position,
+          ttn: order.ttn,
           totalAmount: order.totalAmount,
         }));
         setOriginalPeopleData(formattedOrders);
@@ -107,8 +109,8 @@ const CustomerList = () => {
       console.error('Error deleting product:', error.response);
     }
   };
-  const getStatusEmoji = (status) => {
-    switch (status) {
+  const getStatusEmoji = (position) => {
+    switch (position) {
       case 'new':
         return '🟡 Нове';
       case 'processing':
@@ -117,14 +119,16 @@ const CustomerList = () => {
         return '🔴 Відхилено';
       case 'done':
         return '🟢 Виконано';
-      default:
-        return status; // якщо статус не відомий, повертаємо його без змін
+        
+        default:
+        return position;
+ // якщо статус не відомий, повертаємо його без змін
     }
   };
   
 
-  const openEditPopup = (order) => {
-    setOrderToEdit(order);
+  const openEditPopup = (orderId) => {
+    setOrderToEdit(orderId);
     setIsEditPopupOpen(true);
   };
 
@@ -149,8 +153,12 @@ const CustomerList = () => {
       closeEditPopup();
     } catch (error) {
       console.error('Error updating order:', error);
+      if (error.response) {
+        console.error('Server Response:', error.response.data);
+        console.error('Status Code:', error.response.status);
+      }
     }
-  };
+    }
   
 
   return (
@@ -199,9 +207,9 @@ const CustomerList = () => {
       <p className="list-post">{order.email}</p>
       <p className="list-post-num">{order.numberPost}</p>
       <p className="list-shop">
-  {order.productItems.map((item, index) => (
+  {order.productItems.map((productItem, index) => (
     <span key={index}>
-      {item.title}: {item.quantity}шт. {item.total} грн.
+      {productItem.title}: {productItem.quantity}шт. {productItem.total} грн.
       {index < order.productItems.length - 1 && ', '}
     </span>
   ))}
