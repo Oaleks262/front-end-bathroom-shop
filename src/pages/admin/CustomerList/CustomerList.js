@@ -1,14 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import './CustomerList.css';
 import search from '../../../assets/img/icon/search-1.svg';
+import delet from '../../../assets/img/admin/delete.svg';
+import edit from '../../../assets/img/admin/edit.svg';
+import DeletePopup from '../Popup/DeletePopup';
 import { AdminApi } from '../../../assets/api/api';
+import EditOrderPopup from '../Popup/EditOrderPopup';
 
 const CustomerList = () => {
   const [originalPeopleData, setOriginalPeopleData] = useState([]); // Оригінальні дані
   const [peopleData, setPeopleData] = useState([]); // Стейт для зберігання даних про клієнтів
   const [currentPage, setCurrentPage] = useState(1); // Стейт для поточної сторінки
   const [searchText, setSearchText] = useState(''); // Стейт для зберігання тексту пошуку
-  const [orders, setOrders] = useState([]);
+  const [showDeletePopup, setShowDeletePopup] = useState(false); // Стан для відстеження відкриття/закриття попапу
+  const [customersToDelete, setCustomersToDelete] = useState(null); // Ідентифікатор відгуку для видалення
+  const [isEditPopupOpen, setIsEditPopupOpen] = useState(false);
+  const [orderToEdit, setOrderToEdit] = useState(null);
+
 
   const itemsPerPage = 8; // Кількість елементів на сторінці
 
@@ -16,16 +24,23 @@ const CustomerList = () => {
     // Отримання замовлень та встановлення їх у стан компонента
     AdminApi.getAdminOrders()
       .then(response => {
-        const ordersData = Array.isArray(response.data.orders) ? response.data.orders : [];
-        const formattedOrders = ordersData.map(order => ({
+        const peopleData = Array.isArray(response.data.orders) ? response.data.orders : [];
+        const formattedOrders = peopleData.map(order => ({
           id: order._id,
-          name: `${order.firstName} ${order.lastName}`,
-          number: order.phoneNumber,
+          firstName: order.firstName,
+          lastName: order.lastName,
+          phone: order.phoneNumber,
           city: order.city,
           email: order.postOffice,
           numberPost: order.numberPost,
-          productItems: order.productItems.map(item => `${item.title}:${item.quantity}шт.  `),
-          status: order.acrivePosition,
+          productItems: order.productItems.map(item => ({
+            title: item.title,
+            quantity: item.quantity,
+            price: item.price,
+            total: item.total
+          })),
+          position: order.acrivePosition,
+          totalAmount: order.totalAmount,
         }));
         setOriginalPeopleData(formattedOrders);
         setPeopleData(formattedOrders);
@@ -53,6 +68,8 @@ const CustomerList = () => {
     setCurrentPage(newPage);
   };
 
+
+  
   const filterList = () => {
     if (searchText.trim() === '') {
       // Якщо поле пошуку порожнє, відображаємо всіх клієнтів
@@ -69,6 +86,72 @@ const CustomerList = () => {
       setCurrentPage(1); // Скидаємо сторінку до першої при зміні результатів пошуку
     }
   };
+  const openDeletePopup = orderId => {
+    setCustomersToDelete(orderId);
+    setShowDeletePopup(true);
+  };
+
+  const closeDeletePopup = () => {
+    setCustomersToDelete(null);
+    setShowDeletePopup(false);
+  };
+  const handleDeleteCustomers = async () => {
+    try {
+      console.log('Deleting product:', customersToDelete);
+      await AdminApi.deleteAdminOrder(customersToDelete);
+      const updatedCustomersList = peopleData.filter(order => order.id !== customersToDelete);
+      console.log('Updated list:', updatedCustomersList);
+      setPeopleData(updatedCustomersList);
+      closeDeletePopup();
+    } catch (error) {
+      console.error('Error deleting product:', error.response);
+    }
+  };
+  const getStatusEmoji = (status) => {
+    switch (status) {
+      case 'new':
+        return '🟡 Нове';
+      case 'processing':
+        return '🟠 В обробці';
+      case 'rejection':
+        return '🔴 Відхилено';
+      case 'done':
+        return '🟢 Виконано';
+      default:
+        return status; // якщо статус не відомий, повертаємо його без змін
+    }
+  };
+  
+
+  const openEditPopup = (order) => {
+    setOrderToEdit(order);
+    setIsEditPopupOpen(true);
+  };
+
+  const closeEditPopup = () => {
+    setOrderToEdit(null);
+    setIsEditPopupOpen(false);
+  };
+
+  const handleSaveChanges = async (updatedOrder) => {
+    try {
+      // Викликати функцію для збереження змін
+      const response = await AdminApi.putAdminOrder(updatedOrder.id, updatedOrder);
+      console.log('Order updated successfully:', updatedOrder);
+      // Оновити стан даних в компоненті
+      setPeopleData((prevData) => {
+        const updatedData = prevData.map((order) =>
+          order.id === updatedOrder.id ? { ...order, ...updatedOrder } : order
+        );
+        return updatedData;
+      });
+      // Закрити вікно редагування після успішного збереження
+      closeEditPopup();
+    } catch (error) {
+      console.error('Error updating order:', error);
+    }
+  };
+  
 
   return (
     <>
@@ -102,23 +185,44 @@ const CustomerList = () => {
             <p className="list-post">Пошта</p>
             <p className="list-post-num">Відділення</p>
             <p className="list-shop">Замовлення</p>
+            <p className='list-total'>Сума</p>
             <p className="list-status">Статус</p>
+            <p className='list-edit'>Редагувати</p>
+            <p className='list-delete'>Видалити</p>
           </div>
           <ul id="people-list">
   {displayPage().map(order => (
     <li key={order.id} className="list-li">
-      <p className="list-name">{order.name}</p>
-      <p className="list-number">{order.number}</p>
+      <p className="list-name">{order.firstName} {order.lastName}</p>
+      <p className="list-number">{order.phone}</p>
       <p className="list-city">{order.city}</p>
       <p className="list-post">{order.email}</p>
       <p className="list-post-num">{order.numberPost}</p>
-      <p className="list-shop">{order.productItems}</p>
-      <p className="list-status">{order.status}</p>
+      <p className="list-shop">
+  {order.productItems.map((item, index) => (
+    <span key={index}>
+      {item.title}: {item.quantity}шт. {item.total} грн.
+      {index < order.productItems.length - 1 && ', '}
+    </span>
+  ))}
+</p>
+      <p className='list-total'>{order.totalAmount}</p>
+      <p className="list-status">{getStatusEmoji(order.position)}</p>
+      <p className='list-edit'>
+                  <a onClick={() => openEditPopup(order)}>
+                    <img src={edit} alt="edit" />
+                  </a>
+                </p>
+      <p className='list-delete'><a onClick={() => {
+    openDeletePopup(order.id)}} ><img src={delet}/></a></p>
     </li>
   ))}
 </ul>
+{showDeletePopup && (<DeletePopup onCancel={closeDeletePopup} onConfirm={handleDeleteCustomers} />)}
 
-
+{isEditPopupOpen && (
+            <EditOrderPopup order={orderToEdit} onSave={handleSaveChanges} onClose={closeEditPopup} />
+          )}
           <div id="searchResult"></div>
         </div>
         <div className="customers-pages">

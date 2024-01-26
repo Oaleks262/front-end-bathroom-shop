@@ -150,6 +150,11 @@ ul{
     width: 100%;
     overflow: hidden;
 }
+.list-total{
+    max-width: 50px;
+    width: 100%;
+    overflow: hidden;
+}
 .list-status{
     max-width: 80px;
     width: 100%;
