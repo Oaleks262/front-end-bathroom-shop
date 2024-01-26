@@ -212,15 +212,9 @@ const ProductList = () => {
 ))}
 
 </ul>
-        {showAddProductPopup && (
-        <AddProductPopup onClose={closeAddProductPopup} onAddProduct={handleAddProduct} />
-      )}
-                {showDeletePopup && (
-          <DeletePopup onCancel={closeDeletePopup} onConfirm={handleDeleteProduct} />
-        )}
-        {showEditPopup && (
-           <EditProductPopup
-              product={editingProduct} onClose={() => closeEditPopup()} onSave={handleEditProduct}/>)}
+        {showAddProductPopup && (<AddProductPopup onClose={closeAddProductPopup} onAddProduct={handleAddProduct} />)}
+        {showDeletePopup && (<DeletePopup onCancel={closeDeletePopup} onConfirm={handleDeleteProduct} />)}
+        {showEditPopup && (<EditProductPopup product={editingProduct} onClose={() => closeEditPopup()} onSave={handleEditProduct}/>)}
 
           <div id="searchResult"></div>
         </div>

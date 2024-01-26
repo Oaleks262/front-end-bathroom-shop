@@ -24,6 +24,7 @@
     border-radius: 7.604px;
     border: 0.396px solid  #DEE2E6;
     background:  #FFF;
+    gap: 30px;
     box-shadow: 0px 7.915px 7.915px 0px rgba(0, 0, 0, 0.08), 0px 0px 0.791px 0px rgba(0, 0, 0, 0.12);
 }
 .delete-cont{

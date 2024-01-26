@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './EditProductPopup.css'
 
 const EditProductPopup = ({ product, onClose, onSave }) => {
   const [editedTitle, setEditedTitle] = useState(product.titleProduct);
@@ -22,42 +23,48 @@ const EditProductPopup = ({ product, onClose, onSave }) => {
     
     <div className="edit-product-background">
         <div className='edit-product-popup'>
-    <div className='edit-product-category'>
-      <h2>Edit Product</h2>
-      <label>Title:</label>
+
+    
+    <label>Назва товару:</label>
       <input
+        className='edit-product-category'
         type="text"
         value={editedTitle}
         onChange={(e) => setEditedTitle(e.target.value)}
       />
-    </div>
-    <div className='edit-product-category'>
-      <label>Category:</label>
-      <input
-        type="text"
-        value={editedCategory}
-        onChange={(e) => setEditedCategory(e.target.value)}
-      />
-      </div >
-      <div className='edit-product-about'>
-      <label>About:</label>
+
+    <label>Категорія:</label>
+       <select className='edit-product-category' name="category"  value={editedCategory}>
+        <option value="">Оберіть категорію</option>
+        <option value="Шипуча суміш для ванни">Шипуча суміш для ванни</option>
+        <option value="Морська сіль для ванни">Морська сіль для ванни</option>
+        <option value="Праліне">Праліне</option>
+        <option value="Бомбочки для ванни">Бомбочки для ванни</option>
+        <option value="Подарункові бокси">Подарункові бокси</option>
+        <option value="Розпродаж">Розпродаж</option>
+      </select>
+
+      
+      <label>Опис товару:</label>
       <textarea
+        className='edit-product-about'
+        name="aboutProduct"
         value={editedAbout}
         onChange={(e) => setEditedAbout(e.target.value)}
       />
-    </div>
-       <div className='edit-product-price'>
-      <label>Price:</label>
+
+
+       <label>Ціна товару:</label>
       <input
-        type="number"
+        className='edit-product-price'
+        type="text"
+        name="priceProduct"
         value={editedPrice}
-        onChange={(e) => setEditedPrice(e.target.value)}
-      />
-      </div>
+        onChange={(e) => setEditedPrice(e.target.value)} />
 
       <div className='edit-product-button'>
-      <button className='edit-product-yes' onClick={handleSave}>Save</button>
-      <button className='edit-product-no' onClick={onClose}>Cancel</button>
+      <button className='edit-product-yes' onClick={handleSave}>Зберегти</button>
+      <button className='edit-product-no' onClick={onClose}>Скасувати</button>
       </div>
     </div>
     </div>
