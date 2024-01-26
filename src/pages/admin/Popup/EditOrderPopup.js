@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import './EditOrderPopup.css'
     const EditOrderPopup = ({ order, onSave, onClose }) => {
         const [editedOrder, setEditedOrder] = useState(order);
       
@@ -39,32 +39,36 @@ import React, { useState } from 'react';
         };
 
         return (
+          <div className='edit-background'>
             <div className="edit-popup">
-              <h2>Edit Order</h2>
+              <div className='edit-shop-fullname'>
               <label>
                 First Name:
-                <input type="text" name="firstName" value={editedOrder.firstName} onChange={handleInputChange} />
               </label>
+              <input type="text" name="firstName" value={editedOrder.firstName} onChange={handleInputChange} />
               <label>
                 Last Name:
-                <input type="text" name="lastName" value={editedOrder.lastName} onChange={handleInputChange} />
               </label>
+              <input type="text" name="lastName" value={editedOrder.lastName} onChange={handleInputChange} />
+              </div>
+              <div className='edit-shop-data'>
               <label>
                 Phone Number:
-                <input type="text" name="phoneNumber" value={editedOrder.phone} onChange={handleInputChange}/>
               </label>
+              <input type="text" name="phone" value={editedOrder.phone} onChange={handleInputChange}/>
               <label>
                 City:
-                <input type="text" name="city" value={editedOrder.city} onChange={handleInputChange} />
               </label>
+              <input type="text" name="city" value={editedOrder.city} onChange={handleInputChange} />
+              </div>
               <label>
                 Post Office:
-                <input type="text" name="postOffice" value={editedOrder.email} onChange={handleInputChange} />
               </label>
+              <input type="text" name="postOffice" value={editedOrder.email} onChange={handleInputChange} />
               <label>
                 Number Post:
-                <input type="text" name="numberPost" value={editedOrder.numberPost} onChange={handleInputChange} />
               </label>
+              <input type="text" name="numberPost" value={editedOrder.numberPost} onChange={handleInputChange} />
               <label>
                 Products:
                 <ul>
@@ -86,6 +90,7 @@ import React, { useState } from 'react';
               </label>
               <label>
                 Active Position:
+              </label>
                 <select className='' name="position" value={editedOrder.position} onChange={handleInputChange}>
                     <option value="new">Нове</option>
                     <option value="processing">В обробці</option>
@@ -101,12 +106,12 @@ import React, { useState } from 'react';
                     onChange={handleInputChange}
                   />
                 )}
-              </label>
               <div>
                 <button onClick={handleSaveClick}>Save Changes</button>
                 <button onClick={onClose}>Cancel</button>
               </div>
             </div>
+          </div>
           );
 };
 
