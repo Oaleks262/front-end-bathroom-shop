@@ -106,7 +106,7 @@ ul{
     margin-block-start: 0;
     margin-block-end: 0;
 }
-.list-li{
+.list-li-customer{
     display: flex;
     gap: 5px;
     padding: 5px 10px;
@@ -117,7 +117,7 @@ ul{
     align-items: center;
     border-bottom: 1px solid #EEE;
 }
-.list-li:hover{
+.list-li-customer:hover{
     background-color: #EEE;
 }
 .list-name{
@@ -265,4 +265,22 @@ ul{
 }
 .customers-pages-li-on a{
     color: #FFF;
+}
+@media (max-width:767px) {
+    .title{
+        display: none;
+    }
+    .customers{
+        width: 100%;
+        max-width: 767px;
+        margin-left: 0;
+    }
+    .list-li-customer{
+        padding: 0;
+        gap: 1px;
+    }
+    .customers-list-title{
+        padding: 0;
+        gap: 1px;
+    }
 }

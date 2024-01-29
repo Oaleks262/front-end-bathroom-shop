@@ -130,7 +130,7 @@ const FeedbackList = () => {
           </div>
           <ul id="people-list">
                 {displayPage().map(feedback => (
-                  <li key={feedback.id} className="list-li">
+                  <li key={feedback.id} className="list-li-feedback">
                     <p className="list-date">{feedback.date}</p>
                     <p className="list-name">{feedback.fullName}</p>
                     <p className="list-feedback">{feedback.feedback}</p>

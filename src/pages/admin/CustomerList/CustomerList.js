@@ -202,7 +202,7 @@ const CustomerList = () => {
           </div>
           <ul id="people-list">
   {displayPage().map(order => (
-    <li key={order.id} className="list-li">
+    <li key={order.id} className="list-li-customer">
       <p className="list-name">{order.firstName} {order.lastName}</p>
       <p className="list-number">{order.phone}</p>
       <p className="list-city">{order.city}</p>

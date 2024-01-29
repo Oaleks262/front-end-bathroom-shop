@@ -101,7 +101,7 @@ ul{
     margin-block-start: 0;
     margin-block-end: 0;
 }
-.list-li{
+.list-li-feedback{
     display: flex;
     gap: 5px;
     padding: 5px 10px;
@@ -112,7 +112,7 @@ ul{
     align-items: center;
     border-bottom: 1px solid #EEE;
 }
-.list-li:hover{
+.list-li-feedback:hover{
     background-color: #EEE;
 }
 .list-date{
@@ -244,4 +244,23 @@ ul{
 }
 .feedback-pages-li-on a{
     color: #FFF;
+}
+@media (max-width: 767px) {
+    .title{
+        display: none;
+    }
+    .feedback{
+        width: 100%;
+        max-width: 767px;
+        margin-left: 0;
+    }
+    .list-li-feedback{
+        padding: 0;
+        gap: 1px;
+    }
+    .feedback-list-title{
+        padding: 0;
+        gap: 1px;
+    }
+    
 }
