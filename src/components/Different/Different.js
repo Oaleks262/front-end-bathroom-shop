@@ -1,0 +1,57 @@
+import React from 'react';
+import './Different.css'
+import bathbom from '../../assets/img/landing/different/bathbom.svg';
+import etic from '../../assets/img/landing/different/etic.svg';
+import delivery from '../../assets/img/landing/different/delivery.svg';
+import money from '../../assets/img/landing/different/money.svg'
+
+
+const Different = () => {
+
+    return (
+        <div className='different'>
+            <div className='content-padding'>
+                <div className='different-cont'>
+                    <div className='different-text'>
+                        <h3>Чому вигдіно з нами?</h3>
+                        <p>Декілька пунктів яку ви отримуєте вигод</p>
+                    </div>
+                    <div className='different-icon'>
+                        <div className='different-icon-1'>
+                            <div className='different-icon-2'>
+                                <img  src={bathbom}/>
+                                <h3>Товар</h3>
+                                <p>Завжди презинтабельний</p>
+                            </div>
+                            <div className='different-icon-2'>
+                                <img  src={etic}/>
+                                <h3>Якість</h3>
+                                <p>Виготовлений з найкращої сировини</p>
+                            </div>
+                        </div>
+                        <div className='different-icon-1'>
+                            <div className='different-icon-2'>
+                                <img  src={delivery}/>
+                                <h3>Доставка</h3>
+                                <p>Ми відправляємо у найшвидший термін</p>
+                                
+                            </div>
+                            <div className='different-icon-2'>
+                                <img  src={money}/>
+                                <h3>Економія</h3>
+                                <p>Наш товар доступний усім</p>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                </div>
+            </div>
+        </div>
+    )
+
+
+}
+
+export default Different;

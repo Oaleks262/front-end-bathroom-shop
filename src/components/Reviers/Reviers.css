@@ -2,7 +2,7 @@
     display: flex;
     width: 100%;
     max-width: 1366px;
-    height: 650px;
+    height: 750px;
 }
 .reviers-content{
     display: flex;
@@ -38,10 +38,9 @@
 }
 .reviers-content-picture{
     display: flex;
-    max-width: 600px;
     width: 100%;
     justify-content: center;
-}
-.reviers-content-img{
-   display: flex;
+    background: url(../../assets/img/landing/reviers/bathroombombs.svg);
+    background-repeat: round;
+    background-size: cover;
 }

@@ -20,7 +20,7 @@ const Reviers = () =>{
 
                     </div>
                     <div className='reviers-content-picture'>
-                    <img src={bombs} className='reviers-content-img'/>
+                    
                     </div>
                 </div>
             </div>
