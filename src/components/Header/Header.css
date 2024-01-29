@@ -1,0 +1,57 @@
+.header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.header-logo{
+    max-width: 100px;
+    width: 100%;
+}
+.nav-header{
+    display: flex;
+}
+.header-navigat{
+    display: flex;
+    flex-direction: row;
+    gap: 60px;
+}
+.header-navigat a{
+    text-decoration: none;
+    color: #FFF;
+    font-family: "Playfair Display";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    padding: 2px 5px;
+    border-radius: 15px;
+    background: none;
+}
+.header-navigat a:hover{
+    background: none;
+    border: 1px solid #fff;
+    border-radius: 15px;
+    padding: 2px 5px;
+
+}
+.shooping-button{
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 5px 15px;
+    border-radius: 24px;
+    background: #F9C06A;
+    box-shadow: 0px 6px 12px 0px rgba(249, 192, 106, 0.22); 
+    color: #1E1E1E;
+    font-family: "Playfair Display";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+.shooping-button:hover{
+    border: 0.5px solid #F9C06A;
+    background: #fff;
+}

@@ -1,0 +1,59 @@
+.hero{
+    display: flex;
+    width: 100%;
+    max-width: 1366px;
+    height: 768px;
+    background: linear-gradient(145deg, #1E1E1E -6.88%, rgba(0, 0, 0, 0.00) 90%), url(../../assets/img/landing/hero/background-hero.jpg), lightgray 60%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.hero-text-content{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 600px;
+    margin-top: 200px;
+    justify-content: flex-start;
+    align-items: start;
+}
+.hero-text-content h5{
+    color: #FFF;
+    font-family: "Playfair Display";
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+.hero-text-content h1{
+    color: #FFF;
+    font-family: "Clicker Script";
+    font-size: 120px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+.hero-text-content p{
+    color: #FFF;
+    font-family: "Playfair Display";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 34px; /* 170% */
+    margin-bottom: 36px;
+}
+.hero-text-content a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 134px;
+    height: 48px;
+    border-radius: 24px;
+    background: #F9C06A;
+    box-shadow: 0px 6px 12px 0px rgba(249, 192, 106, 0.22);
+    color: #1E1E1E;
+    font-family: "Playfair Display";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}

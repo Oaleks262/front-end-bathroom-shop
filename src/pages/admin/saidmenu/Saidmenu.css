@@ -48,7 +48,7 @@ a{
     line-height: normal;
     letter-spacing: 0.26px;
 }
-nav{
+.nav{
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -172,6 +172,12 @@ nav{
     }
     .nav-mob{
         display: none;
+        flex-direction: column;
+        width: 100%;
+        gap: 30px;
+        justify-content: space-around;
+        align-items: flex-start;
+        padding-left: 11px;
     }
     .side-menu-logo-block{
         align-items: center;
