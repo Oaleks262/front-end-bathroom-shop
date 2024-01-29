@@ -1,6 +1,6 @@
 import React from 'react';
 import './Reviers.css';
-import bombs from '../../assets/img/landing/reviers/pngegg.png'
+import bombs from '../../assets/img/landing/reviers/bathroombombs.svg';
 
 const Reviers = () =>{
 
@@ -19,7 +19,9 @@ const Reviers = () =>{
                         </p>
 
                     </div>
+                    <div className='reviers-content-picture'>
                     <img src={bombs} className='reviers-content-img'/>
+                    </div>
                 </div>
             </div>
         </div>

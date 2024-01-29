@@ -21,7 +21,7 @@
     gap: 30px;
 }
 .reviers-content-text h3{
-    color: var(--coffee, #093660);
+    color:  #093660;
     font-family: "Playfair Display";
     font-size: 54px;
     font-style: normal;
@@ -35,4 +35,13 @@
     font-style: normal;
     font-weight: 400;
     line-height: 34px; /* 170% */
+}
+.reviers-content-picture{
+    display: flex;
+    max-width: 600px;
+    width: 100%;
+    justify-content: center;
+}
+.reviers-content-img{
+   display: flex;
 }
