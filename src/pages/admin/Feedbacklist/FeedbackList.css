@@ -262,5 +262,11 @@ ul{
         padding: 0;
         gap: 1px;
     }
+    .feedback-header{
+        justify-content: space-around;
+    }
+    .feedback-header-search{
+        width: 45%;
+    }
     
 }

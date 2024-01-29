@@ -283,4 +283,10 @@ ul{
         padding: 0;
         gap: 1px;
     }
+    .customers-header{
+        justify-content: space-around;
+    }
+    .customers-header-search{
+        width: 45%;
+    }
 }

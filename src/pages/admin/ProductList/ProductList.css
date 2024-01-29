@@ -295,4 +295,13 @@ ul{
         padding: 0;
         gap: 1px;
     }
+    .product-header{
+        justify-content: space-around;
+    }
+    .product-header-search{
+        width: 35%;
+    }
+    .product-header-search input{
+        width: 100%;
+    }
 }

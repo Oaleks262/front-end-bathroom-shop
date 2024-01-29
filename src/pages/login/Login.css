@@ -116,6 +116,7 @@
   }
 
   .labelemail input {
+    width: 100%;
     border: none; /* Видалити рамку */
     background: none; /* Видалити фон */
     outline: none; /* Видалити обведення при фокусі */
@@ -132,6 +133,7 @@
   }
 
   .labelpassword input {
+    width: 100%;
     border: none; /* Видалити рамку */
     background: none; /* Видалити фон */
     outline: none; /* Видалити обведення при фокусі */

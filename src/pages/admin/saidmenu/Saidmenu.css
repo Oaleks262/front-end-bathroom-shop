@@ -76,6 +76,13 @@ nav{
 .nav-dashboard-mob{
     display: none;
 }
+.visible {
+    display: none;
+}
+  
+.hidden {
+    display: none;
+}
 .butt-link{
     display: flex;
     width: 260px;

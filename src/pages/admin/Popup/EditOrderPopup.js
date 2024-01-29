@@ -45,53 +45,57 @@ import './EditOrderPopup.css'
               <label>
                 First Name:
               </label>
-              <input type="text" name="firstName" value={editedOrder.firstName} onChange={handleInputChange} />
+              <input type="text" className='edit-text' name="firstName" value={editedOrder.firstName} onChange={handleInputChange} />
               <label>
                 Last Name:
               </label>
-              <input type="text" name="lastName" value={editedOrder.lastName} onChange={handleInputChange} />
+              <input type="text" className='edit-text' name="lastName" value={editedOrder.lastName} onChange={handleInputChange} />
               </div>
               <div className='edit-shop-data'>
               <label>
                 Phone Number:
               </label>
-              <input type="text" name="phone" value={editedOrder.phone} onChange={handleInputChange}/>
+              <input type="text" className='edit-text' name="phone" value={editedOrder.phone} onChange={handleInputChange}/>
               <label>
                 City:
               </label>
-              <input type="text" name="city" value={editedOrder.city} onChange={handleInputChange} />
+              <input type="text" className='edit-text' name="city" value={editedOrder.city} onChange={handleInputChange} />
               </div>
+              <div className='edit-shop-post'>
               <label>
-                Post Office:
+                 Post Office:
               </label>
-              <input type="text" name="postOffice" value={editedOrder.email} onChange={handleInputChange} />
+              <input type="text" className='edit-text' name="postOffice" value={editedOrder.email} onChange={handleInputChange} />
               <label>
                 Number Post:
               </label>
-              <input type="text" name="numberPost" value={editedOrder.numberPost} onChange={handleInputChange} />
+              <input type="text" className='edit-text' name="numberPost" value={editedOrder.numberPost} onChange={handleInputChange} />
+              </div>
               <label>
                 Products:
-                <ul>
+                </label>
+                <ul className='edit-text-ul'>
                 {Array.isArray(editedOrder.productItems) && editedOrder.productItems.map((productItem, index) => (
-      <li key={index}>
-        <input
+      <li key={index} className='edit-li'>
+        <input 
+        className='edit-text-li'
           type="text"
           value={productItem.title}
           onChange={(e) => handleProductChange(index, 'title', e.target.value)}
         />
         <input
           type="number"
+          className='edit-text-li'
           value={productItem.quantity}
           onChange={(e) => handleProductChange(index, 'quantity', parseInt(e.target.value, 10))}
         />
       </li>
     ))}
                 </ul>
-              </label>
               <label>
                 Active Position:
               </label>
-                <select className='' name="position" value={editedOrder.position} onChange={handleInputChange}>
+                <select className='edit-position' name="position" value={editedOrder.position} onChange={handleInputChange}>
                     <option value="new">Нове</option>
                     <option value="processing">В обробці</option>
                     <option value="rejection">Відхилено</option>
@@ -100,15 +104,16 @@ import './EditOrderPopup.css'
 
                 {editedOrder.position === "done" && ( 
                     <input
+                    className='edit-text'
                     type="text"
                     name="ttn"
                     value={editedOrder.ttn}  
                     onChange={handleInputChange}
                   />
                 )}
-              <div>
-                <button onClick={handleSaveClick}>Save Changes</button>
-                <button onClick={onClose}>Cancel</button>
+              <div className='edit-order-button'>
+                <button className='edit-order-yes' onClick={handleSaveClick}>Зберегти</button>
+                <button className='edit-order-no' onClick={onClose}>Скасувати </button>
               </div>
             </div>
           </div>
