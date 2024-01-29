@@ -18,6 +18,14 @@ import exit from '../../../assets/img/admin/sync.svg'
 
 const SideMenu = ({ setSelectedMenu , logout }) => {
 
+  const [openNav, setOpenNav] = useState(true);
+
+  const toggleNav = () => {
+    setOpenNav(!openNav);
+  };
+
+
+  
   const handleLogout = async () => {
     try {
       const token = localStorage.getItem('authToken');
@@ -37,7 +45,7 @@ const SideMenu = ({ setSelectedMenu , logout }) => {
           <p>admin</p>  
         </div>
         < div className="nav-dashboard-mob">
-          <a><img src={menu} alt="menu" /></a>
+          <a onClick={toggleNav}><img src={menu} alt="menu" /></a>
     </div>  
       </div>
       <div className="nav-dashboard">
@@ -76,8 +84,8 @@ const SideMenu = ({ setSelectedMenu , logout }) => {
         </a>
        
       </nav>
-      <nav className="nav-mob">
-        <a href="#" className={`nav-product ${setSelectedMenu === 'product' ? 'active' : ''}`} onClick={() => setSelectedMenu('product')}>
+      <nav className={`nav-mob ${openNav ? 'visible' : 'hidden'}`}>
+      <a href="#" className={`nav-product ${setSelectedMenu === 'product' ? 'active' : ''}`} onClick={() => { setSelectedMenu('product'); toggleNav(); }}>
           <div className="butt-link">
             <div className="butt-cont">
               <img src={square} alt="3d" className="nav-product-img" />
@@ -86,7 +94,7 @@ const SideMenu = ({ setSelectedMenu , logout }) => {
             <img src={right} alt="right" className="nav-product-img" />
           </div>
         </a>
-      <a className={`nav-customers ${setSelectedMenu === 'customers' ? 'active' : ''}`} href="#" onClick={() => setSelectedMenu('customers')}>
+        <a href="#" className={`nav-customers ${setSelectedMenu === 'customers' ? 'active' : ''}`} onClick={() => { setSelectedMenu('customers'); toggleNav(); }}>
         <div className="butt-link">
           <div className=" butt-cont">
             <img src={usersquare} alt="user" />
@@ -95,7 +103,7 @@ const SideMenu = ({ setSelectedMenu , logout }) => {
           <img src={right} alt="right" />
         </div>
       </a>
-     <a className={`nav-customers ${setSelectedMenu === 'feedback' ? 'active' : ''}`} href="#" onClick={() => setSelectedMenu('feedback')}>
+      <a href="#" className={`nav-customers ${setSelectedMenu === 'feedback' ? 'active' : ''}`} onClick={() => { setSelectedMenu('feedback'); toggleNav(); }}>
           <div className="butt-link">
             <div className=" butt-cont">
               <img src={messed} alt="user" />

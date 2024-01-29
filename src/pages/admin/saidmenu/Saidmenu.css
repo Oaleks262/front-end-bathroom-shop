@@ -164,7 +164,7 @@ nav{
         display: none;
     }
     .nav-mob{
-        display: flex;
+        display: none;
     }
     .side-menu-logo-block{
         align-items: center;
@@ -209,7 +209,12 @@ nav{
     .content{
         margin: 10px 0 0 0;
     }
-    .customers, .product, .feedback {
-        margin-left: 0;
+    .visible {
+        display: none;
     }
+      
+    .hidden {
+        display: flex;
+    }
+      
 }   

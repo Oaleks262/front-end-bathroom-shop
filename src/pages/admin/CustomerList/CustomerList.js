@@ -16,7 +16,7 @@ const CustomerList = () => {
   const [customersToDelete, setCustomersToDelete] = useState(null); // Ідентифікатор відгуку для видалення
   const [isEditPopupOpen, setIsEditPopupOpen] = useState(false);
   const [orderToEdit, setOrderToEdit] = useState(null);
-
+  
 
   const itemsPerPage = 8; // Кількість елементів на сторінці
 
@@ -143,10 +143,12 @@ const CustomerList = () => {
       const response = await AdminApi.putAdminOrder(updatedOrder.id, updatedOrder);
       console.log('Order updated successfully:', updatedOrder);
       // Оновити стан даних в компоненті
-      setPeopleData((prevData) => {
-        const updatedData = prevData.map((order) =>
-          order.id === updatedOrder.id ? { ...order, ...updatedOrder } : order
-        );
+      setPeopleData(prevData => {
+        const updatedData = [...prevData];
+        const index = updatedData.findIndex(order => order.id === updatedOrder.id);
+        if (index !== -1) {
+          updatedData[index] = { ...updatedData[index], ...updatedOrder };
+        }
         return updatedData;
       });
       // Закрити вікно редагування після успішного збереження
