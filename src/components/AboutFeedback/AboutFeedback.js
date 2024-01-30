@@ -5,6 +5,7 @@ import { lendingData } from '../../assets/api/api';
 const AboutFeedback = () => {
     const [feedbacks, setFeedbacks] = useState([]);
     const [currentFeedbackIndex, setCurrentFeedbackIndex] = useState(0);
+    const [fade, setFade] = useState(true);
 
     useEffect(() => {
         const fetchFeedbacks = async () => {
@@ -20,23 +21,30 @@ const AboutFeedback = () => {
     }, []);
 
     useEffect(() => {
-        const interval = setInterval(() => {
-            // Оновлюємо індекс відгуку, переходячи до наступного
-            setCurrentFeedbackIndex((prevIndex) =>
-                prevIndex === feedbacks.length - 1 ? 0 : prevIndex + 1
-            );
-        }, 15000); // 15 секунд
+        if (feedbacks.length > 1) {
+            const interval = setInterval(() => {
+                setFade(false);
+                setTimeout(() => {
+                    setCurrentFeedbackIndex((prevIndex) =>
+                        prevIndex === feedbacks.length - 1 ? 0 : prevIndex + 1
+                    );
+                    setFade(true);
+                }, 500);
+            }, 15000);
 
-        return () => clearInterval(interval); // Зупиняємо інтервал при розмонтуванні компонента
-
+            return () => clearInterval(interval);
+        }
     }, [currentFeedbackIndex, feedbacks.length]);
 
     const handleArrowClick = (direction) => {
-        // Оновлюємо індекс відгуку відповідно до напрямку
-        if (direction === 'left') {
-            setCurrentFeedbackIndex(currentFeedbackIndex === 0 ? feedbacks.length - 1 : currentFeedbackIndex - 1);
-        } else if (direction === 'right') {
-            setCurrentFeedbackIndex(currentFeedbackIndex === feedbacks.length - 1 ? 0 : currentFeedbackIndex + 1);
+        if (feedbacks.length > 1) {
+            setFade(false);
+            setTimeout(() => {
+                setCurrentFeedbackIndex((prevIndex) =>
+                    direction === 'left' ? (prevIndex === 0 ? feedbacks.length - 1 : prevIndex - 1) : (prevIndex === feedbacks.length - 1 ? 0 : prevIndex + 1)
+                );
+                setFade(true);
+            }, 500);
         }
     };
 
@@ -48,20 +56,30 @@ const AboutFeedback = () => {
                         <h2>Відгуки наших клієнтів</h2>
                         <p>Ваші відгуки завжди нас радують</p>
                     </div>
-                    {feedbacks.length > 1 && (
+                    {feedbacks.length > 0 && (
                         <div className="about-feedback-clin">
-                            <a className="left-arrow" onClick={() => handleArrowClick('left')}></a>
-                            <div className="about-feedback-clinent">
-                                {feedbacks.length > 0 ? (
-                                    <>
-                                        <h3>{feedbacks[currentFeedbackIndex].fullName}</h3>
-                                        <p>{feedbacks[currentFeedbackIndex].feedback}</p>
-                                    </>
-                                ) : (
-                                    <p>Немає доступних відгуків</p>
-                                )}
-                            </div>
-                            <a className="right-arrow" onClick={() => handleArrowClick('right')}></a>
+                            {feedbacks.length > 1 && (
+                                <>
+                                    <a className="left-arrow" onClick={() => handleArrowClick('left')}></a>
+                                    <div className="about-feedback-clinent">
+                                        {feedbacks.length > 0 ? (
+                                            <>
+                                                <h3>{feedbacks[currentFeedbackIndex].fullName}</h3>
+                                                <p>{feedbacks[currentFeedbackIndex].feedback}</p>
+                                            </>
+                                        ) : (
+                                            <p>Немає доступних відгуків</p>
+                                        )}
+                                    </div>
+                                    <a className="right-arrow" onClick={() => handleArrowClick('right')}></a>
+                                </>
+                            )}
+                            {feedbacks.length === 1 && (
+                                <div className="about-feedback-clinent">
+                                    <h3>{feedbacks[0].fullName}</h3>
+                                    <p>{feedbacks[0].feedback}</p>
+                                </div>
+                            )}
                         </div>
                     )}
                 </div>
