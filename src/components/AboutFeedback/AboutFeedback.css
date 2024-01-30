@@ -1,0 +1,101 @@
+.about-feedback {
+    display: flex;
+    width: 100%;
+    max-width: 1366px;
+    height: 550px;
+    text-align: center;
+  }  
+.about-feedback-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    gap: 45px;
+}
+.about-feedback-text{
+    display: flexbox;
+    flex-direction: column;
+    width: 100%;
+}
+.about-feedback-text h2{
+    color: #093660;
+    font-family: "Playfair Display";
+    font-size: 54px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+.about-feedback-text p{
+    color: #707070;
+    text-align: center;
+    font-family: "Playfair Display";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 34px; /* 170% */
+}
+.about-feedback-clin{
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+  .left-arrow,.right-arrow  {
+    display: inline-block;
+    width: 82px;
+    height: 82px;
+    line-height: 82px;
+    text-align: center;
+    background-color: #F9C06A; 
+    color: #603809 ; 
+    margin: 0 10px; 
+    text-decoration: none;
+    border-radius: 14px;
+  }
+  .left-arrow,.right-arrow:hover{
+    cursor: pointer;
+    background-color: #F9C06A;
+    color: #603809;
+  }
+  
+  .about-feedback-clinent {
+    display: flex;
+    flex-direction: column;
+    padding:  35px;
+    gap: 25px;
+    max-width: 980px;
+    width: 100%;
+    height: 300px;
+    border: 1px solid rgba(249, 192, 106, 0.42);
+    background: #FFF9F1;
+    border-radius: 14px;
+  }
+  .about-feedback-clinent h3{
+    color: #093660;
+    font-family: "Playfair Display";
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+  }
+.about-feedback-clinent p{
+    color: #707070;
+    text-align: center;
+    font-family: "Playfair Display";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 36px; 
+  }
+  
+
+.left-arrow::before {
+    content: "←";
+  }
+  
+.right-arrow::before {
+    content: "→";
+  }
+  
