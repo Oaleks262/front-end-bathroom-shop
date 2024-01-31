@@ -50,14 +50,14 @@ const Minimarket = () => {
                   <h3 className='minimarket-shop-li-h3'>{product.titleProduct}</h3>
                   <p className='minimarket-shop-li-category'>{product.category}</p>
                   <p className='minimarket-shop-li-price'>{product.priceProduct} грн</p>
-                  <a className='minimarket-shop-li-button' href='#'>Придбати</a>
+                  <a className='minimarket-shop-li-button' >Придбати</a>
                 </li>
               ))}
             </ul>
           )}
         </div>
         <div className='minimarket-inshop'>
-        <a href="#">Перейти в магазин</a>
+        <a className='minimarket-inshop-button'>Перейти до товарів</a>
       </div>
       </div>
     </div>

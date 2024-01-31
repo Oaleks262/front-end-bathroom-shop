@@ -11,13 +11,13 @@ const Header = () =>{
                 <img src={logo} className="header-logo"alt="logo"/>
                 <nav className='nav-header'>
                     <ul className='header-navigat'>
-                       <li><a href="#">Товари</a></li>
-                       <li><a href="#">Консультація</a></li>
-                       <li><a href="#">Відгуки</a></li>
-                       <li><a href="#">Про нас</a></li>
+                       <li><a className='header-navigat-button' >Товари</a></li>
+                       <li><a className='header-navigat-button' >Консультація</a></li>
+                       <li><a className='header-navigat-button' >Відгуки</a></li>
+                       <li><a className='header-navigat-button' >Про нас</a></li>
                     </ul>
                 </nav>
-                <a className='shooping-button'><img src={shooping}/>Корзина</a>
+                <a className='shooping-button'><img src={shooping}/>Кошик</a>
         </div>
     )
 }

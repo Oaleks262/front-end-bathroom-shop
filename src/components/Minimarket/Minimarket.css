@@ -85,34 +85,56 @@
     font-weight: 700;
     line-height: normal;
 }
-.minimarket-shop-li-button{
-    border-radius: 24px;
-    background: #F9C06A;
-    box-shadow: 0px 6px 12px 0px rgba(249, 192, 106, 0.22);
-    color: #1E1E1E;
-    font-family: "Playfair Display";
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-    padding: 5px 10px;
-}
+
 .minimarket-inshop{
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: 52px;
 }
-.minimarket-inshop a{ 
+.minimarket-shop-li-button{
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 5px 15px;
     border-radius: 24px;
-    background: #F9C06A;
-    box-shadow: 0px 6px 12px 0px rgba(249, 192, 106, 0.22);
-    padding: 5px 10px;
-    color: #1E1E1E;
+    background-color: #50d8d7;
+    box-shadow: 0px 6px 12px 0px rgba(249, 192, 106, 0.22); 
+    color: #fff;
     font-family: "Playfair Display";
-    font-size: 16px;
+    font-size: 14px;
     font-style: normal;
-    font-weight: 700;
+    font-weight: 400;
     line-height: normal;
+    transition: 500ms;
+}
 
+
+.minimarket-shop-li-button:hover{
+    transform: scale(0.9);
+    background: linear-gradient(316deg, #50d8d7 0%, #923993 74%);
+}
+
+.minimarket-inshop-button{
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 5px 15px;
+    border-radius: 24px;
+    background-color: #50d8d7;
+    box-shadow: 0px 6px 12px 0px rgba(249, 192, 106, 0.22); 
+    color: #fff;
+    font-family: "Playfair Display";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    transition: 500ms;
+}
+
+.minimarket-inshop-button:hover{
+    transform: scale(0.9);
+    background: linear-gradient(316deg, #50d8d7 0%, #923993 74%);
 }

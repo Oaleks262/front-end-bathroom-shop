@@ -16,7 +16,7 @@
     flex-direction: row;
     gap: 60px;
 }
-.header-navigat a{
+.header-navigat-button{
     text-decoration: none;
     color: #FFF;
     font-family: "Playfair Display";
@@ -25,15 +25,12 @@
     font-weight: 500;
     line-height: normal;
     padding: 2px 5px;
-    border-radius: 15px;
     background: none;
 }
-.header-navigat a:hover{
+.header-navigat-button:hover{
     background: none;
-    border: 1px solid #fff;
-    border-radius: 15px;
-    padding: 2px 5px;
-
+    cursor: pointer;
+ 
 }
 .shooping-button{
     cursor: pointer;
@@ -42,16 +39,17 @@
     gap: 5px;
     padding: 5px 15px;
     border-radius: 24px;
-    background: #F9C06A;
+    background-color: #50d8d7;
     box-shadow: 0px 6px 12px 0px rgba(249, 192, 106, 0.22); 
-    color: #1E1E1E;
+    color: #fff;
     font-family: "Playfair Display";
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+    transition: 500ms;
 }
 .shooping-button:hover{
-    border: 0.5px solid #F9C06A;
-    background: #fff;
+    transform: scale(0.9);
+    background: linear-gradient(316deg, #50d8d7 0%, #923993 74%);
 }

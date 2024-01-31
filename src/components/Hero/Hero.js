@@ -11,7 +11,7 @@ const Hero = () =>{
                 <h5>Релаксуй разом з</h5>
                 <h1>Bathroom shop</h1>
                 <p>Тут ти можеш купити для релаксу все</p>
-                <a href="#" >Купити</a>
+                <a className='hero-text-content-button' ></a>
             </div>
             </div>
 

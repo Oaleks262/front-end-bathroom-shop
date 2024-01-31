@@ -1,0 +1,10 @@
+.footer{
+    display: flex;
+    width: 100%;
+    max-width: 1366px;
+    height: 600px;
+    background: url(../../assets/img/landing/footer/intergalactic_bath_bomb_hero_image_2021-2_e39e7baa_thumbnail_4096.jpg), rgb(91, 76, 76) 60%;
+    background-blend-mode: overlay;
+    background-repeat: no-repeat;
+    background-size: cover;
+}

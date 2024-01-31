@@ -6,10 +6,12 @@ import Minimarket from "../../components/Minimarket/Minimarket";
 import Different from "../../components/Different/Different";
 import Feedback from "../../components/Feedback/Feedback";
 import AboutFeedback from "../../components/AboutFeedback/AboutFeedback";
+import Footer from "../../components/Footer/Footer";
 
 const Main = () =>{
 
     return(
+
         <div className="main">
             <Hero/>
             <Reviers/>
@@ -17,7 +19,10 @@ const Main = () =>{
             <Different/>
             <Feedback/>
             <AboutFeedback/>
+            <Footer/>
         </div>
+        
+
     )
     
     }

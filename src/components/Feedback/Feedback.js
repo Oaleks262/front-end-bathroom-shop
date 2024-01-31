@@ -2,6 +2,7 @@ import React from 'react';
 import './Feedback.css'
 
 
+
 const Feedback = () =>{
 
 
@@ -10,7 +11,7 @@ const Feedback = () =>{
 
     return(
         <div className='feedback-land'>
-            <div className='content-padding-feedback'>
+            <div className='content-padding'>
             <div className='feedback-content'>
                 <div className='feedback-content-text'>
                     <h2>
@@ -19,10 +20,7 @@ const Feedback = () =>{
                     <p>
                         Ми раді бачити відгук кожного нашого клієнта
                     </p>
-                    <a href='#'>Залишити відгук</a>
-                </div>
-                <div className='feedback-content-img'>
-                    
+                    <a className='feedback-content-button' ></a>
                 </div>
 
             </div>
