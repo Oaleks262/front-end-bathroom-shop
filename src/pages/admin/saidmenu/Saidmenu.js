@@ -119,7 +119,7 @@ const SideMenu = ({ setSelectedMenu , logout }) => {
           <img src={ellipse} alt="user-photo" />
           <div className="login-user-name">
             <h3>Тетяна</h3>
-            <h5>Адміністратор</h5>
+            <h5>Керівник</h5>
           </div>
         </a>
       </div>

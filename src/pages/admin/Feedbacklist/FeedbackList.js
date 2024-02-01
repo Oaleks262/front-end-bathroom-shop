@@ -83,7 +83,7 @@ const FeedbackList = () => {
 
   const handleDeleteFeedback = async () => {
     try {
-     
+      console.log('Deleting feedback with ID:', feedbackToDelete);
       await AdminApi.deleteAdminFeedback(feedbackToDelete);
       
     
