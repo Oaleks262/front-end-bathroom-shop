@@ -32,7 +32,7 @@ const CustomerList = () => {
           lastName: order.lastName,
           phone: order.phoneNumber,
           city: order.city,
-          email: order.postOffice,
+          postOffice: order.postOffice,
           numberPost: order.numberPost,
           productItems: order.productItems.map(productItem => ({
             title: productItem.title,
@@ -206,7 +206,7 @@ const CustomerList = () => {
       <p className="list-name">{order.firstName} {order.lastName}</p>
       <p className="list-number">{order.phone}</p>
       <p className="list-city">{order.city}</p>
-      <p className="list-post">{order.email}</p>
+      <p className="list-post">{order.postOffice}</p>
       <p className="list-post-num">{order.numberPost}</p>
       <p className="list-shop">
   {order.productItems.map((productItem, index) => (

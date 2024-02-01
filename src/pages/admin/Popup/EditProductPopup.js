@@ -34,7 +34,7 @@ const EditProductPopup = ({ product, onClose, onSave }) => {
       />
 
     <label>Категорія:</label>
-       <select className='edit-product-category' name="category"  value={editedCategory}>
+       <select className='edit-product-category' name="category"  value={editedCategory}  onChange={(e) => setEditedCategory(e.target.value)}>
         <option value="">Оберіть категорію</option>
         <option value="Шипуча суміш для ванни">Шипуча суміш для ванни</option>
         <option value="Морська сіль для ванни">Морська сіль для ванни</option>

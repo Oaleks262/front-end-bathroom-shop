@@ -65,7 +65,7 @@ import './EditOrderPopup.css'
               <label>
                  Post Office:
               </label>
-              <input type="text" className='edit-text' name="postOffice" value={editedOrder.email} onChange={handleInputChange} />
+              <input type="text" className='edit-text' name="postOffice" value={editedOrder.postOffice} onChange={handleInputChange} />
               <label>
                 Number Post:
               </label>
