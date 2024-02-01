@@ -7,6 +7,7 @@ import Different from "../../components/Different/Different";
 import Feedback from "../../components/Feedback/Feedback";
 import AboutFeedback from "../../components/AboutFeedback/AboutFeedback";
 import Footer from "../../components/Footer/Footer";
+import Shopping from "../../components/Shopping/Shopping"
 
 const Main = () =>{
 
@@ -20,6 +21,7 @@ const Main = () =>{
             <Feedback/>
             <AboutFeedback/>
             <Footer/>
+            <Shopping/>
         </div>
         
 

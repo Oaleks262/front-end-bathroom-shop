@@ -49,7 +49,7 @@ const AboutFeedback = () => {
     };
 
     return (
-        <div className="about-feedback">
+        <div className="about-feedback" id="about-feedback">
             <div className='content-padding'>
                 <div className="about-feedback-content">
                     <div className="about-feedback-text">

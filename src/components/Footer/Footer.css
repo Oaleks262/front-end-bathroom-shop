@@ -2,9 +2,89 @@
     display: flex;
     width: 100%;
     max-width: 1366px;
-    height: 600px;
+    height: 400px;
     background: url(../../assets/img/landing/footer/intergalactic_bath_bomb_hero_image_2021-2_e39e7baa_thumbnail_4096.jpg), rgb(91, 76, 76) 60%;
     background-blend-mode: overlay;
     background-repeat: no-repeat;
     background-size: cover;
+}
+.footer-content{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+    padding: 60px 0;
+    justify-content: space-around;
+    align-items: flex-start;
+    gap: 60px;
+}
+.footer-text{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+}
+.footer-text h2{
+    color: rgb(255, 255, 255);
+    font-family: Clicker Script;
+    font-size: 54px;
+    font-weight: 400;
+    line-height: 71px;
+    letter-spacing: 0%;
+    text-align: left;
+}
+.footer-text p{
+    color: rgb(255, 255, 255);
+    font-family: Playfair Display;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 22px;
+    letter-spacing: 0%;
+    text-align: left;
+}
+.footer-text-icon{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 40px;
+}
+.footer-text-icon a{
+    cursor: pointer;
+}
+.footer-text-icon img{
+    display: flex;
+    max-width: 25px;
+    width: 100%;
+}
+.footer-contact{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 20px;
+    margin-top: 20px;
+
+}
+.footer-contact h2{
+    color: rgb(255, 255, 255);
+    font-family: Playfair Display;
+    font-size: 26px;
+    font-weight: 700;
+    line-height: 35px;
+    letter-spacing: 0%;
+    text-align: left;
+}
+.footer-contact a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(255, 255, 255);
+    font-family: Playfair Display;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0%;
+    gap: 10px;
 }

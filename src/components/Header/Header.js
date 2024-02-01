@@ -11,10 +11,11 @@ const Header = () =>{
                 <img src={logo} className="header-logo"alt="logo"/>
                 <nav className='nav-header'>
                     <ul className='header-navigat'>
-                       <li><a className='header-navigat-button' >Товари</a></li>
-                       <li><a className='header-navigat-button' >Консультація</a></li>
-                       <li><a className='header-navigat-button' >Відгуки</a></li>
-                       <li><a className='header-navigat-button' >Про нас</a></li>
+                       <li><a className='header-navigat-button' >Продукція</a></li>
+                       <li><a className='header-navigat-button' >Рекомендації</a></li>
+                       <li><a className='header-navigat-button' >Оплата та доставка</a></li>
+                       <li><a className='header-navigat-button' href='#about-feedback'>Відгуки</a></li>
+                       <li><a className='header-navigat-button' href='#reviers' >Про нас</a></li>
                     </ul>
                 </nav>
                 <a className='shooping-button'><img src={shooping}/>Кошик</a>

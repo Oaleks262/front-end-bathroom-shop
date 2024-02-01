@@ -6,7 +6,7 @@ const Reviers = () =>{
 
 
     return(
-        <div className='reviers'>
+        <div className='reviers' id='reviers'>
             <div className='content-padding'>
                 <div className='reviers-content'>
                     <div className='reviers-content-text'>
