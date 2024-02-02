@@ -4,6 +4,7 @@ import './App.css';
 import Main from './pages/main/Main';
 import Admin from './pages/admin/Admin';
 import Login from './pages/login/login';
+import Shopping from './components/Shopping/Shopping';
 import { AuthProvider } from "./assets/api/AuthContext"
 
 function App() {
@@ -13,9 +14,12 @@ function App() {
         <div className="App">
           <Routes>
             <Route path="/" element={<Main />} />
+            <Route path='/shopping' element={<Shopping/>}/>
             <Route path="/admin" element={<Admin />} />
             <Route path="/login" element={<Login />} />
             <Route path="/login/success" element={<Navigate to="/admin" />} />
+
+
           </Routes>
         </div>
 

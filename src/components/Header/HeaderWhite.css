@@ -1,0 +1,58 @@
+.header-white{
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    border-bottom: 1px solid #000;
+}
+.header-logo-white{
+    max-width: 120px;
+    width: 100%;
+}
+.nav-header-white{
+    display: flex;
+}
+.header-navigat-white{
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    gap: 60px;
+}
+.header-navigat-button-white{
+    text-decoration: none;
+    color: #000;
+    font-family: "Playfair Display";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    padding: 2px 5px;
+    background: none;
+}
+.header-navigat-button-white:hover{
+    background: none;
+    cursor: pointer;
+ 
+}
+.shooping-button-white{
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 5px 15px;
+    border-radius: 24px;
+    background-color: #50d8d7;
+    box-shadow: 0px 6px 12px 0px rgba(249, 192, 106, 0.22); 
+    color: #fff;
+    font-family: "Playfair Display";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    transition: 500ms;
+}
+.shooping-button-white:hover{
+    transform: scale(0.9);
+    background: linear-gradient(316deg, #50d8d7 0%, #923993 74%);
+}

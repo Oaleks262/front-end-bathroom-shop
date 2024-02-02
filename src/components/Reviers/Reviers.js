@@ -1,6 +1,6 @@
 import React from 'react';
 import './Reviers.css';
-import bombs from '../../assets/img/landing/reviers/bathroombombs.svg';
+
 
 const Reviers = () =>{
 
