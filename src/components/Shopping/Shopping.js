@@ -86,18 +86,18 @@ const Shopping = () => {
                 
                 <li key={index} className='shopping-product-li'>
                   <img src={item.avatarUrl} alt={item.titleProduct} className='shopping-product-img'/>
-                  <p>{item.titleProduct}</p>
+                  <p className='shopping-product-title'>{item.titleProduct}</p>
                   <div className='shopping-product-button'>
-                    <button onClick={() => handleIncrement(item._id)}>+</button>
-                    <input type="number" name='quantity' value={item.quantity} readOnly />
-                    <button onClick={() => handleDecrement(item._id)}>-</button>
+                    <button className='shopping-product-button-btn' onClick={() => handleIncrement(item._id)}>+</button>
+                    <input className='shopping-product-button-inp' type="number" name='quantity' value={item.quantity} readOnly />
+                    <button className='shopping-product-button-btn' onClick={() => handleDecrement(item._id)}>-</button>
                   </div>
-                  <p>{item.priceProduct} грн</p>
-                  <p>{item.priceProduct * item.quantity} грн.</p>
+                  <p className='shopping-product-price'>{item.priceProduct} грн</p>
+                  <p className='shopping-product-tot'>{item.priceProduct * item.quantity} грн.</p>
                 </li>
               ))}
             </ul>
-            <p>Загальна сума усіх товарів: {totalSum} грн</p>
+            <p className='shopping-product-total'>Загальна сума усіх товарів: {totalSum} грн</p>
           </div>
 
           <div className='shopping-form'>
