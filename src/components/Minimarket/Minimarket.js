@@ -1,21 +1,22 @@
 import React, { useEffect, useState } from 'react';
 import './Minimarket.css';
 import { lendingData } from '../../assets/api/api';
+import { setCartToLocalStorage } from '../Cart/localSave';
 
 const Minimarket = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [cart, setCart] = useState([]);
 
   useEffect(() => {
     const fetchPopularProducts = async () => {
       try {
         const response = await lendingData.getProduct();
-        console.log(response);
-        
+
         // Випадково перемішуємо масив продуктів
         const shuffledProducts = response.data.sort(() => Math.random() - 0.5);
-        
+
         // Обмежуємо тільки першими чотирма продуктами
         const limitedProducts = shuffledProducts.slice(0, 4);
 
@@ -29,6 +30,12 @@ const Minimarket = () => {
 
     fetchPopularProducts();
   }, []);
+
+  const addToCart = (product) => {
+    setCart([...cart, product]);
+    setCartToLocalStorage(product);
+  };
+  
 
   return (
     <div className='minimarket'>
@@ -50,15 +57,15 @@ const Minimarket = () => {
                   <h3 className='minimarket-shop-li-h3'>{product.titleProduct}</h3>
                   <p className='minimarket-shop-li-category'>{product.category}</p>
                   <p className='minimarket-shop-li-price'>{product.priceProduct} грн</p>
-                  <a className='minimarket-shop-li-button' >Придбати</a>
+                  <a className='minimarket-shop-li-button' onClick={() => { addToCart(product);}} >Придбати</a>
                 </li>
               ))}
             </ul>
           )}
         </div>
         <div className='minimarket-inshop'>
-        <a className='minimarket-inshop-button'>Перейти до товарів</a>
-      </div>
+          <a className='minimarket-inshop-button'>Перейти до товарів</a>
+        </div>
       </div>
     </div>
   );

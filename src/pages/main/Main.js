@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import './Main.css';
 import Hero from "../../components/Hero/Hero";
 import Reviers from "../../components/Reviers/Reviers";
@@ -8,24 +9,33 @@ import Feedback from "../../components/Feedback/Feedback";
 import AboutFeedback from "../../components/AboutFeedback/AboutFeedback";
 import Footer from "../../components/Footer/Footer";
 
+const Main = () => {
+    const location = useLocation();
 
-const Main = () =>{
+    useEffect(() => {
+        const elementId = location.hash.substring(1);
+        scrollToElement(elementId);
+    }, [location]);
 
-    return(
-
-        <div className="main">
-            <Hero/>
-            <Reviers/>
-            <Minimarket/>
-            <Different/>
-            <Feedback/>
-            <AboutFeedback/>
-            <Footer/>
-        </div>
-        
-
-    )
-    
+    function scrollToElement(elementID) {
+        const aboutElement = document.getElementById(elementID);
+        if (aboutElement) {
+            aboutElement.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
     }
-    
-    export default Main;
+
+
+    return (
+        <div className="main">
+            <Hero />
+            <Reviers />
+            <Minimarket />
+            <Different />
+            <Feedback />
+            <AboutFeedback />
+            <Footer />
+        </div>
+    );
+}
+
+export default Main;

@@ -4,3 +4,40 @@
     max-width: 1366px;
     height: 400px;
 }
+.shopping-content{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+.shopping-product{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.shopping-product-ul{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.shopping-product-li{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+.shopping-product-img{
+    width: 45px;
+}
+
+
+
+
+.shopping-form{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.shopping-form form{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}

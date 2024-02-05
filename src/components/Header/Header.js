@@ -6,17 +6,18 @@ import './Header.css'
 
 const Header = () =>{
 
-
+    const feedbackLink = 'about-feedback'
+    const reviersLink = 'reviers'
     return(
         <div className="header">
-                <img src={logo} className="header-logo" id="start"alt="logo"/>
+                <a href="/"><img src={logo} className="header-logo" id="start"alt="logo"/></a>
                 <nav className='nav-header'>
                     <ul className='header-navigat'>
                        <li><a className='header-navigat-button' >Продукція</a></li>
                        <li><a className='header-navigat-button' >Рекомендації</a></li>
                        <li><a className='header-navigat-button' >Оплата та доставка</a></li>
-                       <li><a className='header-navigat-button' href='#about-feedback'>Відгуки</a></li>
-                       <li><a className='header-navigat-button' href='#reviers' >Про нас</a></li>
+                       <li><Link to={`/#${feedbackLink}`} className='header-navigat-button' >Відгуки</Link></li>
+                       <li><Link to={`/#${reviersLink}`} className='header-navigat-button' >Про нас</Link></li>
                     </ul>
                 </nav>
                 <Link to="/shopping" className="shooping-button">
