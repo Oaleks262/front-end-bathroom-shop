@@ -13,9 +13,9 @@ export const lendingData = {
     postFeedback() {
         return axios.post("feedback");
      },
-     postOrder() {
-        return axios.post("order");
-     },
+     postOrder(orderData) {
+        return axios.post("order", orderData);
+    }
 };
 
 

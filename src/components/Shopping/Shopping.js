@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './Shopping.css';
 import HeaderWhite from '../Header/HeaderWhite';
 import iconDelet from '../../assets/img/landing/shopping/deleteShop.svg';
-
+import { lendingData } from '../../assets/api/api';
 import { getCartFromLocalStorage } from '../Cart/localSave';
 
 const Shopping = () => {
@@ -82,6 +82,43 @@ const Shopping = () => {
     };
   };
 
+  const handleSubmitOrder = async () => {
+    // Отримати значення з полів форми
+    const firstName = document.getElementById('firstName').value;
+    const lastName = document.getElementById('lastName').value;
+    const phoneNumber = document.getElementById('phoneNumber').value;
+    const city = document.getElementById('city').value;
+    const postOffice = document.getElementById('postOffice').value;
+    const numberPost = document.getElementById('numberPost').value;
+  
+    // Створити об'єкт з отриманими значеннями з форми
+    const orderData = {
+      firstName: firstName,
+      lastName: lastName,
+      phoneNumber: phoneNumber,
+      city: city,
+      postOffice: postOffice,
+      numberPost: numberPost,
+      productItems: cart.map(item => ({
+        title: item.titleProduct,
+        item: item.itemProduct,
+        quantity: item.quantity,
+        price: parseFloat(item.priceProduct)
+      }))
+    };
+  
+    // Відправити дані на сервер
+    try {
+      await lendingData.postOrder(orderData);
+      console.log('Замовлення успішно відправлено на сервер.');
+      console.log(orderData)
+      // Додайте код для обробки успішної відправки замовлення
+    } catch (error) {
+      console.error('Помилка при відправці замовлення на сервер:', error);
+      // Додайте код для обробки помилки під час відправки замовлення на сервер
+    }
+  };
+  
   
   
   return (
@@ -114,7 +151,7 @@ const Shopping = () => {
 
           <div className='shopping-form'>
             <h2>Вкажіть дані для відправки</h2>
-            <form className='shopping-form-form' action="/submit_shop" method="POST">
+            <form className='shopping-form-form' onSubmit={handleSubmitOrder}>
               <label htmlFor="firstName">Ім'я:</label>
               <input className='shopping-form-input' type="text" id="firstName" name="firstName" placeholder="Вкажіть своє ім'я" required/>
 
