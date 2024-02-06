@@ -1,13 +1,18 @@
-import React from 'react';
-import './Feedback.css'
+import { useState } from 'react';
+import React  from 'react';
+import './Feedback.css';
+import FeedbackPopup from '../Popup/FeedbackPopUp';
 
 
 
 const Feedback = () =>{
 
 
+    const [isPopupOpen, setIsPopupOpen] = useState(false);
 
-
+    const togglePopup = () => {
+        setIsPopupOpen(!isPopupOpen);
+    }
 
     return(
         <div className='feedback-land'>
@@ -20,11 +25,12 @@ const Feedback = () =>{
                     <p>
                         Ми раді бачити відгук кожного нашого клієнта
                     </p>
-                    <a className='feedback-content-button' ></a>
+                    <a className='feedback-content-button' onClick={togglePopup}></a>
                 </div>
 
             </div>
             </div>
+            {isPopupOpen && <FeedbackPopup togglePopup={togglePopup} />}
         </div>
     )
 }

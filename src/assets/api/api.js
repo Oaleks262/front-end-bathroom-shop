@@ -10,8 +10,8 @@ export const lendingData = {
     getFeedback() {
         return axios.get("feedback");
      },
-    postFeedback() {
-        return axios.post("feedback");
+    postFeedback(feedbackData) {
+        return axios.post("feedback", feedbackData);
      },
      postOrder(orderData) {
         return axios.post("order", orderData);
