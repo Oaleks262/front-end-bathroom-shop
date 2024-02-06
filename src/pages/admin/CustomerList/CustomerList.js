@@ -79,9 +79,9 @@ const CustomerList = () => {
     } else {
       const filteredData = originalPeopleData.filter(
         person =>
-          person.name.toLowerCase().includes(searchText.toLowerCase()) ||
-          person.number.includes(searchText) ||
-          person.email.toLowerCase().includes(searchText.toLowerCase())
+          person.firstName.toLowerCase().includes(searchText.toLowerCase()) ||
+          person.lastName.toLowerCase().includes(searchText.toLowerCase()) ||
+          person.phone.toLowerCase().includes(searchText.toLowerCase()) 
       );
       // Встановлюємо відфільтровані дані
       setPeopleData(filteredData);
