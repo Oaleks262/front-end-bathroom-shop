@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import './Shopping.css';
 import HeaderWhite from '../Header/HeaderWhite';
+import iconDelet from '../../assets/img/landing/shopping/deleteShop.svg';
+
 import { getCartFromLocalStorage } from '../Cart/localSave';
 
 const Shopping = () => {
@@ -63,6 +65,14 @@ const Shopping = () => {
     });
   };
 
+  const handleRemoveItem = (productId) => {
+    setCart(prevCart => {
+      const updatedCart = prevCart.filter(item => item._id !== productId);
+      localStorage.setItem('cart', JSON.stringify(updatedCart));
+      return updatedCart;
+    });
+  };
+
   const getCartItemData = (item) => {
     return {
       title: item.titleProduct,
@@ -81,6 +91,7 @@ const Shopping = () => {
         <div className='shopping-content'>
           <div className='shopping-product'>
             <h2>Товар у корзині:</h2>
+            
             <ul className='shopping-product-ul'>
               {cart.map((item, index) => (
                 
@@ -88,43 +99,45 @@ const Shopping = () => {
                   <img src={item.avatarUrl} alt={item.titleProduct} className='shopping-product-img'/>
                   <p className='shopping-product-title'>{item.titleProduct}</p>
                   <div className='shopping-product-button'>
-                    <button className='shopping-product-button-btn' onClick={() => handleIncrement(item._id)}>+</button>
-                    <input className='shopping-product-button-inp' type="number" name='quantity' value={item.quantity} readOnly />
-                    <button className='shopping-product-button-btn' onClick={() => handleDecrement(item._id)}>-</button>
+                  <button className='shopping-product-button-btn' onClick={() => handleDecrement(item._id)}>-</button>
+                  <input className='shopping-product-button-inp' type="text" name='quantity' value={item.quantity} readOnly />
+                  <button className='shopping-product-button-btn' onClick={() => handleIncrement(item._id)}>+</button> 
                   </div>
                   <p className='shopping-product-price'>{item.priceProduct} грн</p>
                   <p className='shopping-product-tot'>{item.priceProduct * item.quantity} грн.</p>
+                  <a className='shopping-product-del' onClick={() => handleRemoveItem(item._id)}><img src={iconDelet} alt='delete'/></a>
                 </li>
               ))}
             </ul>
-            <p className='shopping-product-total'>Загальна сума усіх товарів: {totalSum} грн</p>
+            <p className='shopping-product-total'>Загальна сума усіх товарів: <b>{totalSum} грн</b></p>
           </div>
 
           <div className='shopping-form'>
-            <form action="/submit_shop" method="POST">
+            <h2>Вкажіть дані для відправки</h2>
+            <form className='shopping-form-form' action="/submit_shop" method="POST">
               <label htmlFor="firstName">Ім'я:</label>
-              <input type="text" id="firstName" name="firstName" required/>
+              <input className='shopping-form-input' type="text" id="firstName" name="firstName" placeholder="Вкажіть своє ім'я" required/>
 
-              <label htmlFor="lastName">Фамілія:</label>
-              <input type="text" id="lastName" name="lastName" required/>
+              <label htmlFor="lastName">Прізвище:</label>
+              <input className='shopping-form-input' type="text" id="lastName" name="lastName" placeholder="Вкажіть своє прізвище" required/>
 
               <label htmlFor="phoneNumber">Номер телефону:</label>
-              <input type="tel" id="phoneNumber" name="phoneNumber" required/>
+              <input className='shopping-form-input' type="tel" id="phoneNumber" name="phoneNumber" placeholder="+380ХХХХХХХХХ" required/>
 
               <label htmlFor="city">Місто:</label>
-              <input type="text" id="city" name="city" required/>
+              <input className='shopping-form-input' type="text" id="city" name="city" placeholder="Вкажіть населений пункт" required/>
 
               <label htmlFor="postOffice">Пошта:</label>
-              <select id="postOffice" name="postOffice" required>
+              <select className='shopping-form-input' id="postOffice" name="postOffice" required>
                 <option value="" disabled defaultValue>Оберіть пошту</option>
                 <option value="novaPoshta">Нова пошта</option>
-                <option value="ukrPoshta">Укрпошта</option>
+                <option value="ukrPoshta">Укр пошта</option>
               </select>
 
-              <label htmlFor="numberPost">Номер Пошти:</label>
-              <input type="text" id="numberPost" name="numberPost" required/>
+              <label htmlFor="numberPost">Номер відділення:</label>
+              <input className='shopping-form-input' type="text" id="numberPost" name="numberPost" placeholder="Вкажіть номер відділення"required/>
 
-              <button type="submit">Замовити</button>
+              <button className='shopping-form-button' type="submit"></button>
             </form>
           </div>
         </div>
