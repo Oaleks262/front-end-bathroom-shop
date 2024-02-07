@@ -28,8 +28,8 @@ const Main = () => {
     return (
         <div className="main">
             <Hero />
-            <Reviers />
             <Minimarket />
+            <Reviers />
             <Different />
             <Feedback />
             <AboutFeedback />

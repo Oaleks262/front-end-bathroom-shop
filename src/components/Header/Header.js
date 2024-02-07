@@ -10,7 +10,7 @@ const Header = () =>{
     const reviersLink = 'reviers'
     return(
         <div className="header">
-                <a href="/"><img src={logo} className="header-logo" id="start"alt="logo"/></a>
+                <a className='header-link' href="/"><img src={logo} className="header-logo" id="start"alt="logo"/></a>
                 <nav className='nav-header'>
                     <ul className='header-navigat'>
                        <li><a className='header-navigat-button' >Продукція</a></li>

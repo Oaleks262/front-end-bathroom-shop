@@ -9,6 +9,10 @@
     max-width: 120px;
     width: 100%;
 }
+.header-link:link{
+    background: none;
+    border: none;
+}
 .nav-header{
     display: flex;
 }
@@ -29,7 +33,7 @@
     padding: 2px 5px;
     background: none;
 }
-.header-navigat-button:hover{
+.header-navigat-button:link{
     background: none;
     cursor: pointer;
  

@@ -18,7 +18,6 @@ const Shopping = () => {
       initialCounters[item._id] = 0; // або можна встановити значення збереженої кількості з об'єкта
     });
     setCounters(initialCounters);
-    
   }, []);
 
   const totalSum = cart.reduce((sum, item) => {
@@ -73,19 +72,7 @@ const Shopping = () => {
     });
   };
 
-  const getCartItemData = (item) => {
-    return {
-      title: item.titleProduct,
-      item: item.itemProduct,
-      quantity: item.quantity,
-      price: item.priceProduct
-    };
-  };
-
   const handleSubmitOrder = async () => {
-
-
-
     // Отримати значення з полів форми
     const firstName = document.getElementById('firstName').value;
     const lastName = document.getElementById('lastName').value;
@@ -122,7 +109,6 @@ const Shopping = () => {
     }
   };
 
-  
   return (
     <div className='shopping'>
       <div className='content-padding'>
@@ -130,17 +116,15 @@ const Shopping = () => {
         <div className='shopping-content'>
           <div className='shopping-product'>
             <h2>Товар у кошику:</h2>
-            
             <ul className='shopping-product-ul'>
               {cart.map((item, index) => (
-                
                 <li key={index} className='shopping-product-li'>
                   <img src={item.avatarUrl} alt={item.titleProduct} className='shopping-product-img'/>
                   <p className='shopping-product-title'>{item.titleProduct}</p>
                   <div className='shopping-product-button'>
-                  <button className='shopping-product-button-btn' onClick={() => handleDecrement(item._id)}>-</button>
-                  <input className='shopping-product-button-inp' type="text" name='quantity' value={item.quantity} readOnly />
-                  <button className='shopping-product-button-btn' onClick={() => handleIncrement(item._id)}>+</button> 
+                    <button className='shopping-product-button-btn' onClick={() => handleDecrement(item._id)}>-</button>
+                    <input className='shopping-product-button-inp' type="text" name='quantity' value={item.quantity} readOnly />
+                    <button className='shopping-product-button-btn' onClick={() => handleIncrement(item._id)}>+</button> 
                   </div>
                   <p className='shopping-product-price'>{item.priceProduct} грн</p>
                   <p className='shopping-product-tot'>{item.priceProduct * item.quantity} грн.</p>
@@ -151,44 +135,43 @@ const Shopping = () => {
             <p className='shopping-product-total'>Загальна сума усіх товарів: <b>{totalSum} грн</b></p>
           </div>
 
-          <div className='shopping-form'>
-            <h2>Вкажіть дані для відправки</h2>
-            <form className='shopping-form-form' onSubmit={handleSubmitOrder}>
-              <label htmlFor="firstName">Ім'я:</label>
-              <input className='shopping-form-input' pattern="[A-Za-zА-Яа-яЁёіІїЇҐґ]+" type="text" id="firstName" name="firstName" title="Будь ласка, введіть своє імʼя" placeholder="Вкажіть своє ім'я" required/>
+            <div className='shopping-form'>
+              <h2>Вкажіть дані для відправки</h2>
+              <form className='shopping-form-form' onSubmit={handleSubmitOrder}>
+                <label htmlFor="firstName">Ім'я:</label>
+                <input className='shopping-form-input' pattern="[A-Za-zА-Яа-яЁёіІїЇҐґ]+" type="text" id="firstName" name="firstName" title="Будь ласка, введіть своє імʼя" placeholder="Вкажіть своє ім'я" required/>
 
-              <label htmlFor="lastName">Прізвище:</label>
-              <input className='shopping-form-input'  pattern="[A-Za-zА-Яа-яЁёіІїЇҐґ]+" type="text" id="lastName" name="lastName" title="Будь ласка, введіть своє прізвищу" placeholder="Вкажіть своє прізвище" required/>
+                <label htmlFor="lastName">Прізвище:</label>
+                <input className='shopping-form-input' pattern="[A-Za-zА-Яа-яЁёіІїЇҐґ]+" type="text" id="lastName" name="lastName" title="Будь ласка, введіть своє прізвищу" placeholder="Вкажіть своє прізвище" required/>
 
-              <label htmlFor="phoneNumber">Номер телефону:</label>
-              <input 
-                className='shopping-form-input' 
-                type="tel" 
-                id="phoneNumber" 
-                name="phoneNumber" 
-                placeholder="+380XXXXXXXXX" 
-                pattern="^\+380[0-9]{9}$" 
-                title="Будь ласка, введіть номер телефону у форматі +380XXXXXXXXX" 
-                required 
-              />
+                <label htmlFor="phoneNumber">Номер телефону:</label>
+                <input 
+                  className='shopping-form-input' 
+                  type="tel" 
+                  id="phoneNumber" 
+                  name="phoneNumber" 
+                  placeholder="+380XXXXXXXXX" 
+                  pattern="^\+380[0-9]{9}$" 
+                  title="Будь ласка, введіть номер телефону у форматі +380XXXXXXXXX" 
+                  required 
+                />
 
-              <label htmlFor="city">Місто:</label>
-              <input className='shopping-form-input'  pattern="[A-Za-zА-Яа-яЁёіІїЇҐґ]+" type="text" id="city" name="city" title="Будь ласка, введіть населений пункт" placeholder="Вкажіть населений пункт" required/>
+                <label htmlFor="city">Місто:</label>
+                <input className='shopping-form-input' pattern="[A-Za-zА-Яа-яЁёіІїЇҐґ]+" type="text" id="city" name="city" title="Будь ласка, введіть населений пункт" placeholder="Вкажіть населений пункт" required/>
 
-              <label htmlFor="postOffice">Пошта:</label>
-              <select className='shopping-form-input' id="postOffice" name="postOffice" title='Будь ласка, оберіть пошту' required>
-                <option value='' hidden>Оберіть пошту</option>
-                <option value="novaPoshta">Нова пошта</option>
-                <option value="ukrPoshta">Укр пошта</option>
-              </select>
+                <label htmlFor="postOffice">Пошта:</label>
+                <select className='shopping-form-input' id="postOffice" name="postOffice" title='Будь ласка, оберіть пошту' required>
+                  <option value='' hidden>Оберіть пошту</option>
+                  <option value="novaPoshta">Нова пошта</option>
+                  <option value="ukrPoshta">Укр пошта</option>
+                </select>
 
+                <label htmlFor="numberPost">Номер відділення:</label>
+                <input className='shopping-form-input' pattern="[0-9]{7}" title="Будь ласка, введіть номер відділення" type="text" id="numberPost" name="numberPost" placeholder="Вкажіть номер відділення" required/>
 
-              <label htmlFor="numberPost">Номер відділення:</label>
-              <input className='shopping-form-input' pattern="[0-9]{7}" title="Будь ласка, введіть номер відділення" type="text" id="numberPost" name="numberPost" placeholder="Вкажіть номер відділення"required/>
-
-              <button className='shopping-form-button' type="submit"></button>
-            </form>
-          </div>
+                {cart.length > 0 && (  <button className='shopping-form-button' type="submit"></button> )}
+              </form>
+            </div>
         </div>
       </div>
     </div>
