@@ -13,7 +13,7 @@ const Header = () =>{
                 <a className='header-link' href="/"><img src={logo} className="header-logo" id="start"alt="logo"/></a>
                 <nav className='nav-header'>
                     <ul className='header-navigat'>
-                       <li><a className='header-navigat-button' >Продукція</a></li>
+                       <li><a href='/product' className='header-navigat-button' >Продукція</a></li>
                        <li><a className='header-navigat-button' >Рекомендації</a></li>
                        <li><a className='header-navigat-button' >Оплата та доставка</a></li>
                        <li><Link to={`/#${feedbackLink}`} className='header-navigat-button' >Відгуки</Link></li>

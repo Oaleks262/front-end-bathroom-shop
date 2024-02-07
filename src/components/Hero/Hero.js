@@ -13,7 +13,7 @@ const Hero = () =>{
                 <h5>Релаксуй разом з</h5>
                 <h1>Bathroom shop</h1>
                 <p>Тут ти можеш купити для релаксу все</p>
-                <a className='hero-text-content-button' ></a>
+                <a href='/product'  className='hero-text-content-button' ></a>
             </div>
             </div>   
             </div>

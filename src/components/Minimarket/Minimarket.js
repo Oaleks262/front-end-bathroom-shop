@@ -64,7 +64,7 @@ const Minimarket = () => {
           )}
         </div>
         <div className='minimarket-inshop'>
-          <a className='minimarket-inshop-button'>Перейти до товарів</a>
+          <a href='/product' className='minimarket-inshop-button'>Перейти до товарів</a>
         </div>
       </div>
     </div>

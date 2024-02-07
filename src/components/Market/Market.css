@@ -1,0 +1,5 @@
+.market{
+    display: flex;
+    width: 100%;
+    max-width: 1366px;
+}
