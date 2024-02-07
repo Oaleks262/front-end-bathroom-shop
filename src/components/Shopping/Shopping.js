@@ -166,7 +166,7 @@ const Shopping = () => {
 
               <label htmlFor="postOffice">Пошта:</label>
               <select className='shopping-form-input' id="postOffice" name="postOffice" required>
-                <option value="" disabled defaultValue>Оберіть пошту</option>
+                <option value='disabled defaultValue'>Оберіть пошту</option>
                 <option value="novaPoshta">Нова пошта</option>
                 <option value="ukrPoshta">Укр пошта</option>
               </select>
