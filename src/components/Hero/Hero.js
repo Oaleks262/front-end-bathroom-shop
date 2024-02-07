@@ -6,6 +6,8 @@ const Hero = () =>{
     return(
         <div className="hero">
             <div className='content-padding'>
+             <div className='hero-content'>
+                
             <Header></Header>
             <div className='hero-text-content'>
                 <h5>Релаксуй разом з</h5>
@@ -13,6 +15,7 @@ const Hero = () =>{
                 <p>Тут ти можеш купити для релаксу все</p>
                 <a className='hero-text-content-button' ></a>
             </div>
+            </div>   
             </div>
 
         </div>
