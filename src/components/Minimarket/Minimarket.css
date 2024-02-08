@@ -44,10 +44,12 @@
     width: 100%;
     flex-direction: row;
     gap: 20px;
+    justify-content: center;
 }
 .minimarket-shop-li{
     display: flex;
-    width: 100%;
+    max-width: 250px;
+    width: 100vh;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -60,6 +62,7 @@
 .minimarket-shop-li-h3{
     height: 60px;
     color: #093660;
+    overflow: hidden;
     font-family: "Playfair Display";
     font-size: 22px;
     font-style: normal;
