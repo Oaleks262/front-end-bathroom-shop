@@ -3,12 +3,17 @@ import HeaderWhite from '../Header/HeaderWhite';
 import './Market.css';
 import { lendingData } from '../../assets/api/api';
 import { setCartToLocalStorage } from '../Cart/localSave';
+import ProductDetalPopup from "../Popup/ProductDetalPopup";
+
 
 const Market = () => {
     const [products, setProducts] = useState([]); // Стан для зберігання списку товарів
     const [cart, setCart] = useState([]);
     const [selectedCategory, setSelectedCategory] = useState(""); // Стан для зберігання обраної категорії
     const [selectedSortOption, setSelectedSortOption] = useState("popularity"); // Значення "popularity" встановлено за замовчуванням
+    const [productDetal, setProductsDetal] = useState (false);
+    const [selectedProduct, setSelectedProduct] = useState(null);
+
 
 
     useEffect(() => {
@@ -28,6 +33,11 @@ const Market = () => {
         fetchProducts();
       }, []);
     
+      const openProduct = (product) => {
+        setSelectedProduct(product);
+        setProductsDetal(true);
+    }
+
     const filterProductsByCategory = async (category) => {
         setSelectedCategory(category); // Оновлення обраної категорії
         try {
@@ -75,7 +85,7 @@ const addToCart = (product) => {
                 <div className="market-content">
                     <div className="side-bar">                        
                     <div className="sidebar">
-                            <h2>Фільтрація</h2>
+                            <label>Фільтрація:</label>
                    
                             <select value={selectedCategory} onChange={(e) => filterProductsByCategory(e.target.value)}>
                                 <option value="Усі товари">Усі товари</option>
@@ -87,7 +97,7 @@ const addToCart = (product) => {
                                 <option value="Розпродаж">Розпродаж</option>
                             </select>
 
-                            <h2>Сортування</h2>
+                            <label >Сортування:</label>
                             <select value={selectedSortOption} onChange={(e) => handleSortChange(e.target.value)}>
                                 <option value="popularity">Популярність</option>
                                 <option value="priceAsc">За зростанням ціни</option>
@@ -102,10 +112,12 @@ const addToCart = (product) => {
                             <ul className='minimarket-shop-ul'>
                                 {products.map(product => (
                                     <li key={product._id} className='minimarket-shop-li'>
+                                       <a onClick={() => openProduct(product)}>
                                         <img className='minimarket-shop-li-img' src={product.avatarUrl} alt={product.titleProduct} />
                                         <h3 title={product.titleProduct} className='minimarket-shop-li-h3'>{product.titleProduct}</h3>
                                         <p className='minimarket-shop-li-category'>{product.category}</p>
                                         <p className='minimarket-shop-li-price'>{product.priceProduct} грн</p>
+                                        </a>
                                         <a className='minimarket-shop-li-button' onClick={() => { addToCart(product); }} >Придбати</a>
                                     </li>
                                 ))}
@@ -114,6 +126,7 @@ const addToCart = (product) => {
                     </div>
                 </div>
             </div>
+            {productDetal && <ProductDetalPopup product={selectedProduct} onClose={() => setProductsDetal(false)} />}
         </div>
     );
 };

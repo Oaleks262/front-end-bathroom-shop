@@ -11,7 +11,7 @@ const HeaderWhite = () =>{
 
     return(
         <div className="header-white">
-                     <Link to="/">
+                     <Link className='header-link' to="/">
         <img src={logo} alt="logo"className="header-logo" />
 </Link>
                 <nav className='nav-header-white'>
