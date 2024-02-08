@@ -6,6 +6,7 @@ import Admin from './pages/admin/Admin';
 import Login from './pages/login/login';
 import Shopping from './components/Shopping/Shopping';
 import Market from './components/Market/Market'
+import ProductDetalPage from './components/Popup/ProductDetalPage';
 import { AuthProvider } from "./assets/api/AuthContext"
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
             <Route path="/" element={<Main />} />
             <Route path='/shopping' element={<Shopping/>}/>
             <Route path='/product' element={<Market/>}/>
+            <Route path='/product/:id' element={< ProductDetalPage/>}/>
             
             <Route path="/admin" element={<Admin />} />
             <Route path="/login" element={<Login />} />

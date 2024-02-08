@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import HeaderWhite from '../Header/HeaderWhite';
 import './Market.css';
+import { Link } from 'react-router-dom';
 import { lendingData } from '../../assets/api/api';
 import { setCartToLocalStorage } from '../Cart/localSave';
-import ProductDetalPopup from "../Popup/ProductDetalPopup";
 
 
 const Market = () => {
@@ -11,8 +11,6 @@ const Market = () => {
     const [cart, setCart] = useState([]);
     const [selectedCategory, setSelectedCategory] = useState(""); // Стан для зберігання обраної категорії
     const [selectedSortOption, setSelectedSortOption] = useState("popularity"); // Значення "popularity" встановлено за замовчуванням
-    const [productDetal, setProductsDetal] = useState (false);
-    const [selectedProduct, setSelectedProduct] = useState(null);
 
 
 
@@ -33,10 +31,7 @@ const Market = () => {
         fetchProducts();
       }, []);
     
-      const openProduct = (product) => {
-        setSelectedProduct(product);
-        setProductsDetal(true);
-    }
+
 
     const filterProductsByCategory = async (category) => {
         setSelectedCategory(category); // Оновлення обраної категорії
@@ -112,12 +107,12 @@ const addToCart = (product) => {
                             <ul className='minimarket-shop-ul'>
                                 {products.map(product => (
                                     <li key={product._id} className='minimarket-shop-li'>
-                                       <a onClick={() => openProduct(product)}>
+                                       <Link to={`/product/${product._id}`} products={product} className='product-link'>
                                         <img className='minimarket-shop-li-img' src={product.avatarUrl} alt={product.titleProduct} />
                                         <h3 title={product.titleProduct} className='minimarket-shop-li-h3'>{product.titleProduct}</h3>
                                         <p className='minimarket-shop-li-category'>{product.category}</p>
                                         <p className='minimarket-shop-li-price'>{product.priceProduct} грн</p>
-                                        </a>
+                                        </Link>
                                         <a className='minimarket-shop-li-button' onClick={() => { addToCart(product); }} >Придбати</a>
                                     </li>
                                 ))}
@@ -126,7 +121,6 @@ const addToCart = (product) => {
                     </div>
                 </div>
             </div>
-            {productDetal && <ProductDetalPopup product={selectedProduct} onClose={() => setProductsDetal(false)} />}
         </div>
     );
 };
