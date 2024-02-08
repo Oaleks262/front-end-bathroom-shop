@@ -13,16 +13,20 @@ const Market = () => {
 
     useEffect(() => {
         const fetchProducts = async () => {
-            try {
-                const response = await lendingData.getProduct();
-                setProducts(response.data);
-            } catch (error) {
-                console.error("Помилка при отриманні товарів:", error);
-            }
+          try {
+            const response = await lendingData.getProduct();
+            const allProducts = response.data;
+    
+            // Сортувати продукти за популярністю
+            const sortedProducts = allProducts.sort(() => Math.random() - 0.5);
+            setProducts(sortedProducts);
+          } catch (error) {
+            console.error("Помилка при отриманні товарів:", error);
+          }
         };
+    
         fetchProducts();
-        handleSortChange("popularity");
-    }, []);
+      }, []);
     
     const filterProductsByCategory = async (category) => {
         setSelectedCategory(category); // Оновлення обраної категорії
@@ -32,10 +36,10 @@ const Market = () => {
             let filteredProducts;
             if (category === "Усі товари") {
                 // Показати всі товари
-                filteredProducts = allProducts;
+                filteredProducts = allProducts.sort(() => Math.random() - 0.5);
             } else {
                 // Показати товари, що належать до обраної категорії
-                filteredProducts = allProducts.filter(product => product.category === category);
+                filteredProducts = allProducts.filter(product => product.category === category).sort(() => Math.random() - 0.5);
             }
             // Сортувати товари після фільтрації
             handleSortChange("popularity");
@@ -45,25 +49,16 @@ const Market = () => {
         }
     };
     
-    const handleSortChange = (value) => {
+    const SORT_OPTIONS = {
+        popularity: () => products.sort(() => Math.random() - 0.5),
+        priceAsc: () => products.sort((a, b) => a.priceProduct - b.priceProduct),
+        priceDesc: () => products.sort((a, b) => b.priceProduct - a.priceProduct),
+      };
+      
+      const handleSortChange = (value) => {
         setSelectedSortOption(value);
-        let sortedProducts = [];
-    
-        switch (value) {
-            case "popularity":
-                sortedProducts = [...products].sort(() => Math.random() - 0.5);
-                break;
-            case "priceAsc":
-                sortedProducts = [...products].sort((a, b) => a.priceProduct - b.priceProduct);
-                break;
-            case "priceDesc":
-                sortedProducts = [...products].sort((a, b) => b.priceProduct - a.priceProduct);
-                break;
-
-        }
-    
-        setProducts(sortedProducts);
-    };
+        setProducts(SORT_OPTIONS[value]());
+      };
     
     
 
