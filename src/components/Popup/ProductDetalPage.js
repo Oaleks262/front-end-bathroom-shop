@@ -9,14 +9,14 @@ const ProductDetalPage = ( { product } ) => {
     const { id } = useParams(); // Отримання параметру id з URL
 
     // Отримання інформації про продукт за його id
-    const products = product.find(product => product._id === id);
+    const products = product;
 
 
     return(
         <div className="ProductDetalPopup">
-                        <div className='content-padding'>
+            <div className='content-padding'>
                 <HeaderWhite/>
-                <div className="popup-content">
+            <div className="popup-content">
                 <h2>Детальна інформація про товар</h2>
                 <p><strong>Назва товару:</strong> {products.titleProduct}</p>
                 <p><strong>Категорія:</strong> {products.category}</p>

@@ -11,7 +11,7 @@ const Market = () => {
     const [cart, setCart] = useState([]);
     const [selectedCategory, setSelectedCategory] = useState(""); // Стан для зберігання обраної категорії
     const [selectedSortOption, setSelectedSortOption] = useState("popularity"); // Значення "popularity" встановлено за замовчуванням
-
+    const [added, setAdded] = useState(false);
 
 
     useEffect(() => {
@@ -19,7 +19,6 @@ const Market = () => {
           try {
             const response = await lendingData.getProduct();
             const allProducts = response.data;
-    
             // Сортувати продукти за популярністю
             const sortedProducts = allProducts.sort(() => Math.random() - 0.5);
             setProducts(sortedProducts);
@@ -30,8 +29,6 @@ const Market = () => {
     
         fetchProducts();
       }, []);
-    
-
 
     const filterProductsByCategory = async (category) => {
         setSelectedCategory(category); // Оновлення обраної категорії
@@ -64,14 +61,12 @@ const Market = () => {
         setSelectedSortOption(value);
         setProducts(SORT_OPTIONS[value]());
       };
-    
-    
-
-
 
 const addToCart = (product) => {
     setCart([...cart, product]);
     setCartToLocalStorage(product);
+    setAdded(true);
+
   };
     return (
         <div className="market">
@@ -80,8 +75,7 @@ const addToCart = (product) => {
                 <div className="market-content">
                     <div className="side-bar">                        
                     <div className="sidebar">
-                            <label>Фільтрація:</label>
-                   
+                            <label>Фільтрація:
                             <select value={selectedCategory} onChange={(e) => filterProductsByCategory(e.target.value)}>
                                 <option value="Усі товари">Усі товари</option>
                                 <option value="Шипуча суміш для ванни">Шипуча суміш для ванни</option>
@@ -91,29 +85,30 @@ const addToCart = (product) => {
                                 <option value="Подарункові бокси">Подарункові бокси</option>
                                 <option value="Розпродаж">Розпродаж</option>
                             </select>
-
-                            <label >Сортування:</label>
+                            </label>
+                            <label >Сортування:
                             <select value={selectedSortOption} onChange={(e) => handleSortChange(e.target.value)}>
                                 <option value="popularity">Популярність</option>
                                 <option value="priceAsc">За зростанням ціни</option>
                                 <option value="priceDesc">За спаданням ціни</option>
                             </select>
+                            </label>
                         </div>
                     </div>
                     <div className="market-product">
                         {/* Вікно відтворення товарів */}
                         <div className="product-display">
                             {/* Відображення списку товарів */}
-                            <ul className='minimarket-shop-ul'>
+                            <ul className='market-shop-ul'>
                                 {products.map(product => (
-                                    <li key={product._id} className='minimarket-shop-li'>
+                                    <li key={product._id} className='market-shop-li'>
                                        <Link to={`/product/${product._id}`} products={product} className='product-link'>
-                                        <img className='minimarket-shop-li-img' src={product.avatarUrl} alt={product.titleProduct} />
-                                        <h3 title={product.titleProduct} className='minimarket-shop-li-h3'>{product.titleProduct}</h3>
-                                        <p className='minimarket-shop-li-category'>{product.category}</p>
-                                        <p className='minimarket-shop-li-price'>{product.priceProduct} грн</p>
+                                        <img className='market-shop-li-img' src={product.avatarUrl} alt={product.titleProduct} />
+                                        <h3 title={product.titleProduct} className='market-shop-li-h3'>{product.titleProduct}</h3>
+                                        <p className='market-shop-li-category'>{product.category}</p>
+                                        <p className='market-shop-li-price'>{product.priceProduct} грн</p>
                                         </Link>
-                                        <a className='minimarket-shop-li-button' onClick={() => { addToCart(product); }} >Придбати</a>
+                                       <a className={`market-shop-li-button ${added ? 'added' : ''}`}onClick={() => addToCart(product)}>{added ? 'Додано' : 'Придбати'}</a>
                                     </li>
                                 ))}
                             </ul>
@@ -124,5 +119,4 @@ const addToCart = (product) => {
         </div>
     );
 };
-
 export default Market;
