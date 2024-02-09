@@ -93,6 +93,7 @@
     align-items: center;
     gap: 5px;
     padding: 5px 15px;
+    border: none;
     border-radius: 24px;
     background-color: #50d8d7;
     box-shadow: 0px 6px 12px 0px rgba(249, 192, 106, 0.22); 
@@ -112,4 +113,5 @@
     background-color: transparent;
     border: 2px solid #50d8d7;
     color: #50d8d7;
+    transform: scale(0.9);
 }
