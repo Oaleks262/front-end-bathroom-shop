@@ -1,34 +1,20 @@
 import React from "react";
-import HeaderWhite from "../Header/HeaderWhite";
-import './ProductDetalPage.css'
-import { useParams } from 'react-router-dom';
+import { getProductFromLocalStorage } from '../Cart/localSave';
 
+const ProductDetailsPage = () => {
+    // Отримуємо дані продукту з локального сховища
+    const product = getProductFromLocalStorage();
 
-
-const ProductDetalPage = ( { product } ) => {
-    const { id } = useParams(); // Отримання параметру id з URL
-
-    // Отримання інформації про продукт за його id
-    const products = product;
-
-
-    return(
-        <div className="ProductDetalPopup">
-            <div className='content-padding'>
-                <HeaderWhite/>
-            <div className="popup-content">
-                <h2>Детальна інформація про товар</h2>
-                <p><strong>Назва товару:</strong> {products.titleProduct}</p>
-                <p><strong>Категорія:</strong> {products.category}</p>
-                <p><strong>Ціна:</strong> {products.priceProduct} грн</p>
-             </div>
-            </div>
-
+    return (
+        <div>
+            {/* Відображаємо дані продукту */}
+            <h2>{product.titleProduct}</h2>
+            <img src={product.avatarUrl} alt={product.titleProduct} />
+            <p>{product.aboutProduct}</p>
+            <p>Ціна: {product.priceProduct} грн</p>
+            {/* Додаткова інформація про продукт */}
         </div>
-    )
+    );
+};
 
-}
-
-
-export default ProductDetalPage;
-
+export default ProductDetailsPage;

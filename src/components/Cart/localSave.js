@@ -25,4 +25,14 @@ export const getCartFromLocalStorage = () => {
   };
   
 
-  
+// Отримати продукт з локального сховища
+export const getProductFromLocalStorage = () => {
+  const productData = localStorage.getItem('product');
+  return productData ? JSON.parse(productData) : [];
+};
+
+// Зберегти продукт у локальному сховищі
+export const setProductToLocalStorage = (productObject) => {
+  const productData = JSON.stringify(productObject);
+  localStorage.setItem('product', productData);
+};

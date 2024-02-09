@@ -3,7 +3,7 @@ import HeaderWhite from '../Header/HeaderWhite';
 import './Market.css';
 import { Link } from 'react-router-dom';
 import { lendingData } from '../../assets/api/api';
-import { setCartToLocalStorage } from '../Cart/localSave';
+import { setCartToLocalStorage, setProductToLocalStorage } from '../Cart/localSave';
 
 const Market = () => {
     const [products, setProducts] = useState([]);
@@ -62,6 +62,11 @@ const Market = () => {
         }, 10000);
     };
 
+
+    const pushToProduct = (product) => {
+        setProductToLocalStorage(product);
+    }
+
     return (
         <div className="market">
             <div className='content-padding'>
@@ -95,10 +100,11 @@ const Market = () => {
                             <ul className='market-shop-ul'>
                                 {products.map(product => (
                                     <li key={product._id} className='market-shop-li'>
-                                        <Link to={`/product/${product._id}`} products={product} className='product-link'>
+                                        <Link to={`/product/${product._id}`} onClick={() => pushToProduct(product)} className='product-link'>
                                             <img className='market-shop-li-img' src={product.avatarUrl} alt={product.titleProduct} />
                                             <h3 title={product.titleProduct} className='market-shop-li-h3'>{product.titleProduct}</h3>
                                             <p className='market-shop-li-category'>{product.category}</p>
+                                            <p></p>
                                             <p className='market-shop-li-price'>{product.priceProduct} грн</p>
                                         </Link>
                                         <button onClick={() => addToCart(product)} className={`market-shop-li-button ${cart.includes(product) ? 'added' : ''}`}>

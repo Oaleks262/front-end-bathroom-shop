@@ -53,7 +53,7 @@
 .market-shop-li:hover{
     border: 1px solid #1E1E1E;
     border-radius: 15px;
-    box-shadow: 0px 6px 12px 0px rgba(77, 74, 70, 0.585); 
+    box-shadow: 0px 3px 6px 0px rgba(77, 74, 70, 0.585); 
 }
 .market-shop-li-img{
     width: 200px;
