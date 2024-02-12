@@ -34,7 +34,10 @@ const Minimarket = () => {
   const addToCart = (product) => {
     setCart([...cart, product]);
     setCartToLocalStorage(product);
-  };
+    setTimeout(() => {
+        setCart(prevCart => prevCart.filter(item => item !== product));
+    }, 10000);
+};
   
 
   return (
@@ -57,7 +60,9 @@ const Minimarket = () => {
                   <h3 className='minimarket-shop-li-h3'>{product.titleProduct}</h3>
                   <p className='minimarket-shop-li-category'>{product.category}</p>
                   <p className='minimarket-shop-li-price'>{product.priceProduct} грн</p>
-                  <a className='minimarket-shop-li-button' onClick={() => { addToCart(product);}} >Придбати</a>
+                  <button onClick={() => addToCart(product)} className={`minimarket-shop-li-button ${cart.includes(product) ? 'added' : ''}`}>
+                      {cart.includes(product) ? 'Додано' : 'Придбати'}
+                  </button>
                 </li>
               ))}
             </ul>
