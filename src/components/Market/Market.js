@@ -11,6 +11,8 @@ const Market = () => {
     const [cart, setCart] = useState([]);
     const [selectedCategory, setSelectedCategory] = useState("");
     const [selectedSortOption, setSelectedSortOption] = useState("popularity");
+    const [currentPage, setCurrentPage] = useState(1);
+    const productsPerPage = 9;
 
     const handleSortChange = (value) => {
         setSelectedSortOption(value);
@@ -63,9 +65,19 @@ const Market = () => {
         }, 10000);
     };
 
-
     const pushToProduct = (product) => {
         setProductToLocalStorage(product);
+    }
+
+    const indexOfLastProduct = currentPage * productsPerPage;
+    const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
+    const currentProducts = products.slice(indexOfFirstProduct, indexOfLastProduct);
+
+    const paginate = pageNumber => setCurrentPage(pageNumber);
+
+    const pageNumbers = [];
+    for (let i = 1; i <= Math.ceil(products.length / productsPerPage); i++) {
+        pageNumbers.push(i);
     }
 
     return (
@@ -99,13 +111,12 @@ const Market = () => {
                     <div className="market-product">
                         <div className="product-display">
                             <ul className='market-shop-ul'>
-                                {products.map(product => (
+                                {currentProducts.map(product => (
                                     <li key={product._id} className='market-shop-li'>
                                         <Link to={`/product/${product._id}`} onClick={() => pushToProduct(product)} className='product-link'>
                                             <img className='market-shop-li-img' src={product.avatarUrl} alt={product.titleProduct} />
                                             <h3 title={product.titleProduct} className='market-shop-li-h3'>{product.titleProduct}</h3>
                                             <p className='market-shop-li-category'>{product.category}</p>
-                                            <p></p>
                                             <p className='market-shop-li-price'>{product.priceProduct} грн</p>
                                         </Link>
                                         <button onClick={() => addToCart(product)} className={`market-shop-li-button ${cart.includes(product) ? 'added' : ''}`}>
@@ -117,7 +128,14 @@ const Market = () => {
                         </div>
                     </div>
                 </div>
-                
+                <div className="pagination">
+                     {products.length > productsPerPage && (
+            <>
+            <button onClick={() => paginate(currentPage - 1)} disabled={currentPage === 1}>Попередня</button>
+            {pageNumbers.map(number => (<button key={number} onClick={() => paginate(number)} className={currentPage === number ? 'active' : ''}>{number}</button>))}
+                    <button onClick={() => paginate(currentPage + 1)} disabled={currentProducts.length < productsPerPage}>Наступна</button> </> )}
+            </div>
+
             <Footer/>
             </div>
         </div>
@@ -125,4 +143,3 @@ const Market = () => {
 };
 
 export default Market;
-
