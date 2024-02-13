@@ -4,6 +4,7 @@ import './Market.css';
 import { Link } from 'react-router-dom';
 import { lendingData } from '../../assets/api/api';
 import { setCartToLocalStorage, setProductToLocalStorage } from '../Cart/localSave';
+import Footer from "../Footer/Footer";
 
 const Market = () => {
     const [products, setProducts] = useState([]);
@@ -116,6 +117,8 @@ const Market = () => {
                         </div>
                     </div>
                 </div>
+                
+            <Footer/>
             </div>
         </div>
     );

@@ -1,17 +1,23 @@
 import React from "react";
+import './ProductDetalPage.css'
 import HeaderWhite from '../Header/HeaderWhite';
 import { setCartToLocalStorage,getProductFromLocalStorage } from '../Cart/localSave';
 import { useState } from 'react';
 import lefticon from '../../assets/img/landing/aboutProduct/icon-left.svg'
+import Footer from '../../components/Footer/Footer'
 
 const ProductDetailsPage = () => {
-    const [cart, setCart] = useState([]);
+    const [prod, setProd] = useState([]);
+
     const product = getProductFromLocalStorage();
+
+    console.log(product);
+
     const addToCart = (product) => {
-        setCart([...cart, product]);
+        setProd([...prod, product]);
         setCartToLocalStorage(product);
         setTimeout(() => {
-            setCart(prevCart => prevCart.filter(item => item !== product));
+            setProd(prevCart => prevCart.filter(item => item !== product));
         }, 10000);
     };
 
@@ -24,21 +30,23 @@ const ProductDetailsPage = () => {
             <div className="detailes-product-back">
                 <a className="detailes-product-btn-back" href="/product"><img src={lefticon}/>Повернутись до товарів</a>
             </div>
-            <div className="conteiner-product">
-            <div className="conteiner-product-img">
-            <img src={product.avatarUrl} alt={product.titleProduct} />
+                <div className="conteiner-product">
+                    <div className="conteiner-product-img">
+                        <img src={product.avatarUrl} alt={product.titleProduct} />
+                    </div>
+                    <div className="conteiner-product-text">
+                        <h2 className="conteiner-product-text-h2">{product.titleProduct}</h2>
+                        <p className="conteiner-product-text-category">{product.category}</p>
+                        <p className="conteiner-product-text-about">{product.aboutProduct}</p>
+                        <p className="conteiner-product-text-price">{product.priceProduct} грн</p>
+                        <button onClick={() => addToCart(product)} className={`conteiner-product-li-button ${prod.includes(product) ? 'added' : ''}`}>
+                                {prod.includes(product) ? 'Додано' : 'Придбати'}
+                        </button>
+                    </div>
+                </div>
+                <Footer/>
             </div>
-            <div className="conteiner-product-text">
-            <h2>{product.titleProduct}</h2>
-            <p>{product.category}</p>
-            <p>{product.aboutProduct}</p>
-            <p>Ціна: {product.priceProduct} грн</p>
-            <button onClick={() => addToCart(product)} className={`minimarket-shop-li-button ${cart.includes(product) ? 'added' : ''}`}>
-                      {cart.includes(product) ? 'Додано' : 'Придбати'}
-            </button>
-            </div>
-            </div>
-            </div>
+
         </div>
     );
 };

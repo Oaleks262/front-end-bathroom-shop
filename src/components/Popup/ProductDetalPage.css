@@ -3,3 +3,113 @@
     width: 100%;
     max-width: 1366px;
 }
+.detailes-product-back{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    margin: 30px 0;
+}
+.detailes-product-btn-back{
+    display: flex;
+    align-items: center;
+    color: black;
+    font-family: "Playfair Display";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 34px;
+    border: none;
+}
+.conteiner-product{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    margin: 30px 0;
+    gap: 45px;
+    margin-bottom: 250px;
+}
+.conteiner-product-img{
+    max-width: 500px;
+    width: 100%;
+}
+.conteiner-product-img img{
+    display: flex;
+    max-width: 500px;
+    width: 100%;
+    border-radius: 15px;
+    box-shadow: 0px 3px 6px 0px rgba(77, 74, 70, 0.585); 
+}
+.conteiner-product-text{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 20px;
+}
+.conteiner-product-text-h2{
+    color:  #093660;
+    font-family: "Playfair Display";
+    text-align: left;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+.conteiner-product-text-category{
+    color: #707070;
+    text-align: center;
+    font-family: "Playfair Display";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 34px;
+}
+.conteiner-product-text-about{
+    text-align: left;
+    color: #707070;
+    font-family: "Playfair Display";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+}
+.conteiner-product-text-price{
+    color: #093660;
+    font-family: "Playfair Display";
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+.conteiner-product-li-button{
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 5px 15px;
+    border: none;
+    border-radius: 24px;
+    background-color: #50d8d7;
+    box-shadow: 0px 6px 12px 0px rgba(249, 192, 106, 0.22); 
+    color: #fff;
+    font-family: "Playfair Display";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    transition: 500ms;
+}
+.conteiner-product-li-button:hover{
+    transform: scale(0.9);
+    background: linear-gradient(316deg, #50d8d7 0%, #923993 74%);
+}
+.conteiner-product-li-button.added {
+    background-color: transparent;
+    border: 2px solid #50d8d7;
+    color: #50d8d7;
+    transform: scale(0.9);
+}
+
+

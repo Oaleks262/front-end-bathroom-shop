@@ -145,5 +145,6 @@
     background-color: transparent;
     border: 2px solid #50d8d7;
     color: #50d8d7;
+    border-radius: 24px;
     transform: scale(0.9);
 }

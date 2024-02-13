@@ -4,6 +4,7 @@ import HeaderWhite from '../Header/HeaderWhite';
 import iconDelet from '../../assets/img/landing/shopping/deleteShop.svg';
 import { lendingData } from '../../assets/api/api';
 import { getCartFromLocalStorage } from '../Cart/localSave';
+import Footer from '../Footer/Footer';
 
 const Shopping = () => {
   const [cart, setCart] = useState([]);
@@ -173,6 +174,7 @@ const Shopping = () => {
               </form>
             </div>
         </div>
+        <Footer/>
       </div>
     </div>
   );
