@@ -59,7 +59,6 @@
 .feedback-content-button::after{
     width: 190px;
 	height: 43px;
-	position: absolute;
 	display: flex;
 	align-items: center;
 	justify-content: center;

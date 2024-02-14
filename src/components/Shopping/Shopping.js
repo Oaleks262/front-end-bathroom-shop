@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import './Shopping.css';
 import HeaderWhite from '../Header/HeaderWhite';
 import iconDelet from '../../assets/img/landing/shopping/deleteShop.svg';
+import addProd from '../../assets/img/landing/shopping/addshop.svg'
+import remoProd from '../../assets/img/landing/shopping/removeshop.svg'
 import { lendingData } from '../../assets/api/api';
 import { getCartFromLocalStorage } from '../Cart/localSave';
 import Footer from '../Footer/Footer';
@@ -123,9 +125,9 @@ const Shopping = () => {
                   <img src={item.avatarUrl} alt={item.titleProduct} className='shopping-product-img'/>
                   <p className='shopping-product-title'>{item.titleProduct}</p>
                   <div className='shopping-product-button'>
-                    <button className='shopping-product-button-btn' onClick={() => handleDecrement(item._id)}>-</button>
+                    <button className='shopping-product-button-btn' onClick={() => handleDecrement(item._id)}><img src={remoProd}/></button>
                     <input className='shopping-product-button-inp' type="text" name='quantity' value={item.quantity} readOnly />
-                    <button className='shopping-product-button-btn' onClick={() => handleIncrement(item._id)}>+</button> 
+                    <button className='shopping-product-button-btn' onClick={() => handleIncrement(item._id)}><img src={addProd}/></button> 
                   </div>
                   <p className='shopping-product-price'>{item.priceProduct} грн</p>
                   <p className='shopping-product-tot'>{item.priceProduct * item.quantity} грн.</p>
