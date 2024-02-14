@@ -56,3 +56,9 @@
     transform: scale(0.9);
     background: linear-gradient(316deg, #50d8d7 0%, #923993 74%);
 }
+@media (max-width:1279px) {
+    .header-white{
+        display: none;
+    }
+
+}

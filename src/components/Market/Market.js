@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { lendingData } from '../../assets/api/api';
 import { setCartToLocalStorage, setProductToLocalStorage } from '../Cart/localSave';
 import Footer from "../Footer/Footer";
+import HeaderMobile from '../Header/HeaderMobile';
 
 const Market = () => {
     const [products, setProducts] = useState([]);
@@ -84,6 +85,7 @@ const Market = () => {
         <div className="market">
             <div className='content-padding'>
                 <HeaderWhite/>
+                <HeaderMobile/>
                 <div className="market-content">
                     <div className="side-bar">                        
                         <div className="sidebar">
