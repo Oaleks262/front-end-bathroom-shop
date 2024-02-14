@@ -5,13 +5,22 @@ import iconDelet from '../../assets/img/landing/shopping/deleteShop.svg';
 import addProd from '../../assets/img/landing/shopping/addshop.svg'
 import remoProd from '../../assets/img/landing/shopping/removeshop.svg'
 import { lendingData } from '../../assets/api/api';
-import { getCartFromLocalStorage } from '../Cart/localSave';
+import { getCartFromLocalStorage, clearCartFromLocalStorage } from '../Cart/localSave';
 import Footer from '../Footer/Footer';
 import HeaderMobile from '../Header/HeaderMobile';
+import FinePopup from '../Popup/FinePopup';
 
 const Shopping = () => {
   const [cart, setCart] = useState([]);
   const [counters, setCounters] = useState({});
+
+  const [isPopup, setIsPopup] = useState(false);
+
+  const toPopup = () => {
+      setIsPopup(!isPopup);
+  }
+
+
 
   useEffect(() => {
     const storedCart = getCartFromLocalStorage();
@@ -105,8 +114,6 @@ const Shopping = () => {
     try {
       await lendingData.postOrder(orderData);
       console.log('Замовлення успішно відправлено на сервер.');
-      console.log(orderData)
-      // Додайте код для обробки успішної відправки замовлення
     } catch (error) {
       console.error('Помилка при відправці замовлення на сервер:', error);
       // Додайте код для обробки помилки під час відправки замовлення на сервер
@@ -172,7 +179,8 @@ const Shopping = () => {
                 </select>
 
                 <label htmlFor="numberPost">Номер відділення:</label>
-                <input className='shopping-form-input' pattern="[0-9]{7}" title="Будь ласка, введіть номер відділення" type="text" id="numberPost" name="numberPost" placeholder="Вкажіть номер відділення" required/>
+                <input className='shopping-form-input'  title="Будь ласка, введіть номер відділення" type="text" id="numberPost" name="numberPost" placeholder="Вкажіть номер відділення" required/>
+
 
                 {cart.length > 0 && (  <button className='shopping-form-button' type="submit"></button> )}
               </form>
@@ -180,6 +188,7 @@ const Shopping = () => {
         </div>
         <Footer/>
       </div>
+      {isPopup && <FinePopup toPopup={toPopup} />}
     </div>
   );
 };

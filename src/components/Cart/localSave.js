@@ -24,6 +24,9 @@ export const getCartFromLocalStorage = () => {
     localStorage.setItem('cart', JSON.stringify(storedCart));
   };
   
+  export const clearCartFromLocalStorage = () => {
+    localStorage.removeItem('cart');
+};
 
 // Отримати продукт з локального сховища
 export const getProductFromLocalStorage = () => {
