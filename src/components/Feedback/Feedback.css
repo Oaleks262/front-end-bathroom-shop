@@ -79,3 +79,19 @@
 .feedback-content-button:focus{
     outline: none;
 }
+
+
+@media (max-width:1279px) {
+    .feedback-land{
+        margin-top: 35px;
+        height: 100%;
+        padding: 15px 0;
+
+    }
+    .feedback-content-text{
+        align-items: center;
+    }
+    .feedback-content-text h2{
+        text-align: center;
+    }
+}

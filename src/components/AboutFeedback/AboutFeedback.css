@@ -126,6 +126,11 @@
     font-weight: 600;
     line-height: 36px; 
   }
-  
+  @media (max-width:1279px) {
+    .about-feedback {
+      height: 100%;
+    }
+    
+  }
 
 

@@ -89,3 +89,25 @@
     letter-spacing: 0%;
     gap: 10px;
 }
+@media (max-width:1279px) {
+    .footer{
+        height: 100%;
+        margin-top: 35px;
+    }
+    .footer-content{
+        flex-direction: column;
+    }
+    .footer-text h2{
+        text-align: center;
+    }
+    .footer-text p{
+        text-align: center;
+    }
+    .footer-text-icon{
+        justify-content: center;
+    }
+    .footer-contact{
+        justify-content: center;
+        align-items: center;
+    }
+}

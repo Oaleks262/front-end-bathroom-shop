@@ -44,3 +44,25 @@
     background-repeat: round;
     background-size: cover;
 }
+@media (max-width:1279px) {
+    .reviers{
+        height: 100%;
+    }
+    .reviers-content-text{
+        align-items: center;
+    }
+    .reviers-content{
+        flex-direction: column;
+        align-items: center;
+    }
+    .reviers-content-text h3{
+        text-align: center;
+    }
+    .reviers-content-text p{
+        text-align: center;
+    }
+    .reviers-content-picture{
+        width: 350px;
+        height: 350px;
+    }
+}
