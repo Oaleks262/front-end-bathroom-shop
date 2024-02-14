@@ -93,5 +93,9 @@
     }
     .feedback-content-text h2{
         text-align: center;
+        font-size: 42px;
+    }
+    .feedback-content-text p{
+        text-align: center;
     }
 }

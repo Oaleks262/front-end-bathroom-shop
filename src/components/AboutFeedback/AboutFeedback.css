@@ -130,6 +130,9 @@
     .about-feedback {
       height: 100%;
     }
+    .about-feedback-text h2{
+      font-size: 42px;
+    }
     
   }
 

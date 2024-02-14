@@ -89,12 +89,29 @@
     .different-icon{
         flex-direction: column;
         align-items: center;
+        gap: 5px;
     }
     .different-icon-1{
         justify-content: center;
+        gap: 5px;
     }
 
     .different-icon-2{
         max-width: 230px;
+        height: 250px
     }
+    .different-cont h3{
+        font-size: 42px;
+    }
+    .different-icon-2 img{
+        width: 66px;
+        height: 66px;
+    }
+    .different-icon-2 h3{
+        font-size: 22px;
+    }
+    .different-icon-2 p{
+        font-size: 18px;
+    }
+
 }

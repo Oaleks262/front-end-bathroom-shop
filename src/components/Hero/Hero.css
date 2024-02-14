@@ -88,6 +88,7 @@
 @media (max-width:1279px) {
     .hero-text-content{
         display: flex;
+        margin-top: 25%;
         flex-direction: column;
         width: 100%;
         max-width: 100%;
@@ -96,5 +97,7 @@
         align-items: center;
         gap: 30px;
     }
-    
+    .hero-text-content h1 {
+        font-size: 84px;
+    }
 }
