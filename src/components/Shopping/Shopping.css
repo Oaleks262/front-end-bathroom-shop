@@ -19,9 +19,6 @@
     justify-content: space-around;
     align-items: flex-start;
     width: 100%; 
-    /* border: 0.5px solid #46b3f2;
-    background-color: rgba(173, 232, 236, 0.456);
-    border-radius: 15px; */
 }
 .shopping-product h2{
     display: flex;
@@ -224,4 +221,30 @@
 }
 .shopping-form-button:focus{
     outline: none;
+}
+@media (max-width:1279px) {
+    .shopping-content{
+        flex-direction: column;
+        margin-top: 25%;
+        align-items: center;
+        margin-bottom: 25%;
+    }
+    .shopping-product-ul{
+        width: 98%;
+        align-items: center;
+    }
+    .shopping-product-button-inp {
+        width: 45px;
+    }
+    .shopping-product-del{
+        width: 30px;
+    }
+    .shopping-product{
+        padding: 0;
+        width: 90%;
+    }
+    .shopping-form{
+        padding: 0;
+        width: 90%;
+    }
 }

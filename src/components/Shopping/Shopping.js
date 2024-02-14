@@ -7,6 +7,7 @@ import remoProd from '../../assets/img/landing/shopping/removeshop.svg'
 import { lendingData } from '../../assets/api/api';
 import { getCartFromLocalStorage } from '../Cart/localSave';
 import Footer from '../Footer/Footer';
+import HeaderMobile from '../Header/HeaderMobile';
 
 const Shopping = () => {
   const [cart, setCart] = useState([]);
@@ -116,6 +117,7 @@ const Shopping = () => {
     <div className='shopping'>
       <div className='content-padding'>
         <HeaderWhite />
+        <HeaderMobile/>
         <div className='shopping-content'>
           <div className='shopping-product'>
             <h2>Товар у кошику:</h2>

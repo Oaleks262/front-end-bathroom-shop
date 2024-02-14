@@ -55,7 +55,7 @@
     gap: 10px;
 }
 .market-shop-li:hover{
-    border: 1px solid #1E1E1E;
+    border: 0.1px solid #1E1E1E;
     border-radius: 15px;
     box-shadow: 0px 3px 6px 0px rgba(77, 74, 70, 0.585); 
 }
@@ -163,6 +163,7 @@
         width: 100%;
         flex-direction: column;
         flex-wrap: wrap;
+        align-items: center;
         justify-content: center;
         overflow-wrap: anywhere;
         text-wrap: pretty;
@@ -170,9 +171,9 @@
     }
     .market-shop-li {
         display: flex;
-        width: 100%; 
+        width: 75%; 
         height: 360px;
-        padding: 6px;
+        padding: 12px;
         flex-direction: column;
         justify-content: center;
         align-items: center;
