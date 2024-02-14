@@ -6,8 +6,6 @@ import { lendingData } from '../../assets/api/api';
 import { setCartToLocalStorage, setProductToLocalStorage } from '../Cart/localSave';
 import Footer from "../Footer/Footer";
 import HeaderMobile from '../Header/HeaderMobile';
-import arowleft from '../../assets/img/landing/market/arrowback.svg'
-import arowright from '../../assets/img/landing/market/arrowforward.svg'
 
 const Market = () => {
     const [products, setProducts] = useState([]);
