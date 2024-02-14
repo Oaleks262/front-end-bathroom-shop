@@ -118,6 +118,10 @@ const Shopping = () => {
       console.error('Помилка при відправці замовлення на сервер:', error);
       // Додайте код для обробки помилки під час відправки замовлення на сервер
     }
+  
+    // Очистити сховище
+    clearCartFromLocalStorage('cart');
+
   };
 
   return (
@@ -182,7 +186,7 @@ const Shopping = () => {
                 <input className='shopping-form-input'  title="Будь ласка, введіть номер відділення" type="text" id="numberPost" name="numberPost" placeholder="Вкажіть номер відділення" required/>
 
 
-                {cart.length > 0 && (  <button className='shopping-form-button' type="submit"></button> )}
+                {cart.length > 0 && (  <button onClick={toPopup} className='shopping-form-button' type="submit"></button> )}
               </form>
             </div>
         </div>
