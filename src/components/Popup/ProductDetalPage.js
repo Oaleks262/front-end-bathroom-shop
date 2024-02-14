@@ -5,19 +5,20 @@ import { setCartToLocalStorage,getProductFromLocalStorage } from '../Cart/localS
 import { useState } from 'react';
 import lefticon from '../../assets/img/landing/aboutProduct/icon-left.svg'
 import Footer from '../../components/Footer/Footer'
-
+import HeaderMobile from "../Header/HeaderMobile";
 const ProductDetailsPage = () => {
     const [prod, setProd] = useState([]);
+    const [isAddedToCart, setIsAddedToCart] = useState(false);
 
     const product = getProductFromLocalStorage();
 
-    console.log(product);
 
     const addToCart = (product) => {
         setProd([...prod, product]);
         setCartToLocalStorage(product);
+        setIsAddedToCart(true); // Встановлюємо прапорець, що товар додано до кошика
         setTimeout(() => {
-            setProd(prevCart => prevCart.filter(item => item !== product));
+            setIsAddedToCart(false); // Знімаємо прапорець через 10 секунд
         }, 10000);
     };
 
@@ -27,6 +28,7 @@ const ProductDetailsPage = () => {
         <div className="detailes-product">
             <div className='content-padding'>
                 <HeaderWhite/>
+                <HeaderMobile/>
             <div className="detailes-product-back">
                 <a className="detailes-product-btn-back" href="/product"><img src={lefticon}/>Повернутись до товарів</a>
             </div>
@@ -39,8 +41,8 @@ const ProductDetailsPage = () => {
                         <p className="conteiner-product-text-category">{product.category}</p>
                         <p className="conteiner-product-text-about">{product.aboutProduct}</p>
                         <p className="conteiner-product-text-price">{product.priceProduct} грн</p>
-                        <button onClick={() => addToCart(product)} className={`conteiner-product-li-button ${prod.includes(product) ? 'added' : ''}`}>
-                                {prod.includes(product) ? 'Додано' : 'Придбати'}
+                        <button onClick={() => addToCart(product)} className={`conteiner-product-li-button ${isAddedToCart ? 'added' : ''}`}>
+                            {isAddedToCart ? 'Додано' : 'Придбати'}
                         </button>
                     </div>
                 </div>

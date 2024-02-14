@@ -111,5 +111,25 @@
     color: #50d8d7;
     transform: scale(0.9);
 }
+@media (max-width:1279px) {
+    .detailes-product-back {
+        margin-top: 25%;
+        margin-bottom: 30px;
+    }
+    .conteiner-product{
+        flex-direction: column;
+        align-items: center;
+    }
+    .conteiner-product-img img{
+        width: 60%;
+    }
+    .conteiner-product-img{
+        display: flex;
+        justify-content: center;
+    }
+    .conteiner-product-text{
+       width: 90%;
+    }
+}
 
 
