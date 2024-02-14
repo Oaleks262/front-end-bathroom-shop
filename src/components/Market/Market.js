@@ -6,6 +6,8 @@ import { lendingData } from '../../assets/api/api';
 import { setCartToLocalStorage, setProductToLocalStorage } from '../Cart/localSave';
 import Footer from "../Footer/Footer";
 import HeaderMobile from '../Header/HeaderMobile';
+import arowleft from '../../assets/img/landing/market/arrowback.svg'
+import arowright from '../../assets/img/landing/market/arrowforward.svg'
 
 const Market = () => {
     const [products, setProducts] = useState([]);
@@ -74,7 +76,10 @@ const Market = () => {
     const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
     const currentProducts = products.slice(indexOfFirstProduct, indexOfLastProduct);
 
-    const paginate = pageNumber => setCurrentPage(pageNumber);
+    const paginate = pageNumber => {
+        setCurrentPage(pageNumber);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
 
     const pageNumbers = [];
     for (let i = 1; i <= Math.ceil(products.length / productsPerPage); i++) {
@@ -131,14 +136,20 @@ const Market = () => {
                     </div>
                 </div>
                 <div className="pagination">
-                     {products.length > productsPerPage && (
-            <>
-            <button onClick={() => paginate(currentPage - 1)} disabled={currentPage === 1}>Попередня</button>
-            {pageNumbers.map(number => (<button key={number} onClick={() => paginate(number)} className={currentPage === number ? 'active' : ''}>{number}</button>))}
-                    <button onClick={() => paginate(currentPage + 1)} disabled={currentProducts.length < productsPerPage}>Наступна</button> </> )}
-            </div>
+                    {products.length > productsPerPage && (
+                        <>
+                            <button className="market-btn" onClick={() => paginate(currentPage - 1)} disabled={currentPage === 1}>{'<'}</button>
+                            {pageNumbers.map(number => (
+                                <button key={number} onClick={() => paginate(number)} className={`market-btn ${currentPage === number ? 'active' : ''}`}>
+                                {number}
+                            </button>
+                            ))}
+                            <button className="market-btn" onClick={() => paginate(currentPage + 1)} disabled={currentProducts.length < productsPerPage}>{'>'}</button>
+                        </>
+                    )}
+                </div>
 
-            <Footer/>
+                <Footer/>
             </div>
         </div>
     );

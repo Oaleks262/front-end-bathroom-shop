@@ -119,6 +119,27 @@
     color: #50d8d7;
     transform: scale(0.9);
 }
+.pagination{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+    gap: 5px;
+}
+.market-btn{
+    display: flex;
+    width: 30px;
+    border: 0.1px solid #1E1E1E;
+    background: none;
+    border-radius: 15px;
+    align-items: center;
+    justify-content: center;
+}
+.market-btn.active{
+   background-color: #50d8d7;
+   color: #093660;
+   border: #093660;
+}
 @media (max-width:1279px) {
     .market-content{
         display: flex;
