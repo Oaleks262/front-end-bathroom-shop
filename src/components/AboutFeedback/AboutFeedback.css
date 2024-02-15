@@ -14,9 +14,9 @@
     gap: 45px;
 }
 .about-feedback-text{
-    display: flex;
+    display: flexbox;
     flex-direction: column;
-    width: 90%;
+    width: 100%;
 }
 .about-feedback-text h2{
     color: #093660;
@@ -43,7 +43,7 @@
     align-items: center;
 }
   .right-arrow  {
-    display: flex;
+    display: inline-block;
     width: 82px;
     height: 82px;
     line-height: 82px;
@@ -56,7 +56,7 @@
     transition: 500ms;
   }
   .left-arrow {
-    display: flex;
+    display: inline-block;
     width: 82px;
     height: 82px;
     line-height: 82px;
