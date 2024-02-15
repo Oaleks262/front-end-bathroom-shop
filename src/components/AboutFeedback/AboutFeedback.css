@@ -14,7 +14,7 @@
     gap: 45px;
 }
 .about-feedback-text{
-    display: flexbox;
+    display: flex;
     flex-direction: column;
     width: 90%;
 }
@@ -43,7 +43,7 @@
     align-items: center;
 }
   .right-arrow  {
-    display: inline-block;
+    display: flex;
     width: 82px;
     height: 82px;
     line-height: 82px;
@@ -56,7 +56,7 @@
     transition: 500ms;
   }
   .left-arrow {
-    display: inline-block;
+    display: flex;
     width: 82px;
     height: 82px;
     line-height: 82px;
