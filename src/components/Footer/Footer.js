@@ -26,7 +26,7 @@ return(
                     </div>
                 </div>
                 <div className="footer-contact">
-                    <h2>Наші понтакти</h2>
+                    <h2>Наші контакти</h2>
                     <a href="tel:+380686085545" target="_blank"><img src={phone}/> Номер телефону</a>
                     <a href="mailto:black.street818@gmail.com" target="_blank"><img src={mail}/> Електрона пошта</a>
                 </div>
