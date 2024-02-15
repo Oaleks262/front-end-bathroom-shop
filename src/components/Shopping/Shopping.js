@@ -86,6 +86,9 @@ const Shopping = () => {
   };
 
   const handleSubmitOrder = async () => {
+
+
+
     // Отримати значення з полів форми
     const firstName = document.getElementById('firstName').value;
     const lastName = document.getElementById('lastName').value;
@@ -110,19 +113,26 @@ const Shopping = () => {
       }))
     };
   
-    // Відправити дані на сервер
+
     try {
       await lendingData.postOrder(orderData);
       console.log('Замовлення успішно відправлено на сервер.');
+      localStorage.setItem('orderSent', 'true');
     } catch (error) {
       console.error('Помилка при відправці замовлення на сервер:', error);
-      // Додайте код для обробки помилки під час відправки замовлення на сервер
     }
-  
-    // Очистити сховище
     clearCartFromLocalStorage('cart');
+    
+  
 
   };
+  useEffect(() => {
+    const orderSent = localStorage.getItem('orderSent');
+    if (orderSent === 'true') {
+      setIsPopup(!isPopup);
+      localStorage.removeItem('orderSent'); // Після відкриття попапу видаліть запис з локального сховища
+    }
+  }, []);
 
   return (
     <div className='shopping'>
@@ -186,7 +196,7 @@ const Shopping = () => {
                 <input className='shopping-form-input'  title="Будь ласка, введіть номер відділення" type="text" id="numberPost" name="numberPost" placeholder="Вкажіть номер відділення" required/>
 
 
-                {cart.length > 0 && (  <button onClick={toPopup} className='shopping-form-button' type="submit"></button> )}
+                {cart.length > 0 && (  <button className='shopping-form-button' type="submit"></button> )}
               </form>
             </div>
         </div>
