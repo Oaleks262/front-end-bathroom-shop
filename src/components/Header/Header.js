@@ -14,7 +14,7 @@ const Header = () =>{
                 <nav className='nav-header'>
                     <ul className='header-navigat'>
                        <li><a href='/product' className='header-navigat-button' >Продукція</a></li>
-                       <li><a className='header-navigat-button' >Рекомендації</a></li>
+                       <li><a href='/recommendation' className='header-navigat-button' >Рекомендації</a></li>
                        <li><a className='header-navigat-button' >Оплата та доставка</a></li>
                        <li><Link to={`/#${feedbackLink}`} className='header-navigat-button' >Відгуки</Link></li>
                        <li><Link to={`/#${reviersLink}`} className='header-navigat-button' >Про нас</Link></li>
