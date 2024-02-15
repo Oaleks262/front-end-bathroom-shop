@@ -68,6 +68,7 @@ const Market = () => {
 
     const pushToProduct = (product) => {
         setProductToLocalStorage(product);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
     const indexOfLastProduct = currentPage * productsPerPage;
