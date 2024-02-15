@@ -133,7 +133,43 @@
     .about-feedback-text h2{
       font-size: 42px;
     }
-    
+    .about-feedback-clinent {
+      display: flex;
+      flex-direction: column;
+      padding:  15px;
+      gap: 25px;
+      width: 60%;
+    }
+    .right-arrow  {
+      display: inline-block;
+      max-width: 41px;
+      max-height: 41px;
+      line-height: 41px;
+      text-align: center;
+      margin: 0 10px; 
+      text-decoration: none;
+      border-radius: 14px;
+      background-color: #50d8d7;
+      box-shadow: 0px 6px 12px 0px rgba(249, 192, 106, 0.22); 
+      transition: 500ms;
+      width: 45%;
+      height: 45%;
+    }
+    .left-arrow {
+      display: inline-block;
+      max-width: 41px;
+      max-height: 41px;
+      line-height: 41px;
+      text-align: center;
+      margin: 0 10px; 
+      text-decoration: none;
+      border-radius: 14px;
+      background-color: #50d8d7;
+      box-shadow: 0px 6px 12px 0px rgba(249, 192, 106, 0.22); 
+      transition: 500ms;
+      width: 45%;
+      height: 45%;
+    }
   }
 
 
