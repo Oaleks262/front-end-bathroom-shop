@@ -16,7 +16,7 @@
 .about-feedback-text{
     display: flexbox;
     flex-direction: column;
-    width: 100%;
+    width: 90%;
 }
 .about-feedback-text h2{
     color: #093660;
