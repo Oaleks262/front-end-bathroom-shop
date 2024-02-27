@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './FeedbackPopUp.css';
 import { lendingData } from '../../assets/api/api';
 
 const FeedbackPopup = ({ togglePopup }) => {
     const [feedback, setFeedback] = useState({ fullName: '', feedback: '' });
+    const [feedbackSent, setFeedbackSent] = useState(false);
 
     const handleInputChange = (event) => {
         const { name, value } = event.target;
@@ -13,14 +14,22 @@ const FeedbackPopup = ({ togglePopup }) => {
     const handleSubmit = async (event) => {
         event.preventDefault();
         try {
-            await lendingData.postFeedback(feedback); // Відправляємо введений відгук через функцію postFeedback зі складу lendingData
-            alert('Відгук успішно надіслано!');
-            togglePopup();
+            await lendingData.postFeedback(feedback); 
+            setFeedbackSent(true);
         } catch (error) {
             console.error('Помилка при відправці відгуку:', error);
             alert('Сталася помилка при відправці відгуку. Будь ласка, спробуйте ще раз.');
         }
     };
+
+    useEffect(() => {
+        if (feedbackSent) {
+            const timer = setTimeout(() => {
+                togglePopup();
+            }, 10000); // 10 seconds
+            return () => clearTimeout(timer);
+        }
+    }, [feedbackSent, togglePopup]);
 
     return (
         <div className="feedback-popup">
@@ -49,7 +58,9 @@ const FeedbackPopup = ({ togglePopup }) => {
                         onChange={handleInputChange}
                         required
                     />
-                    <button className='feedback-form-button' type="submit"></button>
+                    <button className='feedback-form-button' type="submit">
+                                {feedbackSent ? 'Відгук надіслано' : 'Надіслати відгук'}
+                    </button>
                 </form>
             </div>
             </div>
