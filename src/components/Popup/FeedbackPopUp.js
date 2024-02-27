@@ -26,7 +26,7 @@ const FeedbackPopup = ({ togglePopup }) => {
         if (feedbackSent) {
             const timer = setTimeout(() => {
                 togglePopup();
-            }, 10000); // 10 seconds
+            }, 6000); // 10 seconds
             return () => clearTimeout(timer);
         }
     }, [feedbackSent, togglePopup]);
@@ -35,34 +35,39 @@ const FeedbackPopup = ({ togglePopup }) => {
         <div className="feedback-popup">
             <div className="feedback-popup-content">
                 <div className='feedback-popup-close'>
-                <a className="close-button" onClick={togglePopup}>×</a>
+                    <a className="close-button" onClick={togglePopup}>×</a>
                 </div>
-                <div className='feedback-popup-content-div'>
-                <h2>Залиште свій відгук</h2>
-                <form onSubmit={handleSubmit}>
-                    <input
-                        className='feedback-popup-input'
-                        type="text"
-                        name="fullName"
-                        placeholder="Ім'я"
-                        value={feedback.fullName}
-                        onChange={handleInputChange}
-                        required
-                    />
-                    <textarea
-                        className='feedback-popup-textatea'
-                        
-                        name="feedback"
-                        placeholder="Коментар"
-                        value={feedback.feedback}
-                        onChange={handleInputChange}
-                        required
-                    />
-                    <button className='feedback-form-button' type="submit">
-                                {feedbackSent ? 'Відгук надіслано' : 'Надіслати відгук'}
-                    </button>
-                </form>
-            </div>
+
+                    {feedbackSent ? (
+                        <div className='feedback-popup-content-div-2'>
+                        <h2>Відгук надіслано</h2>
+                        <p>Дякуємо, що поділились своєю думкою</p>
+                        </div>
+                    ) : (
+                        <div className='feedback-popup-content-div'>
+                        <h2>Залиште свій відгук</h2>
+                        <form onSubmit={handleSubmit}>
+                            <input
+                                className='feedback-popup-input'
+                                type="text"
+                                name="fullName"
+                                placeholder="Ім'я"
+                                value={feedback.fullName}
+                                onChange={handleInputChange}
+                                required
+                            />
+                            <textarea
+                                className='feedback-popup-textatea'
+                                name="feedback"
+                                placeholder="Коментар"
+                                value={feedback.feedback}
+                                onChange={handleInputChange}
+                                required
+                            />
+                            <button className='feedback-form-button' type="submit">Надіслати відгук</button>
+                        </form>
+                        </div>
+                    )}
             </div>
         </div>
     );
