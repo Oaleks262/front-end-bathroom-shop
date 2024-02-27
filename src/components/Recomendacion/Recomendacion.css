@@ -155,4 +155,7 @@
     .recomendacion-content-page-mix p{
         font-size: 12px;
     }
+    .recomendacion-content-sidebar {
+        width: auto;
+    }
 }
