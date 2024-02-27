@@ -1,0 +1,21 @@
+.delivery{
+    display: flex;
+    width: 100%;
+    max-width: 1366px;
+}
+.delivery-content{
+    display: flex;
+    margin-top: 20px;
+    flex-direction: column;
+    width: 100%;
+    gap: 20px;
+    margin-bottom: 250px;
+}
+
+@media (max-width:1279px) {
+    .delivery-content{
+        margin-top: 25%;
+        margin-bottom: 25%;
+    }
+}
+

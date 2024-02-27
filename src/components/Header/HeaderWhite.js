@@ -18,7 +18,7 @@ const HeaderWhite = () =>{
                     <ul className='header-navigat-white'>
                        <li><a href='/product'  className='header-navigat-button-white' >Продукція</a></li>
                        <li><a href='/recommendation' className='header-navigat-button-white' >Рекомендації</a></li>
-                       <li><a className='header-navigat-button-white' >Оплата та доставка</a></li>
+                       <li><a href='/delivery' className='header-navigat-button-white' >Оплата та доставка</a></li>
                        <li><Link to={`/#${feedbackLink}`} className='header-navigat-button-white' >Відгуки</Link></li>
                        <li><Link to={`/#${reviersLink}`} className='header-navigat-button-white' >Про нас</Link></li>
                     </ul>

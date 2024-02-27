@@ -8,6 +8,7 @@ import Shopping from './components/Shopping/Shopping';
 import Market from './components/Market/Market'
 import ProductDetalPage from './components/Popup/ProductDetalPage';
 import Recomendacion from './components/Recomendacion/Recomendacion';
+import Delivery from './components/Delivery/Delivery';
 import { AuthProvider } from "./assets/api/AuthContext"
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
             <Route path='/shopping' element={<Shopping/>}/>
             <Route path='/product' element={<Market/>}/>
             <Route path='/recommendation' element={<Recomendacion/>}/>
+            <Route path='/delivery' element={<Delivery/>}/>
             <Route path='/product/:id' element={< ProductDetalPage/>}/>
             
             <Route path="/admin" element={<Admin />} />

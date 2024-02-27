@@ -38,7 +38,7 @@ const HeaderMobile = () => {
                 <ul className='header-mobile-navigat'>
                        <li><a href='/product' onClick={openMenu} className='header-mobile-button' >Продукція</a></li>
                        <li><a href='/recommendation' onClick={openMenu} className='header-mobile-button' >Рекомендації</a></li>
-                       <li><a onClick={openMenu} className='header-mobile-button' >Оплата та доставка</a></li>
+                       <li><a href='/delivery' onClick={openMenu} className='header-mobile-button' >Оплата та доставка</a></li>
                        <li><Link to={`/#${feedbackLink}`} onClick={openMenu} className='header-mobile-button' >Відгуки</Link></li>
                        <li><Link to={`/#${reviersLink}`} onClick={openMenu} className='header-mobile-button' >Про нас</Link></li>
                 </ul>
