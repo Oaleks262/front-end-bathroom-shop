@@ -222,6 +222,26 @@
 .shopping-form-button:focus{
     outline: none;
 }
+.personalDataCheckbox{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    text-align: start;
+    align-items: flex-start;
+    gap: 5px;
+    margin-bottom: 15px;
+}
+.termsCheckbox{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    text-align: start;
+    gap: 5px;
+    margin-bottom: 15px;
+}
+
+
 @media (max-width:1279px) {
     .shopping-content{
         flex-direction: column;
