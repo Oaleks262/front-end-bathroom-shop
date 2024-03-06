@@ -113,12 +113,12 @@
 }
 @media (max-width:1279px) {
     .detailes-product-back {
-        margin-top: 25%;
-        margin-bottom: 30px;
+        margin-top: 15%;
     }
     .conteiner-product{
         flex-direction: column;
         align-items: center;
+        margin-bottom: 60px;
     }
     .conteiner-product-img img{
         width: 60%;
@@ -129,7 +129,21 @@
     }
     .conteiner-product-text{
        width: 90%;
+       align-items: center;
+    }
+    .conteiner-product-text-about {
+        text-align: center;
     }
 }
+@media (max-width:767px) {
+    .detailes-product-back {
+        margin-top: 25%;
+        margin-bottom: 30px;
+    }
+    .conteiner-product-text-about {
+        text-align: center;
+    }
+}
+
 
 

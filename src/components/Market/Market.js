@@ -93,8 +93,8 @@ const Market = () => {
                 <div className="market-content">
                     <div className="side-bar">                        
                         <div className="sidebar">
-                            <label>Категорії товару:
-                                <select value={selectedCategory} onChange={(e) => filterProductsByCategory(e.target.value)}>
+                            <label className="lable-category">Категорії товару:
+                                <select className="select-category" value={selectedCategory} onChange={(e) => filterProductsByCategory(e.target.value)}>
                                     <option value="Усі товари">Усі товари</option>
                                     <option value="Шипуча суміш для ванни">Шипуча суміш для ванни</option>
                                     <option value="Морська сіль для ванни">Морська сіль для ванни</option>
@@ -105,8 +105,8 @@ const Market = () => {
                                 </select>
                             </label>
 
-                            <label >Сортувати за:
-                                <select value={selectedSortOption} onChange={(e) => handleSortChange(e.target.value)}>
+                            <label className="lable-category">Сортувати за:
+                                <select className="select-category" value={selectedSortOption} onChange={(e) => handleSortChange(e.target.value)}>
                                     <option value="popularity">Популярність</option>
                                     <option value="priceAsc">За зростанням ціни</option>
                                     <option value="priceDesc">За спаданням ціни</option>
