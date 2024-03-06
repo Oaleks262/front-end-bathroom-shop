@@ -215,4 +215,7 @@
         align-items: center;
         gap: 10px;
     }
+    .lable-category{
+        flex-direction: column;
+    }
 }
