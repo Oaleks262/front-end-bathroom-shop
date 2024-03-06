@@ -5,11 +5,12 @@ import Main from './pages/main/Main';
 import Admin from './pages/admin/Admin';
 import Login from './pages/login/login';
 import Shopping from './components/Shopping/Shopping';
-import Market from './components/Market/Market'
+import Market from './components/Market/Market';
 import ProductDetalPage from './components/Popup/ProductDetalPage';
 import Recomendacion from './components/Recomendacion/Recomendacion';
 import Delivery from './components/Delivery/Delivery';
-import { AuthProvider } from "./assets/api/AuthContext"
+import { AuthProvider } from "./assets/api/AuthContext";
+import Processing from './components/Processing/Processing';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
             <Route path='/recommendation' element={<Recomendacion/>}/>
             <Route path='/delivery' element={<Delivery/>}/>
             <Route path='/product/:id' element={< ProductDetalPage/>}/>
+            <Route path='/processing' element={<Processing/>}/>
             
             <Route path="/admin" element={<Admin />} />
             <Route path="/login" element={<Login />} />

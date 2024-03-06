@@ -195,6 +195,12 @@ const Shopping = () => {
                 <label htmlFor="numberPost">Номер відділення:</label>
                 <input className='shopping-form-input'  title="Будь ласка, введіть номер відділення" type="text" id="numberPost" name="numberPost" placeholder="Вкажіть номер відділення" required/>
 
+                <label>
+                    <input type="checkbox"/> Ознайомлений з умовами <a href='/delivery'> оплати на доставки</a>
+                </label>
+                <label>
+                    <input type='checkbox'/>Я надаю згоду на <a href='/processing'> обробку персональних даних</a>
+                </label>
 
                 {cart.length > 0 && (  <button className='shopping-form-button' type="submit"></button> )}
               </form>
