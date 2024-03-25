@@ -93,7 +93,9 @@ const ProductList = () => {
   const handleAddProduct = async (newProduct) => {
     try {
       const response = await AdminApi.postAdminProduct(newProduct);
-      console.log('Product added successfully:', response.data);
+
+
+      
       // Оновіть стан або виконайте інші дії за необхідності
     } catch (error) {
       console.error('Error adding product:', error);
