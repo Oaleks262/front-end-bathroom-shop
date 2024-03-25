@@ -1,7 +1,7 @@
 import axios from "axios";
 
 axios.defaults.baseURL = "https://bathroom-shop-api.onrender.com/api/";
-
+// axios.defaults.baseURL = "http://localhost:2222/api/"
 
 export const lendingData = {
     getProduct() {
