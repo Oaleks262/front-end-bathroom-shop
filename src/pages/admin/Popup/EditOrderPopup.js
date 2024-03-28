@@ -103,13 +103,15 @@ import './EditOrderPopup.css'
                 </select>
 
                 {editedOrder.position === "done" && ( 
+                    <label>
+                    TTH: 
                     <input
                     className='edit-text'
                     type="text"
                     name="ttn"
                     value={editedOrder.ttn}  
                     onChange={handleInputChange}
-                  />
+                  /></label>
                 )}
               <div className='edit-order-button'>
                 <button className='edit-order-yes' onClick={handleSaveClick}>Зберегти</button>
