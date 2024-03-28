@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import './Shopping.css';
 import HeaderWhite from '../Header/HeaderWhite';
 import iconDelet from '../../assets/img/landing/shopping/deleteShop.svg';
-import addProd from '../../assets/img/landing/shopping/addshop.svg'
-import remoProd from '../../assets/img/landing/shopping/removeshop.svg'
+import addProd from '../../assets/img/landing/shopping/addshop.svg';
+import remoProd from '../../assets/img/landing/shopping/removeshop.svg';
 import { lendingData } from '../../assets/api/api';
 import { getCartFromLocalStorage, clearCartFromLocalStorage } from '../Cart/localSave';
 import Footer from '../Footer/Footer';
@@ -13,22 +13,18 @@ import FinePopup from '../Popup/FinePopup';
 const Shopping = () => {
   const [cart, setCart] = useState([]);
   const [counters, setCounters] = useState({});
-
   const [isPopup, setIsPopup] = useState(false);
 
   const toPopup = () => {
-      setIsPopup(!isPopup);
+    setIsPopup(!isPopup);
   }
-
-
 
   useEffect(() => {
     const storedCart = getCartFromLocalStorage();
     setCart(storedCart);
-    // Ініціалізуємо лічильники для існуючих продуктів у кошику
     const initialCounters = {};
     storedCart.forEach(item => {
-      initialCounters[item._id] = 0; // або можна встановити значення збереженої кількості з об'єкта
+      initialCounters[item._id] = 0;
     });
     setCounters(initialCounters);
   }, []);
@@ -86,10 +82,6 @@ const Shopping = () => {
   };
 
   const handleSubmitOrder = async () => {
-
-
-
-    // Отримати значення з полів форми
     const firstName = document.getElementById('firstName').value;
     const lastName = document.getElementById('lastName').value;
     const phoneNumber = document.getElementById('phoneNumber').value;
@@ -97,7 +89,6 @@ const Shopping = () => {
     const postOffice = document.getElementById('postOffice').value;
     const numberPost = document.getElementById('numberPost').value;
   
-    // Створити об'єкт з отриманими значеннями з форми
     const orderData = {
       firstName: firstName,
       lastName: lastName,
@@ -113,7 +104,6 @@ const Shopping = () => {
       }))
     };
   
-
     try {
       await lendingData.postOrder(orderData);
       console.log('Замовлення успішно відправлено на сервер.');
@@ -122,17 +112,18 @@ const Shopping = () => {
       console.error('Помилка при відправці замовлення на сервер:', error);
     }
     clearCartFromLocalStorage('cart');
-    
-  
-
   };
+
   useEffect(() => {
     const orderSent = localStorage.getItem('orderSent');
     if (orderSent === 'true') {
       setIsPopup(!isPopup);
-      localStorage.removeItem('orderSent'); // Після відкриття попапу видаліть запис з локального сховища
+      localStorage.removeItem('orderSent');
     }
   }, []);
+
+  console.log('Current cart:', cart);
+  console.log('Popup status:', isPopup);
 
   return (
     <div className='shopping'>
@@ -217,9 +208,7 @@ const Shopping = () => {
                     </p>
                 </div>
 
-               
-
-                {cart.length > 0 && (  <button className='shopping-form-button' type="submit"></button> )}
+                {cart.length > 0 && <button className='shopping-form-button' type="submit"></button>}
               </form>
             </div>
         </div>
