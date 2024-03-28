@@ -56,7 +56,7 @@
     height: 38px;
     width: 100%;
 }
-.feedback-header-search:hover, :focus{
+.feedback-header-search:hover{
     border-radius: 10px;
     background: #F9FBFF;
     border: 1px solid #B5B7C0;

@@ -56,7 +56,7 @@
     height: 38px;
     width: 100%;
 }
-.product-header-search:hover, :focus{
+.product-header-search:hover{
     border-radius: 10px;
     background: #F9FBFF;
     border: 1px solid #B5B7C0;

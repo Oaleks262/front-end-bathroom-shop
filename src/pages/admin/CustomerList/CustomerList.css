@@ -61,7 +61,7 @@
     height: 38px;
     width: 100%;
 }
-.customers-header-search:hover, :focus{
+.customers-header-search:hover{
     border-radius: 10px;
     background: #F9FBFF;
     border: 1px solid #B5B7C0;
