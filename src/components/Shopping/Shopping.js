@@ -183,7 +183,7 @@ const Shopping = () => {
                 />
 
                 <label htmlFor="city">Місто:</label>
-                <input className='shopping-form-input' pattern="[A-Za-zА-Яа-яЁёіІїЇҐґ]+" type="text" id="city" name="city" title="Будь ласка, введіть населений пункт" placeholder="Вкажіть населений пункт" required/>
+                <input className='shopping-form-input' pattern="[A-Za-zА-Яа-яЁёЄєіІїЇҐґ\s\-']+" type="text" id="city" name="city" title="Будь ласка, введіть населений пункт" placeholder="Вкажіть населений пункт" required/>
 
                 <label htmlFor="postOffice">Пошта:</label>
                 <select className='shopping-form-input' id="postOffice" name="postOffice" title='Будь ласка, оберіть пошту' required>
@@ -193,7 +193,7 @@ const Shopping = () => {
                 </select>
 
                 <label htmlFor="numberPost">Номер відділення:</label>
-                <input className='shopping-form-input'  title="Будь ласка, введіть номер відділення" type="text" id="numberPost" name="numberPost" placeholder="Вкажіть номер відділення" required/>
+                <input className='shopping-form-input' pattern="[0-9]+" title="Будь ласка, введіть номер відділення" type="text" id="numberPost" name="numberPost" placeholder="Вкажіть номер відділення" required/>
 
                 <div className='termsCheckbox'>
                     <input 
