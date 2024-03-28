@@ -73,7 +73,37 @@
     font-weight: 400;
     line-height: 34px;
 }
+.fine-popup-content-div-button{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+.fine-popup-content-button{
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 5px 15px;
+    border: none;
+    border-radius: 24px;
+    background-color: #50d8d7;
+    box-shadow: 0px 6px 12px 0px rgba(249, 192, 106, 0.22); 
+    color: #fff;
+    font-family: "Playfair Display";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    transition: 500ms;
+}
+.fine-popup-content-button:hover{
+    transform: scale(0.9);
+    background: linear-gradient(316deg, #50d8d7 0%, #923993 74%);
+}
 @media (max-width: 767px) {
+    .fine-popup-content-div{
+        gap: 15px;
+    }
     .fine-popup-content-div h2{
         font-size: 25px;
     }

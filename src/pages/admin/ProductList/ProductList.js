@@ -94,12 +94,14 @@ const ProductList = () => {
     try {
       const response = await AdminApi.postAdminProduct(newProduct);
 
+      const updatedProductList = [...originalProductData, response.data];
+      setOriginalProductData(updatedProductList);
+      setProductData(updatedProductList);
 
-      
-      // Оновіть стан або виконайте інші дії за необхідності
+      closeAddProductPopup();
     } catch (error) {
       console.error('Error adding product:', error);
-      // Обробте помилку від сервера
+
     }
   };
 
@@ -118,7 +120,7 @@ const ProductList = () => {
       await AdminApi.deleteAdminProduct(productToDelete);
   
       const updatedProductList = productData.filter(product => product.id !== productToDelete);
-      console.log('Updated product list:', updatedProductList);
+
       setProductData(updatedProductList);
   
       closeDeletePopup();

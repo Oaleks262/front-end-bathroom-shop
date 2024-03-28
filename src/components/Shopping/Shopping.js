@@ -165,10 +165,10 @@ const Shopping = () => {
               <h2>Вкажіть дані для відправки</h2>
               <form className='shopping-form-form' onSubmit={handleSubmitOrder}>
                 <label htmlFor="firstName">Ім'я:</label>
-                <input className='shopping-form-input' pattern="[A-Za-zА-Яа-яЁёіІїЇҐґ]+" type="text" id="firstName" name="firstName" title="Будь ласка, введіть своє імʼя" placeholder="Вкажіть своє ім'я" required/>
+                <input className='shopping-form-input' pattern="[A-Za-zА-Яа-яЁёЄєіІїЇҐґ\s\-']+" type="text" id="firstName" name="firstName" title="Будь ласка, введіть своє імʼя" placeholder="Вкажіть своє ім'я" required/>
 
                 <label htmlFor="lastName">Прізвище:</label>
-                <input className='shopping-form-input' pattern="[A-Za-zА-Яа-яЁёіІїЇҐґ]+" type="text" id="lastName" name="lastName" title="Будь ласка, введіть своє прізвищу" placeholder="Вкажіть своє прізвище" required/>
+                <input className='shopping-form-input' pattern="[A-Za-zА-Яа-яЁёЄєіІїЇҐґ\s\-']+" type="text" id="lastName" name="lastName" title="Будь ласка, введіть своє прізвищу" placeholder="Вкажіть своє прізвище" required/>
 
                 <label htmlFor="phoneNumber">Номер телефону:</label>
                 <input 

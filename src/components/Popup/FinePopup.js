@@ -20,7 +20,9 @@ return (
             <a href='https://t.me/BathroomshopBot'> чат-боті</a>.</p>
 
         </div>
-
+        <div className='fine-popup-content-div-button'>
+            <a className='fine-popup-content-button' href='https://t.me/BathroomshopBot'>Перейти у чат бот</a>
+        </div>
        
     </div>
     </div>
