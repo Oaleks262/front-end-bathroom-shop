@@ -19,9 +19,6 @@ const Shopping = () => {
   const toPopup = () => {
       setIsPopup(!isPopup);
   }
-
-
-
   useEffect(() => {
     const storedCart = getCartFromLocalStorage();
     setCart(storedCart);
@@ -217,9 +214,6 @@ const Shopping = () => {
                         <a href='/processing'> обробку персональних даних</a>
                     </p>
                 </div>
-
-               
-
                 {cart.length > 0 && (  <button className='shopping-form-button' type="submit"></button> )}
               </form>
             </div>
