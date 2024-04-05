@@ -110,6 +110,7 @@ const Shopping = () => {
       await lendingData.postOrder(orderData);
       console.log('Замовлення успішно відправлено на сервер.');
       localStorage.setItem('orderSent', 'true');
+      localStorage.removeItem('cart');
     } catch (error) {
       console.error('Помилка при відправці замовлення на сервер:', error);
       // Додати логіку обробки помилок тут
@@ -119,9 +120,9 @@ const Shopping = () => {
 useEffect(() => {
     const orderSent = localStorage.getItem('orderSent');
     if (orderSent === 'true') {
-      localStorage.removeItem('orderSent');
-      localStorage.removeItem('cart');
+      
       toPopup();
+      localStorage.removeItem('orderSent');
     }
 }, [handleSubmitOrder]);
 
