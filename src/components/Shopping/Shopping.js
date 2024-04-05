@@ -126,8 +126,8 @@ const Shopping = () => {
   useEffect(() => {
     const orderSent = localStorage.getItem('orderSent');
     if (orderSent === 'true') {
+      localStorage.removeItem('orderSent');
       setIsPopup(!isPopup);
-      localStorage.removeItem('orderSent'); // Після відкриття попапу видаліть запис з локального сховища
     }
   }, [isPopup]);
   

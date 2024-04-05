@@ -101,6 +101,9 @@
     background: linear-gradient(316deg, #50d8d7 0%, #923993 74%);
 }
 @media (max-width: 767px) {
+    .fine-popup-content{
+    margin-top: 25%;
+    }
     .fine-popup-content-div{
         gap: 15px;
     }
