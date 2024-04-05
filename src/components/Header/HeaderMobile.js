@@ -22,7 +22,7 @@ const HeaderMobile = () => {
             <div className='header-mobile-content'>
             <div className='header-mobile-logo'>
                 <Link className='header-link' to="/">
-                    <img className='header-mobile-logo-img' src={logoMob}/>
+                    <img className='header-mobile-logo-img' src={logoMob} alt='Logo brand'/>
                 </Link>
             </div>
             <div className='header-mobile-text'>
@@ -31,7 +31,7 @@ const HeaderMobile = () => {
                 </h2>
             </div>
             <div className='header-mobile-menu'>
-                <button onClick={openMenu} className='header-mobile-menu-button'><img src={menuMobile}/></button>
+                <button onClick={openMenu} className='header-mobile-menu-button' title='menu button'><img src={menuMobile} alt='menu button'/></button>
             </div>
             </div>
             <div className={`header-mobile-nav ${isMenuOp ? 'open' : ''}`}>
@@ -42,7 +42,7 @@ const HeaderMobile = () => {
                        <li><Link to={`/#${feedbackLink}`} onClick={openMenu} className='header-mobile-button' >Відгуки</Link></li>
                        <li><Link to={`/#${reviersLink}`} onClick={openMenu} className='header-mobile-button' >Про нас</Link></li>
                 </ul>
-                <a href='/shopping' onClick={openMenu} className='shooping-button-header-mobile'><img src={shooping}/>Кошик</a>
+                <a href='/shopping' onClick={openMenu} className='shooping-button-header-mobile'><img src={shooping} alt='shop'/>Кошик</a>
             </div>
 
         </div>

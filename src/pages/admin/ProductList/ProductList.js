@@ -92,8 +92,6 @@ const ProductList = () => {
   };
   const handleAddProduct = async (newProduct) => {
     try {
-      const response = await AdminApi.postAdminProduct(newProduct);
-
       const updatedProductList = [...originalProductData, response.data];
       setOriginalProductData(updatedProductList);
       setProductData(updatedProductList);

@@ -3,7 +3,7 @@
     width: 100%;
     max-width: 1366px;
     height: 400px;
-    background: url(../../assets/img/landing/footer/intergalactic_bath_bomb_hero_image_2021-2_e39e7baa_thumbnail_4096.jpg), rgb(91, 76, 76) 60%;
+    background: url(../../assets/img/landing/footer/intergalactic_bath_bomb_hero_image_2021-2_e39e7baa_thumbnail_4096.webp), rgb(91, 76, 76) 60%;
     background-blend-mode: overlay;
     background-repeat: no-repeat;
     background-size: cover;
@@ -58,6 +58,7 @@
     display: flex;
     max-width: 25px;
     width: 100%;
+    height: auto;
 }
 .footer-contact{
     display: flex;
@@ -88,6 +89,10 @@
     line-height: 24px;
     letter-spacing: 0%;
     gap: 10px;
+}
+.footer-contact img{
+    width: auto;
+    height: auto;
 }
 @media (max-width:1279px) {
     .footer{

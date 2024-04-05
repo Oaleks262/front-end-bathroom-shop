@@ -21,14 +21,14 @@ return(
                     ми допомагаємо вам зробити ваші ванни особливими та надихаючими моментами самопідтримки. 
                     Поглибіться у світ "Bathroom shop" та відкрийте для себе найвищий стандарт розкішного відпочинку вдома.</p>
                     <div className="footer-text-icon">
-                        <a href="https://www.instagram.com/black_street_191/" target="_blank"><img src={instagramicon}/></a>
-                        <a href="https://www.tiktok.com/@black_street_191" target="_blank"><img src={tiktokicon}/></a>
+                        <a href="https://www.instagram.com/black_street_191/" target="_blank"><img src={instagramicon} alt="instagram"/></a>
+                        <a href="https://www.tiktok.com/@black_street_191" target="_blank"><img src={tiktokicon} alt="tik tok"/></a>
                     </div>
                 </div>
                 <div className="footer-contact">
                     <h2>Наші контакти</h2>
-                    <a href="tel:+380686085545" target="_blank"><img src={phone}/> Номер телефону</a>
-                    <a href="mailto:black.street818@gmail.com" target="_blank"><img src={mail}/> Електрона пошта</a>
+                    <a href="tel:+380686085545" target="_blank"><img src={phone} alt="phone"/> Номер телефону</a>
+                    <a href="mailto:black.street818@gmail.com" target="_blank"><img src={mail}  alt="email"/> Електрона пошта</a>
                 </div>
             </div>
         </div>

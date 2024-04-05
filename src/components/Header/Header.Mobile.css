@@ -30,6 +30,7 @@
     }
     .header-mobile-logo-img{
         width: 50px;
+        height: auto;
     }
     .header-mobile-text{
         display: flex;
@@ -56,6 +57,10 @@
         border: none;
         background: none;
         cursor: pointer;
+    }
+    .header-mobile-menu-button img{
+        width: auto;
+        height: auto;
     }
     .header-mobile-nav{
         display: none;

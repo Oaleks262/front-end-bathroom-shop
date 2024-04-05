@@ -4,7 +4,7 @@
     max-width: 1366px;
     max-height: 768px;
     height: 100vh;
-    background: linear-gradient(145deg, #1E1E1E -6.88%, rgba(0, 0, 0, 0.00) 90%), url(../../assets/img/landing/hero/background-hero.jpg), lightgray 60%;
+    background: linear-gradient(145deg, #1E1E1E -6.88%, rgba(0, 0, 0, 0.00) 90%), url(../../assets/img/landing/hero/background-hero.webp), lightgray 60%;
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -24,7 +24,7 @@
     align-items: start;
     margin-bottom: 100px;
 }
-.hero-text-content h5{
+.hero-text-content h2{
     color: #FFF;
     font-family: "Playfair Display";
     font-size: 22px;

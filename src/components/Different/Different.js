@@ -19,25 +19,25 @@ const Different = () => {
                     <div className='different-icon'>
                         <div className='different-icon-1'>
                             <div className='different-icon-2'>
-                                <img  src={bathbom}/>
+                                <img  src={bathbom} alt='bathroom'/>
                                 <h3>Продукція</h3>
                                 <p>Завжди необхідна і доречна</p>
                             </div>
                             <div className='different-icon-2'>
-                                <img  src={etic}/>
+                                <img  src={etic} alt='etic'/>
                                 <h3>Якість</h3>
                                 <p>Виготовлена без консервантів і спиртів</p>
                             </div>
                         </div>
                         <div className='different-icon-1'>
                             <div className='different-icon-2'>
-                                <img  src={delivery}/>
+                                <img  src={delivery} alt='delivery'/>
                                 <h3>Доставка</h3>
                                 <p>Отримаєте замовлення у найкоротші терміни</p>
                                 
                             </div>
                             <div className='different-icon-2'>
-                                <img  src={money}/>
+                                <img  src={money} alt='money'/>
                                 <h3>Економія</h3>
                                 <p>З нашою продукцією ви заощадите і будете задоволені</p>
                             </div>
