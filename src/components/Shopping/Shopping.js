@@ -5,7 +5,7 @@ import iconDelet from '../../assets/img/landing/shopping/deleteShop.svg';
 import addProd from '../../assets/img/landing/shopping/addshop.svg'
 import remoProd from '../../assets/img/landing/shopping/removeshop.svg'
 import { lendingData } from '../../assets/api/api';
-import { getCartFromLocalStorage } from '../Cart/localSave';
+import { getCartFromLocalStorage, clearCartFromLocalStorage } from '../Cart/localSave';
 import Footer from '../Footer/Footer';
 import HeaderMobile from '../Header/HeaderMobile';
 import FinePopup from '../Popup/FinePopup';
@@ -14,8 +14,6 @@ const Shopping = () => {
   const [cart, setCart] = useState([]);
   const [counters, setCounters] = useState({});
   const [isPopup, setIsPopup] = useState(false);
-
-  const [isOn, setIsOn] = useState(false)
 
   const toPopup = () => {
       setIsPopup(!isPopup);
@@ -114,7 +112,7 @@ const Shopping = () => {
       // Додати логіку обробки помилок тут
     }
     localStorage.setItem('orderSent', 'true');
-    localStorage.removeItem('cart');
+    clearCartFromLocalStorage()
 };
 
 useEffect(() => {
