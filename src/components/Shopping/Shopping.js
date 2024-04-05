@@ -105,16 +105,16 @@ const Shopping = () => {
         price: parseFloat(item.priceProduct)
       }))
     };
-
+    
     try {
       await lendingData.postOrder(orderData);
       console.log('Замовлення успішно відправлено на сервер.');
-      localStorage.setItem('orderSent', 'true');
-      localStorage.removeItem('cart');
     } catch (error) {
       console.error('Помилка при відправці замовлення на сервер:', error);
       // Додати логіку обробки помилок тут
     }
+    localStorage.setItem('orderSent', 'true');
+    localStorage.removeItem('cart');
 };
 
 useEffect(() => {
