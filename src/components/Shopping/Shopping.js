@@ -83,10 +83,6 @@ const Shopping = () => {
   };
 
   const handleSubmitOrder = async () => {
-
-
-
-    // Отримати значення з полів форми
     const firstName = document.getElementById('firstName').value;
     const lastName = document.getElementById('lastName').value;
     const phoneNumber = document.getElementById('phoneNumber').value;
@@ -94,14 +90,13 @@ const Shopping = () => {
     const postOffice = document.getElementById('postOffice').value;
     const numberPost = document.getElementById('numberPost').value;
   
-    // Створити об'єкт з отриманими значеннями з форми
     const orderData = {
-      firstName: firstName,
-      lastName: lastName,
-      phoneNumber: phoneNumber,
-      city: city,
-      postOffice: postOffice,
-      numberPost: numberPost,
+      firstName,
+      lastName,
+      phoneNumber,
+      city,
+      postOffice,
+      numberPost,
       productItems: cart.map(item => ({
         title: item.titleProduct,
         item: item.itemProduct,
@@ -109,28 +104,27 @@ const Shopping = () => {
         price: parseFloat(item.priceProduct)
       }))
     };
-  
 
     try {
       await lendingData.postOrder(orderData);
       console.log('Замовлення успішно відправлено на сервер.');
       localStorage.setItem('orderSent', 'true');
+      clearCartFromLocalStorage('cart');
+      setIsPopup(true); // Оновлення стану попапа
     } catch (error) {
       console.error('Помилка при відправці замовлення на сервер:', error);
+      // Додати логіку обробки помилок тут
     }
-    clearCartFromLocalStorage('cart');
-    
-  
+};
 
-  };
-  useEffect(() => {
+useEffect(() => {
     const orderSent = localStorage.getItem('orderSent');
     if (orderSent === 'true') {
       localStorage.removeItem('orderSent');
-      setIsPopup(!isPopup);
+      setIsPopup(true); // Оновлення стану попапа
     }
 }, []);
-  
+
 
   return (
     <div className='shopping'>
