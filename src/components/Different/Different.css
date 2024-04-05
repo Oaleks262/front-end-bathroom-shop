@@ -53,8 +53,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border: 1px solid rgba(117, 221, 239, 0.859);
-    background: #c8d9e7;
+    border: 1px solid rgba(172, 229, 239, 0.859);
+    background: #d6e5f1;
 }
 .different-icon-2:hover{
     background:rgba(117, 221, 239, 0.859);
@@ -73,12 +73,12 @@
 }
 .different-icon-2 p{
     height: 60px;
-    color: #707070;
+    color: #393939;
     text-align: center;
     font-family: "Playfair Display";
     font-size: 20px;
     font-style: normal;
-    font-weight: 400;
+    font-weight: 700;
     line-height: normal;
 
 }

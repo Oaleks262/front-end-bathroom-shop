@@ -112,6 +112,7 @@
     font-weight: 400;
     line-height: normal;
     transition: 500ms;
+    text-shadow: 1px 1px 2px #093660;
 }
 
 
@@ -136,6 +137,7 @@
     font-weight: 400;
     line-height: normal;
     transition: 500ms;
+    text-shadow: 1px 1px 2px #093660;
 }
 
 .minimarket-inshop-button:hover{
