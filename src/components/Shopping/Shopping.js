@@ -13,7 +13,7 @@ import FinePopup from '../Popup/FinePopup';
 const Shopping = () => {
   const [cart, setCart] = useState([]);
   const [counters, setCounters] = useState({});
-
+  // const [orderSent, setOrderSent] = useState(false);
   const [isPopup, setIsPopup] = useState(false);
 
   const toPopup = () => {
@@ -115,22 +115,20 @@ const Shopping = () => {
       await lendingData.postOrder(orderData);
       console.log('Замовлення успішно відправлено на сервер.');
       localStorage.setItem('orderSent', 'true');
+      clearCartFromLocalStorage('cart');
+      // setOrderSent(true); // Встановлення стану orderSent на true
     } catch (error) {
       console.error('Помилка при відправці замовлення на сервер:', error);
-    }
-    clearCartFromLocalStorage('cart');
-    
-  
-
+      // Додати логіку обробки помилок тут
+    }    
   };
   useEffect(() => {
     const orderSent = localStorage.getItem('orderSent');
     if (orderSent === 'true') {
       localStorage.removeItem('orderSent');
+      toPopup();
     }
-    setIsPopup(!isPopup);
-  }, [isPopup]);
-  
+}, []);
 
   return (
     <div className='shopping'>
