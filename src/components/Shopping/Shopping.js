@@ -5,7 +5,7 @@ import iconDelet from '../../assets/img/landing/shopping/deleteShop.svg';
 import addProd from '../../assets/img/landing/shopping/addshop.svg'
 import remoProd from '../../assets/img/landing/shopping/removeshop.svg'
 import { lendingData } from '../../assets/api/api';
-import { getCartFromLocalStorage, clearCartFromLocalStorage } from '../Cart/localSave';
+import { getCartFromLocalStorage } from '../Cart/localSave';
 import Footer from '../Footer/Footer';
 import HeaderMobile from '../Header/HeaderMobile';
 import FinePopup from '../Popup/FinePopup';
@@ -13,8 +13,9 @@ import FinePopup from '../Popup/FinePopup';
 const Shopping = () => {
   const [cart, setCart] = useState([]);
   const [counters, setCounters] = useState({});
-  // const [orderSent, setOrderSent] = useState(false);
   const [isPopup, setIsPopup] = useState(false);
+
+  const [isOn, setIsOn] = useState(false)
 
   const toPopup = () => {
       setIsPopup(!isPopup);
@@ -23,11 +24,11 @@ const Shopping = () => {
     const storedCart = getCartFromLocalStorage();
     setCart(storedCart);
     // Ініціалізуємо лічильники для існуючих продуктів у кошику
-    const initialCounters = {};
+    const counters = {};
     storedCart.forEach(item => {
-      initialCounters[item._id] = 0; // або можна встановити значення збереженої кількості з об'єкта
+      counters[item._id] = 0; // або можна встановити значення збереженої кількості з об'єкта
     });
-    setCounters(initialCounters);
+    setCounters(counters);
   }, []);
 
   const totalSum = cart.reduce((sum, item) => {
@@ -115,13 +116,13 @@ const Shopping = () => {
       await lendingData.postOrder(orderData);
       console.log('Замовлення успішно відправлено на сервер.');
       localStorage.setItem('orderSent', 'true');
-      clearCartFromLocalStorage('cart');
-      // setOrderSent(true); // Встановлення стану orderSent на true
+      localStorage.removeItem('cart');
     } catch (error) {
       console.error('Помилка при відправці замовлення на сервер:', error);
       // Додати логіку обробки помилок тут
     }    
   };
+
   useEffect(() => {
     const orderSent = localStorage.getItem('orderSent');
     if (orderSent === 'true') {
