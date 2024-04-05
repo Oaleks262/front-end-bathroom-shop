@@ -129,7 +129,7 @@ const Shopping = () => {
       localStorage.removeItem('orderSent');
       setIsPopup(!isPopup);
     }
-  }, [isPopup]);
+}, []);
   
 
   return (
