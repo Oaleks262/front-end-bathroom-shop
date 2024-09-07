@@ -111,6 +111,28 @@
     color: #50d8d7;
     transform: scale(0.9);
 }
+.quantity-controls {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.quantity-btn-detal {
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.quantity-value-detal {
+    margin: 0 10px;
+    font-size: 16px;
+    color: #093660;
+    font-family: "Playfair Display";
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
 @media (max-width:1279px) {
     .detailes-product-back {
         margin-top: 15%;
